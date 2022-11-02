@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'com.alipay.apollo.baseline.config'
+
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "cn.hsbcsd.mpaastest"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        multiDexEnabled true
+        ndk {
+            abiFilters "arm64-v8a","x86"
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'mpaas123'
+            keyPassword 'mpaas123'
+            storeFile file('keystore/mpaas_keystore.jks')
+            storePassword 'mpass123'
+        }
+        debug {
+            keyAlias 'mpaas123'
+            keyPassword 'mpaas123'
+            storeFile file('keystore/mpaas_keystore.jks')
+            storePassword 'mpaas123'
+            v1SigningEnabled true
+            v2SigningEnabled true
+
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+//             shrinkResources true
+//             zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation platform("com.mpaas.android:$mpaas_artifact:$mpaas_baseline")
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.mpaas.android:antui'
+    implementation 'com.mpaas.android:storage'
+    implementation 'com.mpaas.android:framework'
+    implementation 'com.mpaas.android:media'
+    implementation 'com.mpaas.android:scan'
+    implementation 'com.mpaas.android:utdid'
+    implementation 'com.mpaas.android:nebula'
+    testImplementation rootProject.ext.testDeps["junit"]
+    androidTestImplementation rootProject.ext.testDeps["runner"]
+    androidTestImplementation rootProject.ext.testDeps["espresso-core"]
+
+    // leakCanary
+    debugImplementation rootProject.ext.testDeps["leakcanary-debug"]
+    releaseImplementation rootProject.ext.testDeps["leakcanary-release"]
+
+    implementation project(':baselibs')
+}
