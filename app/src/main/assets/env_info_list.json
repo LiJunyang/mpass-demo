@@ -1,0 +1,12 @@
+[
+  {
+    "name": "公有云-预发",
+    "wsHost": "wss://ccmimplusvpcpre-ws.cloud.alipay.com:443",
+    "httpHost": "https://ccmimplusvpcpre.cloud.alipay.com"
+  },
+  {
+    "name": "公有云-生产",
+    "wsHost": "wss://ccmimplus-ws.cloud.alipay.com:443",
+    "httpHost": "https://ccmimplus.cloud.alipay.com"
+  }
+]
