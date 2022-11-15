@@ -2,6 +2,7 @@ package com.hsbcd.mpaastest.kotlin.samples.ui.activity
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.alipay.android.phone.scancode.export.adapter.MPScan
 import com.alipay.android.phone.scancode.export.adapter.MPScanCallbackAdapter
 import com.alipay.android.phone.scancode.export.adapter.MPScanResult
 import com.alipay.android.phone.scancode.export.adapter.MPScanStarter
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity
 import com.mpaas.nebula.adapter.api.MPNebula
 import com.ut.device.UTDevice
 
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnOffline).setOnClickListener {
             offline()
+        }
+        findViewById<Button>(R.id.btnLogin).setOnClickListener {
+            login()
         }
     }
 
@@ -57,5 +62,11 @@ class MainActivity : AppCompatActivity() {
     fun offline() {
         //启动h5容器
         MPNebula.startUrl("https://www.aliyun.com")
+    }
+
+    private fun login() {
+
+        val intent = Intent(this, LoginActivity::class.java)
+        this.startActivity(intent)
     }
 }

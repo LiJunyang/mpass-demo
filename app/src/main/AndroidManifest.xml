@@ -36,6 +36,12 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>
