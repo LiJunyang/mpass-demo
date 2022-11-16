@@ -68,4 +68,9 @@
     <color name="Grey800">#424242</color>
     <color name="Grey900">#212121</color>
 
+    //im plus
+    <color name="light_gray">#F5F5F5</color>
+    <color name="light_gray2">#E6E8E9</color>
+    <color name="ant_blue">#0091FF</color>
+    <color name="ant_blue_alpha">#A4D6FF</color>
 </resources>

@@ -42,6 +42,32 @@ class ImplusApplication : Application() {
 
         var CURRENT_TNT_INFO: TntInfo? = null
 
+
+        fun getEnvInfoList(): List<EnvInfo?>? {
+            return ImplusApplication.ENV_INFO_LIST
+        }
+
+        fun getTntInfoList(): List<TntInfo?>? {
+            return ImplusApplication.TNT_INFO_LIST
+        }
+
+        fun getCurrentEnvInfo(): EnvInfo? {
+            return ImplusApplication.CURRENT_ENV_INFO
+        }
+
+        fun setCurrentEnvInfo(@IdRes id: Int) {
+            CURRENT_ENV_INFO = ENV_INFO_LIST!!.stream().filter { info: EnvInfo -> info.id === id }.findFirst().get()
+        }
+
+        fun getCurrentTntInfo(): TntInfo? {
+            return ImplusApplication.CURRENT_TNT_INFO
+        }
+
+        fun setCurrentTntInfo(@IdRes id: Int) {
+            CURRENT_TNT_INFO = TNT_INFO_LIST!!.stream().filter { info: TntInfo -> info.id === id }
+                .findFirst().get()
+        }
+
         fun getRefWatcher(context: Context): RefWatcher? {
             val implusApplication = context.applicationContext as ImplusApplication
             return implusApplication.refWatcher
@@ -182,31 +208,6 @@ class ImplusApplication : Application() {
 
     fun getSimpleCache(): SimpleCache? {
         return ImplusApplication.SIMPLE_CACHE
-    }
-
-    fun getEnvInfoList(): List<EnvInfo?>? {
-        return ImplusApplication.ENV_INFO_LIST
-    }
-
-    fun getTntInfoList(): List<TntInfo?>? {
-        return ImplusApplication.TNT_INFO_LIST
-    }
-
-    fun getCurrentEnvInfo(): EnvInfo? {
-        return ImplusApplication.CURRENT_ENV_INFO
-    }
-
-    fun setCurrentEnvInfo(@IdRes id: Int) {
-        CURRENT_ENV_INFO = ENV_INFO_LIST!!.stream().filter { info: EnvInfo -> info.id === id }.findFirst().get()
-    }
-
-    fun getCurrentTntInfo(): TntInfo? {
-        return ImplusApplication.CURRENT_TNT_INFO
-    }
-
-    fun setCurrentTntInfo(@IdRes id: Int) {
-        CURRENT_TNT_INFO = TNT_INFO_LIST!!.stream().filter { info: TntInfo -> info.id === id }
-            .findFirst().get()
     }
 
 }
