@@ -70,11 +70,15 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    packagingOptions{
+        pickFirst '**/libantssm.so'
+        pickFirst '**/libencrypt.so'
+    }
 }
 
 dependencies {
     implementation platform("com.mpaas.android:$mpaas_artifact:$mpaas_baseline")
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.mpaas.android:antui'
     implementation 'com.mpaas.android:storage'
@@ -96,4 +100,9 @@ dependencies {
 
     // 视频播放器
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+
+    // implus sdk
+    implementation(name: 'ccm-implus-core-1.0.0.202211151911', ext: 'aar')
+    implementation(name: 'ccm-implus-security-1.0.0.202208261503', ext: 'aar')
+    //implementation fileTree(include: ['*.jar'], dir: 'libs')
 }

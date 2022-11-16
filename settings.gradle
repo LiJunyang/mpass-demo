@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
+        mavenLocal()
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.aliyun.com/repository/google' }
@@ -11,12 +12,39 @@ pluginManagement {
             url 'https://mvn.cloud.alipay.com/nexus/content/repositories/open/'
             name 'alipay'
         }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Releases/'
+            name 'alipay_test'
+        }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Snapshot/'
+            name 'alipay_snapshot'
+        }
+        flatDir {
+            dirs 'app/libs' //目录可变
+        }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        mavenLocal()
         mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.aliyun.com/repository/google' }
@@ -25,6 +53,31 @@ dependencyResolutionManagement {
         maven {
             url 'https://mvn.cloud.alipay.com/nexus/content/repositories/open/'
             name 'alipay'
+        }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Releases/'
+            name 'alipay_test'
+        }
+
+        maven {
+            allowInsecureProtocol = true
+            url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Snapshot/'
+            name 'alipay_snapshot'
+        }
+        flatDir {
+            dirs 'app/libs' //目录可变
         }
     }
 }
