@@ -4,8 +4,8 @@
  */
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.login;
 
-import static android.widget.Toast.LENGTH_LONG;
-
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,9 +15,18 @@ import android.text.TextWatcher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.alipay.android.phone.scancode.export.ScanRequest;
+import com.alipay.android.phone.scancode.export.adapter.MPScan;
+import com.alipay.android.phone.scancode.export.adapter.MPScanCallbackAdapter;
+import com.alipay.android.phone.scancode.export.adapter.MPScanResult;
+import com.alipay.android.phone.scancode.export.adapter.MPScanStarter;
 import com.hsbcd.mpaastest.kotlin.samples.model.ConnectionResult;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
+import com.mpaas.nebula.adapter.api.MPNebula;
+import com.ut.device.UTDevice;
+
+import java.util.List;
 
 import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
 
@@ -56,6 +65,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void bindAction() {
+
+        binding.btnScan.setOnClickListener(v -> onClickScan());
+        binding.btnOffline.setOnClickListener(v -> onClickOffline());
+
         binding.loginButton.setEnabled(false);
         binding.loginButton.setOnClickListener(v -> onClickLogin());
 
@@ -89,6 +102,31 @@ public class LoginActivity extends AppCompatActivity {
     private void onClickLogin() {
         String userId = binding.inputUserId.getText().toString();
         loginViewModel.login(LoginActivity.this, userId);
+    }
+
+    private void onClickOffline() {
+        MPNebula.startUrl("https://www.aliyun.com");
+    }
+
+    private void onClickScan() {
+        //获取设备id
+        String utdid = UTDevice.getUtdid(this);
+        ToastUtil.makeToast(this, "设备id:" + utdid, 3000);
+        ScanRequest scanRequest = new ScanRequest();
+        MPScan.startMPaasScanFullScreenActivity(
+                this,
+                scanRequest,
+                new MPScanCallbackAdapter() {
+
+                    @Override
+                    public boolean onScanFinish(Context context, MPScanResult mpScanResult, MPScanStarter mpScanStarter) {
+                        ToastUtil.makeToast(((Activity)context), (mpScanResult != null)? mpScanResult.getText() : "没有识别到码", 3000);
+                        ((Activity)context).finish();
+                        // 返回 true 表示该回调已消费，不需要再次回调
+                        return true;
+                    }
+                }
+        );
     }
 
     private void bindLoginViewModel() {

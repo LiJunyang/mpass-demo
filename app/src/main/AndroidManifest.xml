@@ -28,7 +28,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.MainActivity"
+        <activity android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,10 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity"
-            android:exported="false">
         </activity>
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity"

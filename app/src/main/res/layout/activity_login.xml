@@ -69,4 +69,32 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help1" />
 
+
+    <android.widget.Button
+        android:id="@+id/btnScan"
+        android:text="扫 码"
+        android:textColor="@color/white"
+        android:background="@drawable/sel_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <android.widget.Button
+        android:id="@+id/btnOffline"
+        android:text="离线包"
+        android:textColor="@color/white"
+        android:background="@drawable/sel_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnScan" />
 </androidx.constraintlayout.widget.ConstraintLayout>
