@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
 
             // 被踢下线时，回退到登录页
             if (result.getEvent() == ConnectionResult.Event.KICKED) {
+                ToastUtil.makeToast(this, "你已经被踢出，请重新登陆", 3000);
                 Intent intent = new Intent(this, LoginActivity.class);
                 this.startActivity(intent);
             }
