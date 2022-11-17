@@ -1,8 +1,7 @@
 package com.hsbcd.mpaastest.kotlin.samples.http
 
 import com.hsbc.kotlin.baselibs.http.RetrofitFactory
-import com.hsbcd.mpaastest.kotlin.samples.constant.Constant
-import com.hsbcd.mpaastest.kotlin.samples.http.MainApi
+import com.hsbcd.mpaastest.kotlin.samples.constants.Constant
 
 object MainRetrofit : RetrofitFactory<MainApi>() {
 

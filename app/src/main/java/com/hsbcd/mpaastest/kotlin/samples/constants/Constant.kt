@@ -1,4 +1,4 @@
-package com.hsbcd.mpaastest.kotlin.samples.constant
+package com.hsbcd.mpaastest.kotlin.samples.constants
 
 
 object Constant{
