@@ -69,8 +69,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnScan.setOnClickListener(v -> onClickScan());
         binding.btnOffline.setOnClickListener(v -> onClickOffline());
 
-        binding.loginButton.setEnabled(false);
-        binding.loginButton.setOnClickListener(v -> onClickLogin());
+        binding.btnLogon.setEnabled(false);
+        binding.btnLogon.setOnClickListener(v -> onClickLogin());
 
         binding.title.setOnClickListener(v -> {
             EnvSwitchDialog dialog = new EnvSwitchDialog(this);
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                binding.loginButton.setEnabled(charSequence.length() > 0);
+                binding.btnLogon.setEnabled(charSequence.length() > 0);
             }
 
             @Override

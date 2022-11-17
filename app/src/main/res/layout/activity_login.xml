@@ -56,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@+id/input_user_id" />
 
     <android.widget.Button
-        android:id="@+id/login_button"
+        android:id="@+id/btnLogon"
         android:text="登 录"
         android:textColor="@color/white"
         android:background="@drawable/sel_login_button"
@@ -82,7 +82,7 @@
         android:layout_marginRight="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogon" />
 
     <android.widget.Button
         android:id="@+id/btnOffline"
