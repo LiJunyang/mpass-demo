@@ -2,7 +2,7 @@
  * Ant Group
  * Copyright (c) 2004-2022 All Rights Reserved.
  */
-package com.hsbcd.mpaastest.kotlin.samples.ui.activity.mine;
+package com.hsbcd.mpaastest.kotlin.samples.ui.activity.me;
 
 import androidx.fragment.app.Fragment;
 
@@ -12,6 +12,6 @@ import androidx.fragment.app.Fragment;
  * @author liyalong
  * @version MessageFragment.java, v 0.1 2022年07月29日 15:53 liyalong
  */
-public class MineFragment extends Fragment {
+public class MeFragment extends Fragment {
 
 }

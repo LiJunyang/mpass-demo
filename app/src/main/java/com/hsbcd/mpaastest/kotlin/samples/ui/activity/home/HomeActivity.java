@@ -39,9 +39,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void bindAction() {
-        binding.messageTabGroup.setOnClickListener(v -> doSwitchTab(v));
-        binding.contactsTabGroup.setOnClickListener(v -> doSwitchTab(v));
-        binding.mineTabGroup.setOnClickListener(v -> doSwitchTab(v));
+        binding.discoverTabGroup.setOnClickListener(v -> doSwitchTab(v));
+        binding.communityTabGroup.setOnClickListener(v -> doSwitchTab(v));
+        binding.chatTabGroup.setOnClickListener(v -> doSwitchTab(v));
+        binding.insightsTabGroup.setOnClickListener(v -> doSwitchTab(v));
+        binding.meTabGroup.setOnClickListener(v -> doSwitchTab(v));
     }
 
     private void initHomeViewPager() {
@@ -54,55 +56,81 @@ public class HomeActivity extends AppCompatActivity {
         binding.homeViewPager.setAdapter(fragmentAdapter);
         binding.homeViewPager.setOffscreenPageLimit(5);
 
-        switchToMessageTab(true);
+        resetTabStyle();
+        switchToChatTab(true);
     }
 
     private void doSwitchTab(View view) {
         resetTabStyle();
-
-        if (view == binding.messageTabGroup) {
-            switchToMessageTab(true);
-        } else if (view == binding.contactsTabGroup) {
-            switchToContactsTab(true);
-        } else if (view == binding.mineTabGroup) {
-            switchToMineTab(true);
+        if (view == binding.discoverTabGroup) {
+            switchToDiscoverTab(true);
+        } if (view == binding.communityTabGroup) {
+            switchToCommunityTab(true);
+        } if (view == binding.chatTabGroup) {
+            switchToChatTab(true);
+        } else if (view == binding.insightsTabGroup) {
+            switchToInsightsTab(true);
+        } else if (view == binding.meTabGroup) {
+            switchToMeTab(true);
         }
     }
 
     private void resetTabStyle() {
-        setMessageTabStyle(false);
-        setContactsTabStyle(false);
-        setMineTabStyle(false);
+        setDiscoverTabStyle(false);
+        setCommunityTabStyle(false);
+        setChatTabStyle(false);
+        setInsightsTabStyle(false);
+        setMeTabStyle(false);
     }
 
-    private void switchToMessageTab(boolean checked) {
+    private void switchToDiscoverTab(boolean checked) {
         binding.homeViewPager.setCurrentItem(0);
-        setMessageTabStyle(checked);
+        setDiscoverTabStyle(checked);
     }
 
-    private void switchToContactsTab(boolean checked) {
+    private void switchToCommunityTab(boolean checked) {
         binding.homeViewPager.setCurrentItem(1);
-        setContactsTabStyle(checked);
+        setCommunityTabStyle(checked);
     }
 
-    private void switchToMineTab(boolean checked) {
+    private void switchToChatTab(boolean checked) {
         binding.homeViewPager.setCurrentItem(2);
-        setMineTabStyle(checked);
+        setChatTabStyle(checked);
     }
 
-    private void setMessageTabStyle(boolean checked) {
-        binding.messageTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.messageTabLabel, checked);
+    private void switchToInsightsTab(boolean checked) {
+        binding.homeViewPager.setCurrentItem(3);
+        setInsightsTabStyle(checked);
     }
 
-    private void setContactsTabStyle(boolean checked) {
-        binding.contactsTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.contactsTabLabel, checked);
+    private void switchToMeTab(boolean checked) {
+        binding.homeViewPager.setCurrentItem(4);
+        setMeTabStyle(checked);
     }
 
-    private void setMineTabStyle(boolean checked) {
-        binding.mineTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.mineTabLabel, checked);
+    private void setDiscoverTabStyle(boolean checked) {
+        binding.discoverTabLabel.setTextColor(getTabColor(checked));
+        setTextDrawableColor(binding.discoverTabLabel, checked);
+    }
+
+    private void setCommunityTabStyle(boolean checked) {
+        binding.communityTabLabel.setTextColor(getTabColor(checked));
+        setTextDrawableColor(binding.communityTabLabel, checked);
+    }
+
+    private void setChatTabStyle(boolean checked) {
+        binding.chatTabLabel.setTextColor(getTabColor(checked));
+        setTextDrawableColor(binding.chatTabLabel, checked);
+    }
+
+    private void setInsightsTabStyle(boolean checked) {
+        binding.insightsTabLabel.setTextColor(getTabColor(checked));
+        setTextDrawableColor(binding.insightsTabLabel, checked);
+    }
+
+    private void setMeTabStyle(boolean checked) {
+        binding.meTabLabel.setTextColor(getTabColor(checked));
+        setTextDrawableColor(binding.meTabLabel, checked);
     }
 
     private void setTextDrawableColor(TextView textView, boolean checked) {

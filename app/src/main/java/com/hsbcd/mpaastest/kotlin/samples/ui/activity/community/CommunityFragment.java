@@ -2,7 +2,7 @@
  * Ant Group
  * Copyright (c) 2004-2022 All Rights Reserved.
  */
-package com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts;
+package com.hsbcd.mpaastest.kotlin.samples.ui.activity.community;
 
 import androidx.fragment.app.Fragment;
 
@@ -12,6 +12,6 @@ import androidx.fragment.app.Fragment;
  * @author liyalong
  * @version ContactsFragment.java, v 0.1 2022年07月29日 15:53 liyalong
  */
-public class ContactsFragment extends Fragment {
+public class CommunityFragment extends Fragment {
 
 }

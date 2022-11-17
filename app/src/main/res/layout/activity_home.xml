@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeActivity">
+        tools:context="com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity">
 
     <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_view_pager"
@@ -20,79 +20,90 @@
             android:clipChildren="false"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent">
-
         <RelativeLayout
-                android:id="@+id/message_tab_group"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            android:id="@+id/discover_tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                    android:id="@+id/message_tab_label"
-                    android:text="消息"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:drawableTop="@drawable/ic_message" />
-
-            <View
-                    android:id="@+id/message_unread_count_dot"
-                    android:layout_width="6dp"
-                    android:layout_height="6dp"
-                    android:layout_alignRight="@+id/message_tab_label"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/bg_red_dot"
-                    android:visibility="gone" />
+                android:id="@+id/discover_tab_label"
+                android:text="Discover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:drawableTop="@drawable/ic_me" />
         </RelativeLayout>
-
         <RelativeLayout
-                android:id="@+id/contacts_tab_group"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            android:id="@+id/community_tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                    android:id="@+id/contacts_tab_label"
-                    android:text="通讯录"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:drawableTop="@drawable/ic_contacts" />
-
-            <View
-                    android:id="@+id/new_contacts_count_dot"
-                    android:layout_width="6dp"
-                    android:layout_height="6dp"
-                    android:layout_alignRight="@+id/contacts_tab_label"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="@drawable/bg_red_dot"
-                    android:visibility="gone" />
+                android:id="@+id/community_tab_label"
+                android:text="Community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:drawableTop="@drawable/ic_me" />
         </RelativeLayout>
-
         <RelativeLayout
-                android:id="@+id/mine_tab_group"
+            android:id="@+id/chat_tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/chat_tab_label"
+                android:text="Chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:drawableTop="@drawable/ic_message" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/insights_tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/insights_tab_label"
+                android:text="Insights"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="3dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:drawableTop="@drawable/ic_me" />
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/me_tab_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
             <TextView
-                    android:id="@+id/mine_tab_label"
-                    android:text="我的"
+                    android:id="@+id/me_tab_label"
+                    android:text="Me"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:drawablePadding="3dp"
                     android:gravity="center"
                     android:textSize="12sp"
-                    android:drawableTop="@drawable/ic_mine" />
+                    android:drawableTop="@drawable/ic_me" />
         </RelativeLayout>
     </LinearLayout>
 

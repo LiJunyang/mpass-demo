@@ -10,9 +10,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.ContactsFragment;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.mine.MineFragment;
 import com.google.common.collect.Lists;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.community.CommunityFragment;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.discover.DiscoverFragment;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.insights.InsightsFragment;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.me.MeFragment;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SessionFragment;
 
 import java.util.List;
@@ -52,9 +54,11 @@ public class HomeFragmentAdapter extends FragmentStateAdapter {
     }
 
     public void initFragmentList() {
+        fragmentList.add(new DiscoverFragment());
+        fragmentList.add(new CommunityFragment());
         fragmentList.add(new SessionFragment());
-        fragmentList.add(new ContactsFragment());
-        fragmentList.add(new MineFragment());
+        fragmentList.add(new InsightsFragment());
+        fragmentList.add(new MeFragment());
     }
 
 }
