@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hsbcd.mpaastest.kotlin.samples.model.ConnectionResult;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
 import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
@@ -98,8 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 ToastUtil.makeToast(this, result.getMessage(), 3000);
             }
 
-            //Intent intent = new Intent(this, HomeActivity.class);
-            //this.startActivity(intent);
+            Intent intent = new Intent(this, HomeActivity.class);
+            this.startActivity(intent);
         });
 
         // 注：使用AlwaysActiveObserver，避免当前activity处于非激活状态时无法收到变更通知
