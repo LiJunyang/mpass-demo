@@ -105,4 +105,7 @@ dependencies {
     implementation(name: 'ccm-implus-core-1.0.0.202211151911', ext: 'aar')
     implementation(name: 'ccm-implus-security-1.0.0.202208261503', ext: 'aar')
     //implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // 列表项侧滑菜单
+    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
 }

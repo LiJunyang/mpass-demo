@@ -74,4 +74,9 @@
     <color name="ant_blue">#0091FF</color>
     <color name="ant_blue_alpha">#A4D6FF</color>
     <color name="dark_gray">#8C8C8C</color>
+    <color name="orange">#FA6400</color>
+    <color name="swipe_menu_orange">#EA9117</color>
+    <color name="swipe_menu_blue">#3975FD</color>
+    <color name="swipe_menu_red">#ED5E1F</color>
+    <color name="swipe_menu_gray">#C4C4C4</color>
 </resources>
