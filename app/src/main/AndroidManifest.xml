@@ -3,21 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.hsbcsd.mpaastest">
 
+    <!-- 高德地图定位所需权限 -->
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+
     <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 允许访问Wi-Fi网络状态信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 允许获取Wi-Fi网络状态改变信息 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!-- 访问网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 读取手机状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- SD 卡读写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:name="com.hsbcd.mpaastest.kotlin.samples.app.ImplusApplication"
@@ -45,6 +57,78 @@
             android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
             android:exported="true">
         </activity>
+
+
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.TransferMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.image.ImagePreviewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.video.VideoPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.location.LocationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.url.InputUrlActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.richtext.RichTextInputActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.merged.MergedMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.command.InputCustomCommandActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.SingleChatSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.GroupChatSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.GroupAdminSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.UpdateTextSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.SessionMemberListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.GroupAdminListActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.GroupMuteMemberListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.AddGroupMemberActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.SendVisitingCardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SecretChatSessionListActivity"
+            android:exported="false" />
+
+        <!-- 高德地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="1193b153da6364e2e425f363b3aa755d" />
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+    <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/go_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true" />
+
+        <TextView
+                android:id="@+id/title_label"
+                android:text="链接"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        <TextView
+                android:id="@+id/send_url"
+                android:text="发送"
+                android:textSize="15sp"
+                android:textColor="@color/sel_text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <EditText
+            android:id="@+id/input_url"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:hint="请输入链接地址"
+            android:paddingLeft="10dp"
+            android:background="@drawable/bg_input_text"
+            android:theme="@style/MyEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/title_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

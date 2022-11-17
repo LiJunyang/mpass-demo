@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="VIEW_TYPE_MESSAGE_SENT" type="id" />
+    <item name="VIEW_TYPE_MESSAGE_RECEIVED" type="id" />
+    <item name="VIEW_TYPE_SYSTEM" type="id" />
+    <item name="VIEW_TYPE_TOPIC_ORIGINAL_MESSAGE" type="id" />
+    <item name="VIEW_TYPE_SECRET_CHAT_NOTIFY" type="id" />
+
+    <item name="TAG_KEY_HOLDER" type="id" />
+    <item name="TAG_KEY_MESSAGE" type="id" />
+</resources>

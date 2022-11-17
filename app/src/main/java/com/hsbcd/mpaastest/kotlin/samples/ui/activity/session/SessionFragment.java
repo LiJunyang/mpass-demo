@@ -35,8 +35,11 @@ import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.enums.ConversationTypeEnum;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.ChatSettingViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.AlertDialogFragment;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
 import java.lang.reflect.Field;
@@ -47,6 +50,7 @@ import java.lang.reflect.Field;
  * @author liyalong
  * @version SessionFragment.java, v 0.1 2022年07月29日 15:53 liyalong
  */
+
 public class SessionFragment extends Fragment {
 
     private FragmentSessionListBinding binding;
@@ -54,6 +58,10 @@ public class SessionFragment extends Fragment {
     private SessionListAdapter sessionListAdapter;
 
     private SessionViewModel sessionViewModel;
+
+    private ChatSettingViewModel chatSettingViewModel;
+
+//    private FavoriteViewModel favoriteViewModel;
 
     private NewMessageViewModel newMessageViewModel;
 
@@ -78,6 +86,14 @@ public class SessionFragment extends Fragment {
         // 绑定会话数据
         sessionViewModel = new ViewModelProvider(getActivity()).get(SessionViewModel.class);
         bindSessionViewModel();
+
+        // 绑定会话设置数据
+        chatSettingViewModel = new ViewModelProvider(getActivity()).get(ChatSettingViewModel.class);
+        bindChatSettingViewModel();
+
+//        // 绑定收藏数据
+//        favoriteViewModel = new ViewModelProvider(getActivity()).get(FavoriteViewModel.class);
+//        bindFavoriteViewModel();
 
         // 绑定消息数据
         newMessageViewModel = new ViewModelProvider(getActivity()).get(NewMessageViewModel.class);
@@ -105,7 +121,8 @@ public class SessionFragment extends Fragment {
 
     private void bindSearchBar() {
         binding.searchBar.setOnClickListener(v -> {
-
+//            Intent intent = new Intent(getActivity(), SearchActivity.class);
+//            this.startActivity(intent);
         });
     }
 
@@ -145,15 +162,22 @@ public class SessionFragment extends Fragment {
             menu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.add_friend: {
-                        ToastUtil.makeToast(this.getActivity(),"add friend", 3000);
+//                        Intent intent = new Intent(getContext(), AddNewFriendActivity.class);
+//                        this.startActivity(intent);
                         break;
                     }
                     case R.id.create_single_conversation: {
-                        ToastUtil.makeToast(this.getActivity(),"single conversation", 3000);
+                        Intent intent = new Intent(getContext(), CreateConversationActivity.class);
+                        intent.putExtra(CreateConversationActivity.SESSION_TYPE_KEY,
+                                ConversationTypeEnum.SINGLE.getCode());
+                        this.startActivity(intent);
                         break;
                     }
                     case R.id.create_group_conversation: {
-                        ToastUtil.makeToast(this.getActivity(),"group conversation", 3000);
+                        Intent intent = new Intent(getContext(), CreateConversationActivity.class);
+                        intent.putExtra(CreateConversationActivity.SESSION_TYPE_KEY,
+                                ConversationTypeEnum.GROUP.getCode());
+                        this.startActivity(intent);
                         break;
                     }
                     default:
@@ -168,8 +192,8 @@ public class SessionFragment extends Fragment {
 
     private void bindSecretChat() {
         binding.secretChat.setOnClickListener(v -> {
-//            Intent intent = new Intent(getContext(), SecretChatSessionListActivity.class);
-//            getContext().startActivity(intent);
+            Intent intent = new Intent(getContext(), SecretChatSessionListActivity.class);
+            getContext().startActivity(intent);
         });
     }
 
@@ -210,8 +234,8 @@ public class SessionFragment extends Fragment {
             AlipayCcmIMClient.getInstance().getConversationManager().setCurrentConversation(result.getData());
 
             // 打开聊天消息页
-//            Intent intent = new Intent(getActivity(), ChatActivity.class);
-//            getActivity().startActivity(intent);
+            Intent intent = new Intent(getActivity(), ChatActivity.class);
+            getActivity().startActivity(intent);
         });
 
         // 新会话查询结果通知
@@ -225,6 +249,25 @@ public class SessionFragment extends Fragment {
             sessionListAdapter.insertToTop(result.getData());
             sessionListAdapter.notifyDataSetChanged();
         });
+    }
+
+    private void bindChatSettingViewModel() {
+        chatSettingViewModel.getUpdateSettingResult().observe(getViewLifecycleOwner(), result -> {
+            if (!result.isSuccess()) {
+                ToastUtil.makeToast(getActivity(), "更新失败: " + result.getMessage(), 3000);
+            }
+
+            // 重新加载会话列表，展示更新后的会话设置项(置顶/免打扰等)
+            refreshSessionList();
+        });
+    }
+
+    private void bindFavoriteViewModel() {
+//        favoriteViewModel.getUpdateResult().observe(getViewLifecycleOwner(), result -> {
+//            if (!result.isSuccess()) {
+//                ToastUtil.makeToast(getActivity(), "更新失败: " + result.getMessage(), 3000);
+//            }
+//        });
     }
 
     private void bindNewMessageViewModel() {

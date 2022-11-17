@@ -71,13 +71,18 @@
     //im plus
     <color name="light_gray">#F5F5F5</color>
     <color name="light_gray2">#E6E8E9</color>
-    <color name="ant_blue">#0091FF</color>
-    <color name="ant_blue_alpha">#A4D6FF</color>
+    <color name="light_gray3">#B8B8B8</color>
+    <color name="light_blue">#C2E3FF</color>
+    <color name="middle_gray">#999999</color>
     <color name="dark_gray">#8C8C8C</color>
+    <color name="dark_gray2">#474B50</color>
     <color name="orange">#FA6400</color>
     <color name="swipe_menu_orange">#EA9117</color>
     <color name="swipe_menu_blue">#3975FD</color>
     <color name="swipe_menu_red">#ED5E1F</color>
     <color name="swipe_menu_gray">#C4C4C4</color>
-    <color name="middle_gray">#999999</color>
+    <color name="red">#EE4B33</color>
+    <color name="ant_blue">#0091FF</color>
+    <color name="ant_blue_alpha">#A4D6FF</color>
+    <color name="alpha_black">#0E000000</color>
 </resources>

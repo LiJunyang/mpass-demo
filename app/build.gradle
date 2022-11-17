@@ -108,4 +108,26 @@ dependencies {
 
     // 列表项侧滑菜单
     implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
+
+
+    // 高德地图定位sdk
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.amap.api:map2d:latest.integration'
+    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:search:latest.integration'
+
+    implementation 'commons-io:commons-io:2.4'
+
+    // 录音
+    implementation 'com.github.piasy:rxandroidaudio:1.7.0'
+    implementation 'com.github.piasy:AudioProcessor:1.7.0'
+
+    // 图片缩放
+    implementation('com.github.chrisbanes:PhotoView:1.2.6') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+
+    // system - extension
+    implementation "androidx.activity:activity:1.5.0"
+    implementation "androidx.fragment:fragment:1.5.0"
 }
