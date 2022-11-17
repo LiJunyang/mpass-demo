@@ -79,4 +79,5 @@
     <color name="swipe_menu_blue">#3975FD</color>
     <color name="swipe_menu_red">#ED5E1F</color>
     <color name="swipe_menu_gray">#C4C4C4</color>
+    <color name="middle_gray">#999999</color>
 </resources>

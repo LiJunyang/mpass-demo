@@ -68,6 +68,10 @@ class ImplusApplication : Application() {
                 .findFirst().get()
         }
 
+        fun getCurrentActivity(): Activity? {
+            return ImplusApplication.CURRENT_ACTIVITY
+        }
+
         fun getRefWatcher(context: Context): RefWatcher? {
             val implusApplication = context.applicationContext as ImplusApplication
             return implusApplication.refWatcher
@@ -200,10 +204,6 @@ class ImplusApplication : Application() {
             TntInfo::class.java
         )
         ImplusApplication.CURRENT_TNT_INFO = ImplusApplication.TNT_INFO_LIST?.get(0)
-    }
-
-    fun getCurrentActivity(): Activity? {
-        return ImplusApplication.CURRENT_ACTIVITY
     }
 
     fun getSimpleCache(): SimpleCache? {

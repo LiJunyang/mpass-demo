@@ -12,8 +12,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.ContactsFragment;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.mine.MineFragment;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SessionFragment;
 import com.google.common.collect.Lists;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SessionFragment;
 
 import java.util.List;
 

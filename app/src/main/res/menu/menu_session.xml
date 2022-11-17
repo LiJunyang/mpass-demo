@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/add_friend"
+            android:icon="@drawable/ic_add_friend"
+            android:title="添加好友" />
+
+    <item
+            android:id="@+id/create_single_conversation"
+            android:icon="@drawable/ic_create_single_conversation"
+            android:title="发起单聊" />
+
+    <item
+            android:id="@+id/create_group_conversation"
+            android:icon="@drawable/ic_create_group_conversation"
+            android:title="发起群聊" />
+</menu>
