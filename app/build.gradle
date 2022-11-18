@@ -130,4 +130,6 @@ dependencies {
     // system - extension
     implementation "androidx.activity:activity:1.5.0"
     implementation "androidx.fragment:fragment:1.5.0"
+    
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
