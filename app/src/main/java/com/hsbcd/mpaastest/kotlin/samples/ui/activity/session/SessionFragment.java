@@ -39,6 +39,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.ChatSettingViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.AlertDialogFragment;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
@@ -162,8 +163,8 @@ public class SessionFragment extends Fragment {
             menu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.add_friend: {
-//                        Intent intent = new Intent(getContext(), AddNewFriendActivity.class);
-//                        this.startActivity(intent);
+                        Intent intent = new Intent(getContext(), AddNewFriendActivity.class);
+                        this.startActivity(intent);
                         break;
                     }
                     case R.id.create_single_conversation: {

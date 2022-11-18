@@ -142,6 +142,10 @@
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SecretChatSessionListActivity"
             android:exported="false" />
 
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActivity"
+            android:exported="false" />
+
         <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
