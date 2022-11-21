@@ -145,6 +145,9 @@
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActivity"
             android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.NewFriendActivity"
+            android:exported="false" />
 
         <!-- 高德地图 -->
         <meta-data
