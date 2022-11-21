@@ -167,6 +167,10 @@ public class SessionFragment extends Fragment {
                         this.startActivity(intent);
                         break;
                     }
+                    case R.id.review_new_friend: {
+                        ToastUtil.makeToast(this.getActivity(),"To be added.", 3000);
+                        break;
+                    }
                     case R.id.create_single_conversation: {
                         Intent intent = new Intent(getContext(), CreateConversationActivity.class);
                         intent.putExtra(CreateConversationActivity.SESSION_TYPE_KEY,
