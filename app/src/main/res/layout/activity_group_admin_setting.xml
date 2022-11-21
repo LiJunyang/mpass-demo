@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="群管理"
+                android:text="Group Setting"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -62,7 +62,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="仅群主和群管理员可管理"
+                            android:text="Only for group owner and admin"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
 
             <TextView
                     android:id="@+id/setting_layout1_desc"
-                    android:text="若开启，仅群主和群管理员可管理群名称、成员、公告、头像、机器人"
+                    android:text="If on, only owner/admin can manage name, member, notice, image and robot"
                     android:textSize="14sp"
                     android:textColor="@color/dark_gray"
                     android:background="@color/light_gray"
@@ -110,7 +110,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群管理员"
+                            android:text="Group Admin"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="转让群主"
+                            android:text="Transfer Owner"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="设置群内禁言"
+                            android:text="Group Forbidden"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
@@ -177,7 +177,7 @@
 
                 <TextView
                         android:id="@+id/dismiss_group"
-                        android:text="解散群聊"
+                        android:text="Destory The Group"
                         android:textSize="16sp"
                         android:textColor="@color/red"
                         android:layout_width="match_parent"

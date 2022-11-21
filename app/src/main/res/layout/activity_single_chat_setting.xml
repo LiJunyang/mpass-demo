@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="聊天设置"
+                android:text="Chat Setting"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -66,7 +66,7 @@
 
         <TextView
                 android:id="@+id/search_message"
-                android:text="查找聊天内容"
+                android:text="Search Chat Content"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -95,7 +95,7 @@
 
             <TextView
                     android:id="@+id/set_top_label"
-                    android:text="置顶聊天"
+                    android:text="Top The Chat"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
 
             <TextView
                     android:id="@+id/set_no_disturb_label"
-                    android:text="消息免打扰"
+                    android:text="No Disturb"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
@@ -150,7 +150,7 @@
 
     <TextView
             android:id="@+id/clear_message"
-            android:text="清空聊天记录"
+            android:text="Clear Chat History"
             android:textSize="16sp"
             android:textColor="@color/red"
             android:layout_width="match_parent"

@@ -44,7 +44,7 @@ import java.util.List;
  */
 public class GroupChatSettingActivity extends AppCompatActivity {
 
-    private static final String DEFAULT_VALUE = "未设置";
+    private static final String DEFAULT_VALUE = "unset";
 
     private ActivityGroupChatSettingBinding binding;
 
@@ -86,7 +86,7 @@ public class GroupChatSettingActivity extends AppCompatActivity {
 
         Conversation c = AlipayCcmIMClient.getInstance().getConversationManager().getCurrentConversation();
         if (c == null) {
-            Log.e(LoggerName.UI, "未设置会话，无法进入设置页");
+            Log.e(LoggerName.UI, "unset session，cannot go to setting");
             super.onBackPressed();
             return;
         }
@@ -109,7 +109,7 @@ public class GroupChatSettingActivity extends AppCompatActivity {
         binding.groupNameLabel.setText(group.getName());
         binding.groupDescLabel.setText(StringUtils.defaultIfBlank(group.getRemark(), DEFAULT_VALUE));
 
-        binding.showAllMemberLabel.setText(String.format("查看全部成员(%d)", c.getGroup().getMemberCount()));
+        binding.showAllMemberLabel.setText(String.format("See All Members(%d)", c.getGroup().getMemberCount()));
 
         binding.groupNickname.setText(StringUtils.defaultIfBlank(group.getRelationOfMe().getUserNick(), DEFAULT_VALUE));
         binding.groupMemo.setText(StringUtils.defaultIfBlank(group.getRelationOfMe().getUserMark(), DEFAULT_VALUE));

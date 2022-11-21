@@ -29,7 +29,7 @@
 
             <TextView
                     android:id="@+id/user_name"
-                    android:text="用户名称"
+                    android:text="User Name"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="220dp"
@@ -50,7 +50,7 @@
 
     <android.widget.Button
             android:id="@+id/agree_button"
-            android:text="同意"
+            android:text="Accept"
             android:textSize="14sp"
             android:textColor="@color/white"
             android:background="@drawable/bg_confirm_button_enable"
@@ -64,7 +64,7 @@
 
     <TextView
             android:id="@+id/status_label"
-            android:text="已添加"
+            android:text="Added"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

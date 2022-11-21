@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:id="@+id/msg_of_system"
-            android:text="系统消息"
+            android:text="System Msg"
             android:textColor="@color/middle_gray"
             android:textAlignment="center"
             android:textSize="12sp"

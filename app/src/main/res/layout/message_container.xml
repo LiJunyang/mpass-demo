@@ -76,7 +76,7 @@
     <!-- 文本消息 -->
     <com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.text.CustomTextView
             android:id="@+id/text_msg"
-            android:text="消息内容"
+            android:text="Msg Content"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -250,7 +250,7 @@
 
         <TextView
                 android:id="@+id/file_name"
-                android:text="文件名"
+                android:text="File Name"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_width="180dp"
@@ -284,7 +284,7 @@
 
         <TextView
                 android:id="@+id/location_address"
-                android:text="定位地址"
+                android:text="Get Location"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -350,7 +350,7 @@
 
         <TextView
                 android:id="@+id/simple_card_title"
-                android:text="测试"
+                android:text="Test"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:layout_width="200dp"
@@ -363,7 +363,7 @@
 
         <TextView
                 android:id="@+id/simple_card_content"
-                android:text="卡片消息"
+                android:text="Card Msg"
                 android:textSize="12sp"
                 android:textColor="@color/dark_gray"
                 android:layout_width="200dp"
@@ -395,7 +395,7 @@
 
         <TextView
                 android:id="@+id/card_user_name"
-                android:text="名称"
+                android:text="Name"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_width="180dp"
@@ -419,7 +419,7 @@
 
         <TextView
                 android:id="@+id/card_nick_name"
-                android:text="昵称"
+                android:text="Nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|left"
@@ -441,7 +441,7 @@
 
         <TextView
                 android:id="@+id/merged_msg_title"
-                android:text="A和B的聊天记录"
+                android:text="A B chat"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -484,7 +484,7 @@
     <!-- 未知消息类型 -->
     <TextView
             android:id="@+id/unknown_msg"
-            android:text="[未知消息类型]"
+            android:text="[unknown msg type]"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"

@@ -52,14 +52,14 @@ public class VoiceDialogManager {
     public void showRecording() {
         if (dialog != null && dialog.isShowing()) {
             binding.background.setBackground(context.getDrawable(R.drawable.ic_recording));
-            binding.desc.setText("松开发送，上滑取消");
+            binding.desc.setText("Release to send, swipe up to cancel");
         }
     }
 
     public void showReadyToCancel() {
         if (dialog != null && dialog.isShowing()) {
             binding.background.setBackground(context.getDrawable(R.drawable.ic_recording_cancel));
-            binding.desc.setText("松开手指，取消发送");
+            binding.desc.setText("Release finger, swipe up to cancel");
         }
     }
 
@@ -67,7 +67,7 @@ public class VoiceDialogManager {
         initDialog();
 
         binding.background.setBackground(context.getDrawable(R.drawable.ic_recording_too_short));
-        binding.desc.setText("说话时间太短");
+        binding.desc.setText("Too short");
 
         dialog.show();
 

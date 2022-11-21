@@ -25,7 +25,7 @@
 
             <TextView
                     android:id="@+id/recalled_message_desc"
-                    android:text="对方撤回了一条消息"
+                    android:text="Target recall a msg"
                     android:textSize="12sp"
                     android:textColor="@color/middle_gray"
                     android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
 
             <TextView
                     android:id="@+id/sender_user_name"
-                    android:text="用户名称"
+                    android:text="User Name"
                     android:textSize="12sp"
                     android:textColor="@color/middle_gray"
                     android:layout_width="150dp"

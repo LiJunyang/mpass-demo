@@ -71,19 +71,19 @@ public class NewFriendItemHolder extends BaseListItemHolder<GoodFriendVO> {
         if (StringUtils.equals(currentUserId, friendVO.getOriginnator())) {
             switch (status) {
                 case AGREE: {
-                    binding.statusLabel.setText("对方已添加");
+                    binding.statusLabel.setText("Added");
                     break;
                 }
                 case REJECT: {
-                    binding.statusLabel.setText("对方已拒绝");
+                    binding.statusLabel.setText("Rejected");
                     break;
                 }
                 case EXPIRED: {
-                    binding.statusLabel.setText("已过期");
+                    binding.statusLabel.setText("Expired");
                     break;
                 }
                 case WAIT: {
-                    binding.statusLabel.setText("待对方同意");
+                    binding.statusLabel.setText("Pending");
                     break;
                 }
                 default:
@@ -94,15 +94,15 @@ public class NewFriendItemHolder extends BaseListItemHolder<GoodFriendVO> {
         else {
             switch (status) {
                 case AGREE: {
-                    binding.statusLabel.setText("已添加");
+                    binding.statusLabel.setText("Added");
                     break;
                 }
                 case REJECT: {
-                    binding.statusLabel.setText("已拒绝");
+                    binding.statusLabel.setText("Rejected");
                     break;
                 }
                 case EXPIRED: {
-                    binding.statusLabel.setText("已过期");
+                    binding.statusLabel.setText("Expired");
                     break;
                 }
                 case WAIT: {
@@ -114,7 +114,7 @@ public class NewFriendItemHolder extends BaseListItemHolder<GoodFriendVO> {
 
                         binding.agreeButton.setVisibility(View.GONE);
                         binding.statusLabel.setVisibility(View.VISIBLE);
-                        binding.statusLabel.setText("已添加");
+                        binding.statusLabel.setText("Added");
                     });
                     
                     break;

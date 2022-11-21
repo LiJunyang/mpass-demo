@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="命令消息"
+                android:text="Command Message"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -36,7 +36,7 @@
 
         <TextView
                 android:id="@+id/send_command"
-                android:text="发送"
+                android:text="Send"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:id="@+id/input_command"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:hint="请输入"
+            android:hint="Pls input"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
             android:gravity="left|top"
@@ -67,7 +67,7 @@
 
     <TextView
             android:id="@+id/setting_layout1_desc"
-            android:text="对方处于在线状态时，将收到命令消息弹窗"
+            android:text="Target is offline, and will receive command message popup window"
             android:textSize="14sp"
             android:textColor="@color/dark_gray"
             android:background="@color/light_gray"

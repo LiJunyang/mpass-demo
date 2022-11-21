@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="取消"
+            android:text="Cancel"
             android:textColor="@color/color_ff4c39"
             android:textSize="17sp" />
 
@@ -59,7 +59,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="确认"
+            android:text="OK"
             android:textColor="@color/app_color_blue"
             android:textSize="17sp" />
 

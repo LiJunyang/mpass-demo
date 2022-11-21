@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="链接"
+                android:text="Link"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -36,7 +36,7 @@
 
         <TextView
                 android:id="@+id/send_url"
-                android:text="发送"
+                android:text="Send"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:id="@+id/input_url"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:hint="请输入链接地址"
+            android:hint="Pls input link"
             android:paddingLeft="10dp"
             android:background="@drawable/bg_input_text"
             android:theme="@style/MyEditTextStyle"

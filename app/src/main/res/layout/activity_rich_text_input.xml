@@ -25,7 +25,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="富文本"
+                android:text="Rich Text"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -35,7 +35,7 @@
 
         <TextView
                 android:id="@+id/msg_rich_text_send"
-                android:text="发送"
+                android:text="Send"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:id="@+id/msg_rich_text_input"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:hint="请输入"
+            android:hint="Pls input"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:background="@drawable/bg_input_text"
