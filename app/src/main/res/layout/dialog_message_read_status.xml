@@ -29,7 +29,7 @@
 
             <TextView
                     android:id="@+id/title_label"
-                    android:text="消息接收人列表"
+                    android:text="Msg Receiver List"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -57,7 +57,7 @@
 
                 <TextView
                         android:id="@+id/un_read_user_list_tab_label"
-                        android:text="未读"
+                        android:text="Unread"
                         android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
 
                 <TextView
                         android:id="@+id/read_user_list_tab_label"
-                        android:text="已读"
+                        android:text="Read"
                         android:textSize="16sp"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"

@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="选择位置"
+                android:text="Select Location"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -36,7 +36,7 @@
 
         <TextView
                 android:id="@+id/send_location"
-                android:text="发送"
+                android:text="Send"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
 
     <TextView
             android:id="@+id/current_location"
-            android:text="当前位置"
+            android:text="Current Location"
             android:textSize="15sp"
             android:textColor="@color/black"
             android:layout_width="match_parent"

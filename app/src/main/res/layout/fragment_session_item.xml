@@ -32,7 +32,7 @@
 
             <TextView
                     android:id="@+id/title"
-                    android:text="会话名称"
+                    android:text="Session Name"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="200dp"
@@ -56,7 +56,7 @@
 
                 <TextView
                         android:id="@+id/special_tag"
-                        android:text="[有人@我]"
+                        android:text="[Someone @ Me]"
                         android:textColor="@color/orange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
 
                 <TextView
                         android:id="@+id/lastTextMsg"
-                        android:text="最近一条消息"
+                        android:text="Most Recent Msg"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
@@ -75,7 +75,7 @@
 
             <TextView
                     android:id="@+id/msgSendTime"
-                    android:text="发送时间"
+                    android:text="Send Time"
                     android:textSize="12sp"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
 
         <TextView
                 android:id="@+id/fav"
-                android:text="收藏"
+                android:text="Favorite"
                 android:textColor="@color/white"
                 android:background="@color/swipe_menu_orange"
                 android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
 
         <TextView
                 android:id="@+id/set_top"
-                android:text="置顶"
+                android:text="Top"
                 android:textColor="@color/white"
                 android:background="@color/swipe_menu_blue"
                 android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
 
         <TextView
                 android:id="@+id/remove"
-                android:text="一键已读"
+                android:text="One Click Read"
                 android:textColor="@color/white"
                 android:background="@color/swipe_menu_red"
                 android:layout_width="wrap_content"

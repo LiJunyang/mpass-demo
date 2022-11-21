@@ -35,7 +35,7 @@ import cn.hsbcsd.mpaastest.databinding.ActivityUserDetailBinding;
  */
 public class UserDetailActivity extends AppCompatActivity {
 
-    private static final String DEFAULT_VALUE = "未设置";
+    private static final String DEFAULT_VALUE = "unset";
 
     private ActivityUserDetailBinding binding;
 
@@ -168,6 +168,6 @@ public class UserDetailActivity extends AppCompatActivity {
         binding.titleLabel.setText(userName);
         binding.userName.setText(userName);
         binding.userId.setText(String.format("ID: %s", data.getUserId()));
-        binding.userMark.setText(StringUtils.defaultIfBlank(data.getMark(), "未设置"));
+        binding.userMark.setText(StringUtils.defaultIfBlank(data.getMark(), "unset"));
     }
 }

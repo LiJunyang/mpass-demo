@@ -4,20 +4,20 @@
     <item
             android:id="@+id/add_friend"
             android:icon="@drawable/ic_add_friend"
-            android:title="添加好友" />
+            android:title="Add" />
 
     <item
         android:id="@+id/review_new_friend"
         android:icon="@drawable/ic_add_friend"
-        android:title="同意申请" />
+        android:title="Accept" />
 
     <item
             android:id="@+id/create_single_conversation"
             android:icon="@drawable/ic_create_single_conversation"
-            android:title="发起单聊" />
+            android:title="1 to 1" />
 
     <item
             android:id="@+id/create_group_conversation"
             android:icon="@drawable/ic_create_group_conversation"
-            android:title="发起群聊" />
+            android:title="Group" />
 </menu>

@@ -17,7 +17,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="消息"
+                android:text="Message"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -52,7 +52,7 @@
 
     <TextView
             android:id="@+id/search_bar"
-            android:text="搜索"
+            android:text="Search"
             android:textSize="14sp"
             android:textColor="@color/middle_gray"
             android:layout_width="match_parent"

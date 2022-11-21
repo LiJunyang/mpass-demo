@@ -427,7 +427,7 @@ public class MessageViewModel extends ViewModel implements MessageListener {
     }
 
     public void sendRichTextMessage(String text) {
-        RichTextMessageContent content = new RichTextMessageContent("IM+富文本消息", text);
+        RichTextMessageContent content = new RichTextMessageContent("Rich Text", text);
         AsyncExecutorService.getInstance().execute(
                 () -> MessageManager.getInstance().sendSingleMessage(content, new CustomSendMessageCallback()));
     }

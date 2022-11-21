@@ -20,7 +20,7 @@ public class RichTextInputActivity extends AppCompatActivity {
     private static final String DEFAULT_RICH_TEXT_CONTENT = "<html>\n" +
             "\n" +
             "<head>\n" +
-            "    <h3>IM+富文本消息</h3>\n" +
+            "    <h3>Rich Text</h3>\n" +
             "</head>\n" +
             "\n" +
             "<body>\n" +
@@ -29,7 +29,7 @@ public class RichTextInputActivity extends AppCompatActivity {
             "    </div>\n" +
             "\n" +
             "    <div style=\"margin-top: 20px;\">\n" +
-            "        <a href=\"http://ccmimplus.cloud.alipay.com/portal/index.htm#/implus\" style=\"color: blue;\">点击访问官方网站</a>\n" +
+            "        <a href=\"http://ccmimplus.cloud.alipay.com/portal/index.htm#/implus\" style=\"color: blue;\">Click to access website</a>\n" +
             "    </div>\n" +
             "</body>\n" +
             "\n" +

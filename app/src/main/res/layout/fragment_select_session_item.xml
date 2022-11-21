@@ -32,7 +32,7 @@
 
         <TextView
                 android:id="@+id/title"
-                android:text="会话名称"
+                android:text="Session Name"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:layout_width="200dp"

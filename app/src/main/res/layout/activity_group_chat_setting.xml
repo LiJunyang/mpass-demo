@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="群设置"
+                android:text="Group Setting"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -82,7 +82,7 @@
 
                         <TextView
                                 android:id="@+id/group_name_label"
-                                android:text="群名称"
+                                android:text="Group Name"
                                 android:textSize="16sp"
                                 android:textColor="@color/black"
                                 android:layout_width="match_parent"
@@ -94,7 +94,7 @@
 
                         <TextView
                                 android:id="@+id/group_desc_label"
-                                android:text="群介绍"
+                                android:text="Group Intro"
                                 android:textColor="@color/middle_gray"
                                 android:layout_width="match_parent"
                                 android:layout_height="24dp"
@@ -123,7 +123,7 @@
 
                 <TextView
                         android:id="@+id/show_all_member_label"
-                        android:text="查看全部成员(xx)"
+                        android:text="See All Members(xx)"
                         android:textSize="15sp"
                         android:textColor="@color/dark_gray"
                         android:layout_width="wrap_content"
@@ -150,7 +150,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="我在本群的昵称"
+                            android:text="My Group Nickname"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
 
                     <TextView
                             android:id="@+id/group_nickname"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -187,7 +187,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群备注"
+                            android:text="Group Remark"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
 
                     <TextView
                             android:id="@+id/group_memo"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -225,7 +225,7 @@
 
                     <TextView
                             android:id="@+id/set_top_label"
-                            android:text="置顶聊天"
+                            android:text="Top The Chat"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -258,7 +258,7 @@
 
                     <TextView
                             android:id="@+id/set_no_disturb_label"
-                            android:text="消息免打扰"
+                            android:text="No disturb"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -294,7 +294,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群聊名称"
+                            android:text="Group Name"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -304,7 +304,7 @@
 
                     <TextView
                             android:id="@+id/group_name"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -331,7 +331,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群介绍"
+                            android:text="Group Intro"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -341,7 +341,7 @@
 
                     <TextView
                             android:id="@+id/group_desc"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -368,7 +368,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群公告"
+                            android:text="Group Notice"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -378,7 +378,7 @@
 
                     <TextView
                             android:id="@+id/group_notice"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -405,7 +405,7 @@
                         android:layout_marginRight="15dp">
 
                     <TextView
-                            android:text="群标签"
+                            android:text="Group Tag"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -415,7 +415,7 @@
 
                     <TextView
                             android:id="@+id/group_tag"
-                            android:text="未设置"
+                            android:text="unset"
                             android:textSize="16sp"
                             android:textColor="@color/dark_gray"
                             android:layout_width="200dp"
@@ -443,7 +443,7 @@
                         android:visibility="gone">
 
                     <TextView
-                            android:text="群管理"
+                            android:text="Group Admin"
                             android:textSize="16sp"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
@@ -464,7 +464,7 @@
 
                 <TextView
                         android:id="@+id/clear_message"
-                        android:text="清空聊天记录"
+                        android:text="Clear Chat History"
                         android:textSize="16sp"
                         android:textColor="@color/red"
                         android:layout_width="match_parent"
@@ -479,7 +479,7 @@
 
                 <TextView
                         android:id="@+id/leave_group"
-                        android:text="退出群聊"
+                        android:text="Quit The Chat"
                         android:textSize="16sp"
                         android:textColor="@color/red"
                         android:layout_width="match_parent"

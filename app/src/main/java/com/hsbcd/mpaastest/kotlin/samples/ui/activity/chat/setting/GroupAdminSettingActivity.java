@@ -63,7 +63,7 @@ public class GroupAdminSettingActivity extends AppCompatActivity {
 
         Conversation c = AlipayCcmIMClient.getInstance().getConversationManager().getCurrentConversation();
         if (c == null) {
-            Log.e(LoggerName.UI, "未设置会话，无法进入设置页");
+            Log.e(LoggerName.UI, "unset session，cannot go to setting");
             super.onBackPressed();
             return;
         }

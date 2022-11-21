@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="添加好友"
+                android:text="Add new friend"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -36,7 +36,7 @@
 
         <TextView
                 android:id="@+id/add_friend"
-                android:text="添加"
+                android:text="Add"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:id="@+id/input_user_id"
             android:textSize="15sp"
             android:textColor="@color/black"
-            android:hint="请输入好友ID"
+            android:hint="Pls input ID"
             android:paddingLeft="10dp"
             android:background="@drawable/bg_input_text"
             android:theme="@style/MyEditTextStyle"

@@ -51,7 +51,7 @@ public class GroupMuteMemberListActivity extends AppCompatActivity {
 
         Conversation c = AlipayCcmIMClient.getInstance().getConversationManager().getCurrentConversation();
         if (c == null) {
-            Log.e(LoggerName.UI, "未设置会话，无法进入群禁言成员列表页");
+            Log.e(LoggerName.UI, "unset session，cannot go to group forbidden list");
             super.onBackPressed();
             return;
         }

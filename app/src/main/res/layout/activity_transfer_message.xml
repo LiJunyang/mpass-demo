@@ -25,7 +25,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="选择联系人"
+                android:text="Choose Contact"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -35,7 +35,7 @@
 
         <TextView
                 android:id="@+id/multi_select"
-                android:text="多选"
+                android:text="Multi"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
 
             <TextView
                     android:id="@+id/transfer_to_single_tab_label"
-                    android:text="转发到个人"
+                    android:text="Forward To"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
 
             <TextView
                     android:id="@+id/transfer_to_group_tab_label"
-                    android:text="转发到群"
+                    android:text="Forward To Group"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
 
         <TextView
                 android:id="@+id/selected_target_count"
-                android:text="已选择：0人, 0个群"
+                android:text="Total Select：0 People, 0 Group"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
 
         <Button
                 android:id="@+id/confirm_button"
-                android:text="确定"
+                android:text="OK"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

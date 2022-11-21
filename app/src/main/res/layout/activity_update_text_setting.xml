@@ -26,7 +26,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="标题"
+                android:text="Title"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -36,7 +36,7 @@
 
         <TextView
                 android:id="@+id/save_button"
-                android:text="保存"
+                android:text="Save"
                 android:textSize="15sp"
                 android:textColor="@color/sel_text_color"
                 android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:id="@+id/input_text"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:hint="请输入"
+            android:hint="Pls Input"
             android:paddingLeft="10dp"
             android:background="@drawable/bg_input_text"
             android:theme="@style/MyEditTextStyle"
@@ -66,7 +66,7 @@
 
     <TextView
             android:id="@+id/read_only_label"
-            android:text="当前用户无修改权限"
+            android:text="Current User No Update Right"
             android:textSize="14sp"
             android:textColor="@color/dark_gray"
             android:layout_width="match_parent"

@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-                android:text="登录环境"
+                android:text="Login Env"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@id/divide">
 
         <TextView
-                android:text="登录租户"
+                android:text="Login Renter"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
 
         <android.widget.Button
                 android:id="@+id/confirm_button"
-                android:text="确定"
+                android:text="OK"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:background="@drawable/sel_confirm_button"
@@ -86,7 +86,7 @@
 
         <android.widget.Button
                 android:id="@+id/cancel_button"
-                android:text="取消"
+                android:text="Cancel"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:background="@drawable/bg_cancel_button"

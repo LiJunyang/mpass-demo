@@ -27,7 +27,7 @@
 
         <TextView
                 android:id="@+id/cancel_multi_select"
-                android:text="取消"
+                android:text="Cancel"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="会话名称"
+                android:text="Session Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -188,7 +188,7 @@
                 android:id="@+id/input_text"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:hint="请输入"
+                android:hint="Pls Input"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:paddingLeft="10dp"
@@ -209,7 +209,7 @@
 
         <android.widget.Button
                 android:id="@+id/record_voice"
-                android:text="按住说话"
+                android:text="Press To Say"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:background="@drawable/sel_record_voice_button"
@@ -294,7 +294,7 @@
 
                 <TextView
                         android:id="@+id/input_album"
-                        android:text="相册"
+                        android:text="Album"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -307,7 +307,7 @@
 
                 <TextView
                         android:id="@+id/input_camera"
-                        android:text="拍摄"
+                        android:text="Camera"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -320,7 +320,7 @@
 
                 <TextView
                         android:id="@+id/input_rtc"
-                        android:text="音视频"
+                        android:text="AV"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -333,7 +333,7 @@
 
                 <TextView
                         android:id="@+id/input_file"
-                        android:text="文件"
+                        android:text="File"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -346,7 +346,7 @@
 
                 <TextView
                         android:id="@+id/input_location"
-                        android:text="位置"
+                        android:text="Location"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -359,7 +359,7 @@
 
                 <TextView
                         android:id="@+id/input_richtext"
-                        android:text="富文本"
+                        android:text="Rich Text"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -372,7 +372,7 @@
 
                 <TextView
                         android:id="@+id/input_url"
-                        android:text="链接"
+                        android:text="Link"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -385,7 +385,7 @@
 
                 <TextView
                         android:id="@+id/input_visiting_card"
-                        android:text="名片"
+                        android:text="Name card"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -417,7 +417,7 @@
 
                 <TextView
                         android:id="@+id/input_card"
-                        android:text="卡片消息"
+                        android:text="Card Msg"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
 
                 <TextView
                         android:id="@+id/input_custom_command"
-                        android:text="推屏"
+                        android:text="Screen Push"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -442,7 +442,7 @@
                         android:layout_columnWeight="1" />
 
                 <TextView
-                        android:text="占位"
+                        android:text="Occupied"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -455,7 +455,7 @@
                         android:visibility="invisible" />
 
                 <TextView
-                        android:text="占位"
+                        android:text="Occupied"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -468,7 +468,7 @@
                         android:visibility="invisible" />
 
                 <TextView
-                        android:text="占位"
+                        android:text="Occupied"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -506,7 +506,7 @@
 
         <TextView
                 android:id="@+id/batch_transfer_single"
-                android:text="逐一转发"
+                android:text="Forward 1 by 1"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -519,7 +519,7 @@
 
         <TextView
                 android:id="@+id/batch_transfer_merge"
-                android:text="合并转发"
+                android:text="Forward After Merged"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -532,7 +532,7 @@
 
         <TextView
                 android:id="@+id/batch_fav"
-                android:text="收藏"
+                android:text="Favorite"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -545,7 +545,7 @@
 
         <TextView
                 android:id="@+id/batch_delete"
-                android:text="删除"
+                android:text="Del"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -557,7 +557,7 @@
                 android:layout_columnWeight="1" />
 
         <TextView
-                android:text="占位"
+                android:text="Occupied"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
     private void onClickScan() {
         //获取设备id
         String utdid = UTDevice.getUtdid(this);
-        ToastUtil.makeToast(this, "设备id:" + utdid, 3000);
+        ToastUtil.makeToast(this, "device id:" + utdid, 3000);
         ScanRequest scanRequest = new ScanRequest();
         MPScan.startMPaasScanFullScreenActivity(
                 this,
@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
     private void bindLoginViewModel() {
         loginViewModel.getLoginResultData().observe(this, result -> {
             if (result.isSuccess()) {
-                ToastUtil.makeToast(this, "登录成功", 3000);
+                ToastUtil.makeToast(this, "Login Success", 3000);
             } else {
                 ToastUtil.makeToast(this, result.getMessage(), 3000);
             }
@@ -149,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
 
             // 被踢下线时，回退到登录页
             if (result.getEvent() == ConnectionResult.Event.KICKED) {
-                ToastUtil.makeToast(this, "你已经被踢出，请重新登陆", 3000);
+                ToastUtil.makeToast(this, "You has been kicked, pls login again", 3000);
                 Intent intent = new Intent(this, LoginActivity.class);
                 this.startActivity(intent);
             }
