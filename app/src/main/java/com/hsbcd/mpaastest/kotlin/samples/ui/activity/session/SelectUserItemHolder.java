@@ -16,6 +16,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseListItemHolder;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.SelectUserViewModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.SelectUserListActivity;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -47,25 +48,25 @@ public class SelectUserItemHolder extends BaseListItemHolder<UserInfoVO> {
 
         binding.userName.setText(StringUtils.defaultIfBlank(userInfoVO.getNickName(), userInfoVO.getUserName()));
 
-//        if (context instanceof SelectUserListActivity) {
-//            // 单选模式
-//            if (((SelectUserListActivity) context).isSingleSelectMode()) {
-//                binding.selectUserCheckBox.setVisibility(View.GONE);
-//
-//                // 绑定单个用户的点击事件
-//                binding.userInfoLayout.setOnClickListener(
-//                        v -> ((SelectUserListActivity) context).onClickSingleUser(userInfoVO));
-//            }
-//            // 多选模式
-//            else {
-//                binding.selectUserCheckBox.setVisibility(View.VISIBLE);
-//                binding.selectUserCheckBox.setOnCheckedChangeListener(null);
-//                binding.selectUserCheckBox.setChecked(selectItemViewModel.isSelected(userInfoVO));
-//                binding.selectUserCheckBox.setOnCheckedChangeListener((v, b) -> onCheckedSelectUser(userInfoVO, b));
-//            }
-//        } else {
-//            binding.selectUserCheckBox.setVisibility(View.GONE);
-//        }
+        if (context instanceof SelectUserListActivity) {
+            // 单选模式
+            if (((SelectUserListActivity) context).isSingleSelectMode()) {
+                binding.selectUserCheckBox.setVisibility(View.GONE);
+
+                // 绑定单个用户的点击事件
+                binding.userInfoLayout.setOnClickListener(
+                        v -> ((SelectUserListActivity) context).onClickSingleUser(userInfoVO));
+            }
+            // 多选模式
+            else {
+                binding.selectUserCheckBox.setVisibility(View.VISIBLE);
+                binding.selectUserCheckBox.setOnCheckedChangeListener(null);
+                binding.selectUserCheckBox.setChecked(selectItemViewModel.isSelected(userInfoVO));
+                binding.selectUserCheckBox.setOnCheckedChangeListener((v, b) -> onCheckedSelectUser(userInfoVO, b));
+            }
+        } else {
+            binding.selectUserCheckBox.setVisibility(View.GONE);
+        }
     }
 
     private void onCheckedSelectUser(UserInfoVO data, boolean checked) {
