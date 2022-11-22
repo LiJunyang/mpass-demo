@@ -242,7 +242,7 @@ public class SendMessageHolder extends AbstractMessageHolder {
     private void renderUnRead(boolean single, int unReadUserCount, Message message) {
         binding.readStatus.setVisibility(View.VISIBLE);
         binding.readStatus.setTextColor(context.getResources().getColor(R.color.ant_blue));
-        binding.readStatus.setText(single ? "未读" : String.format("%d人未读", unReadUserCount));
+        binding.readStatus.setText(single ? "unread" : String.format("%d ppl unread", unReadUserCount));
 
         if (!single) {
             binding.readStatus.setOnClickListener(v -> {

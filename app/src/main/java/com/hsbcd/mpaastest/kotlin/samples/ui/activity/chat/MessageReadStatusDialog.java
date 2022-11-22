@@ -111,8 +111,8 @@ public class MessageReadStatusDialog extends BaseBottomSheetDialog {
             readCount = 0;
         }
 
-        binding.unReadUserListTabLabel.setText(String.format("未读(%d)", unReadCount));
-        binding.readUserListTabLabel.setText(String.format("已读(%d)", readCount));
+        binding.unReadUserListTabLabel.setText(String.format("unread(%d)", unReadCount));
+        binding.readUserListTabLabel.setText(String.format("read(%d)", readCount));
     }
 
     private void resetTabStyle() {
