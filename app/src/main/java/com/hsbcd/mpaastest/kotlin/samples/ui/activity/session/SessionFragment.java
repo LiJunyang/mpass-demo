@@ -350,7 +350,7 @@ public class SessionFragment extends Fragment {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(getActivity(), "没有更多会话了", 1000);
+                ToastUtil.makeToast(getActivity(), "No more chat", 1000);
             }
         };
 

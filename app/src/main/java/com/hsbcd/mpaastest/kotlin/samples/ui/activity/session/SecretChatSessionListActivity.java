@@ -201,7 +201,7 @@ public class SecretChatSessionListActivity extends AppCompatActivity {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(SecretChatSessionListActivity.this, "没有更多密聊会话了", 1000);
+                ToastUtil.makeToast(SecretChatSessionListActivity.this, "No more secret chat", 1000);
             }
         };
 

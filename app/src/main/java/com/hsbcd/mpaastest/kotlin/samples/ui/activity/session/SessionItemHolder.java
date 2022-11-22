@@ -163,7 +163,7 @@ public class SessionItemHolder extends AbstractSessionItemHolder {
 
     private void renderLastMessage() {
         if (StringUtils.isBlank(c.getLastMsgContentType()) || c.getLastMsg() == null) {
-            binding.lastTextMsg.setText("[无消息]");
+            binding.lastTextMsg.setText("[No Msg]");
             return;
         }
 

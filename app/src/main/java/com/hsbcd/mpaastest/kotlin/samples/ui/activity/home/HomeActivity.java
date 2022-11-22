@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.me.MineViewModel;
 
 import cn.hsbcsd.mpaastest.R;
 import cn.hsbcsd.mpaastest.databinding.ActivityHomeBinding;
@@ -26,6 +29,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
 
+    private MineViewModel mineViewModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,18 @@ public class HomeActivity extends AppCompatActivity {
         bindAction();
 
         initHomeViewPager();
+
+        bindMineViewModel();
+    }
+
+
+    private void bindMineViewModel() {
+        mineViewModel = new ViewModelProvider(this).get(MineViewModel.class);
+
+        mineViewModel.getMineUserInfo().observe(this, data -> {
+
+        });
+        mineViewModel.loadUserInfo();
     }
 
     private void bindAction() {

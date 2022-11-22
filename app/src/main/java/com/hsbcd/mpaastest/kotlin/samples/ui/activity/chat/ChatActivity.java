@@ -993,7 +993,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
                 if (messageListAdapter.getItemCount() > 0) {
-                    ToastUtil.makeToast(ChatActivity.this, "没有更多消息了", 1000);
+                    ToastUtil.makeToast(ChatActivity.this, "No more msg", 1000);
                 }
                 return;
             }

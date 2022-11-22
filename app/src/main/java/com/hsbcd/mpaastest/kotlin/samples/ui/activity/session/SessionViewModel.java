@@ -89,7 +89,7 @@ public class SessionViewModel extends ViewModel {
      * @param pageSize
      */
     public void queryConversations(int pageIndex, int pageSize) {
-        Log.i(LoggerName.UI, String.format("开始刷新会话(%d)", pageIndex));
+        Log.i(LoggerName.UI, String.format("start to refresh chat(%d)", pageIndex));
 
         ConversationManager cm = AlipayCcmIMClient.getInstance().getConversationManager();
         ConversationGroupManager cgm = AlipayCcmIMClient.getInstance().getConversationGroupManager();
@@ -105,7 +105,7 @@ public class SessionViewModel extends ViewModel {
                 @Override
                 public void onQueryResult(boolean hasNextPage, int nextPageIndex, List<Conversation> data) {
                     Log.i(LoggerName.UI,
-                            String.format("查询会话列表成功: %d/%d/%s/%d", pageIndex, data.size(), hasNextPage, nextPageIndex));
+                            String.format("search chat list success: %d/%d/%s/%d", pageIndex, data.size(), hasNextPage, nextPageIndex));
 
                     StringBuilder sb = new StringBuilder();
                     data.forEach(c -> {
@@ -121,7 +121,7 @@ public class SessionViewModel extends ViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("查询会话列表失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("search chat list failed: %s/%s/%s", errorCode, message, t.getMessage());
                     PageDataResult result = new PageDataResult(false, msg);
                     conversationListResult.postValue(result);
                 }
@@ -135,7 +135,7 @@ public class SessionViewModel extends ViewModel {
      * @param pageIndex
      */
     public void querySecretChatConversations(int pageIndex) {
-        Log.i(LoggerName.UI, String.format("开始刷新会话(%d)", pageIndex));
+        Log.i(LoggerName.UI, String.format("start to refresh new chat(%d)", pageIndex));
 
         ConversationManager cm = AlipayCcmIMClient.getInstance().getConversationManager();
         AsyncExecutorService.getInstance().execute(() -> {
@@ -147,7 +147,7 @@ public class SessionViewModel extends ViewModel {
                 @Override
                 public void onQueryResult(boolean hasNextPage, int nextPageIndex, List<Conversation> data) {
                     Log.i(LoggerName.UI,
-                            String.format("查询密聊会话列表成功: %d/%d/%s/%d", pageIndex, data.size(), hasNextPage,
+                            String.format("search secret chat list success: %d/%d/%s/%d", pageIndex, data.size(), hasNextPage,
                                     nextPageIndex));
 
                     PageDataResult result = new PageDataResult(true, data, hasNextPage);
@@ -156,7 +156,7 @@ public class SessionViewModel extends ViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("查询会话列表失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("search session list failed: %s/%s/%s", errorCode, message, t.getMessage());
                     PageDataResult result = new PageDataResult(false, msg);
                     conversationListResult.postValue(result);
                 }
@@ -180,7 +180,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                String msg = String.format("查询单聊会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                String msg = String.format("search 1to1 chat failed: %s/%s/%s", errorCode, message, t.getMessage());
                 LiveDataResult result = new LiveDataResult(false, msg);
                 conversationResult.postValue(result);
             }
@@ -198,7 +198,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                String msg = String.format("查询单聊会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                String msg = String.format("search 1to1 chat failed: %s/%s/%s", errorCode, message, t.getMessage());
                 LiveDataResult result = new LiveDataResult(false, msg);
                 newConversationResult.postValue(result);
             }
@@ -216,7 +216,7 @@ public class SessionViewModel extends ViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("创建单聊会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("create 1to1 chat failed: %s/%s/%s", errorCode, message, t.getMessage());
                     LiveDataResult result = new LiveDataResult(false, msg);
                     conversationResult.postValue(result);
                 }
@@ -229,7 +229,7 @@ public class SessionViewModel extends ViewModel {
         UserCacheManager cacheManager = UserCacheManager.getInstance();
         UserInfoVO currentUser = cacheManager.getCurrentUserInfo();
         String userNickName = StringUtils.defaultIfBlank(currentUser.getNickName(), currentUser.getUserName());
-        String helloTxt = String.format("%s 发起聊天", userNickName);
+        String helloTxt = String.format("%s said hi", userNickName);
         TextMessageContent content = new TextMessageContent(helloTxt);
         content.setConversation(c);
         
@@ -241,7 +241,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                Log.e(Constants.LOG_CONVERSATION, "发起单聊后发送消息异常");
+                Log.e(Constants.LOG_CONVERSATION, "said hi but msg exception");
             }
         });
     }
@@ -258,7 +258,7 @@ public class SessionViewModel extends ViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("创建密聊会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("create secret chat failed: %s/%s/%s", errorCode, message, t.getMessage());
                     LiveDataResult result = new LiveDataResult(false, msg);
                     conversationResult.postValue(result);
                 }
@@ -278,7 +278,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                String msg = String.format("创建群聊会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                String msg = String.format("create group chat failed: %s/%s/%s", errorCode, message, t.getMessage());
                 LiveDataResult result = new LiveDataResult(false, msg);
                 conversationResult.postValue(result);
             }
@@ -290,7 +290,7 @@ public class SessionViewModel extends ViewModel {
         UserCacheManager cacheManager = UserCacheManager.getInstance();
         UserInfoVO currentUser = cacheManager.getCurrentUserInfo();
         String userNickName = StringUtils.defaultIfBlank(currentUser.getNickName(), currentUser.getUserName());
-        String title = String.format("%s 创建了群", userNickName);
+        String title = String.format("%s create the group", userNickName);
 
         JSONObject content = new JSONObject();
         content.put("title", title);
@@ -311,7 +311,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                Log.e(Constants.LOG_CONVERSATION, "创建群后发送系统消息异常", t);
+                Log.e(Constants.LOG_CONVERSATION, "msg exception after group created", t);
                 querySingleConversation(c.getCid());
             }
         });
@@ -371,7 +371,7 @@ public class SessionViewModel extends ViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                String msg = String.format("删除会话失败: %s/%s/%s", errorCode, message, t.getMessage());
+                String msg = String.format("del session failed: %s/%s/%s", errorCode, message, t.getMessage());
                 LiveDataResult result = new LiveDataResult(false, msg);
                 deleteConversationResult.postValue(result);
             }

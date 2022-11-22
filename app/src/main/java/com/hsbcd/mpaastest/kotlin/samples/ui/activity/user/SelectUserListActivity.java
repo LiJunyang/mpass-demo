@@ -142,7 +142,7 @@ public abstract class SelectUserListActivity extends AppCompatActivity {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(SelectUserListActivity.this, "没有更多联系人了", 1000);
+                ToastUtil.makeToast(SelectUserListActivity.this, "No more contact", 1000);
             }
         };
 

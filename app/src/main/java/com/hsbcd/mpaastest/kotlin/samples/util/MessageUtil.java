@@ -51,40 +51,40 @@ public class MessageUtil {
                 return getTextContent(content);
 
             case IMAGE:
-                return "[图片]";
+                return "[pic]";
 
             case VOICE:
-                return "[语音]";
+                return "[audio]";
 
             case VIDEO:
-                return "[视频]";
+                return "[video]";
 
             case RTC:
-                return "[实时通话]";
+                return "[realtime]";
 
             case FILE:
-                return "[文件]";
+                return "[file]";
 
             case LOCATION:
-                return "[位置]";
+                return "[location]";
 
             case URL:
-                return "[链接]";
+                return "[link]";
 
             case CUSTOM:
-                return "[自定义消息]";
+                return "[custommsg]";
 
             case CARD:
-                return "[卡片消息]";
+                return "[cardmsg]";
 
             case RICH_TEXT:
-                return "[富文本]";
+                return "[richtext]";
 
             case MERGED:
-                return "[聊天记录]";
+                return "[chathistory]";
 
             default:
-                return "[未知消息类型]";
+                return "[unknown]";
         }
     }
 

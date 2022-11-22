@@ -103,7 +103,7 @@ public class NewFriendActivity extends AppCompatActivity {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(NewFriendActivity.this, "没有更多新朋友了", 1000);
+                ToastUtil.makeToast(NewFriendActivity.this, "No more new friend", 1000);
             }
         };
 

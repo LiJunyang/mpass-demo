@@ -233,7 +233,7 @@ public class SessionMemberListActivity extends AppCompatActivity {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(SessionMemberListActivity.this, "没有更多群成员了", 1000);
+                ToastUtil.makeToast(SessionMemberListActivity.this, "No more group member", 1000);
             }
         };
 

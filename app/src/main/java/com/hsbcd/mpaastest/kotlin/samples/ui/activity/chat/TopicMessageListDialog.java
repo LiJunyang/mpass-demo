@@ -224,7 +224,7 @@ public class TopicMessageListDialog extends BaseBottomSheetDialog {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast((Activity) context, "没有更多消息了", 1000);
+                ToastUtil.makeToast((Activity) context, "No more msg", 1000);
             }
         };
 

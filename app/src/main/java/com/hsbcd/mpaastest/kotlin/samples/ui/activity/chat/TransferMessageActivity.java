@@ -225,7 +225,7 @@ public class TransferMessageActivity extends AppCompatActivity {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(TransferMessageActivity.this, "没有更多会话了", 1000);
+                ToastUtil.makeToast(TransferMessageActivity.this, "No more chat", 1000);
             }
         };
 

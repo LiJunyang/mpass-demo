@@ -186,7 +186,7 @@ public class SelectAtUserDialog extends BaseBottomSheetDialog {
 
             @Override
             public void onNoNextPage() {
-                ToastUtil.makeToast(getActivity(), "没有更多群成员了", 1000);
+                ToastUtil.makeToast(getActivity(), "No more group member", 1000);
             }
         };
 
