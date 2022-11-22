@@ -99,13 +99,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
 
         switch (type) {
             case USER_NAME: {
-                binding.titleLabel.setText("修改名称");
+                binding.titleLabel.setText("Update Name");
                 binding.inputText.setText(UserCacheManager.getInstance().getCurrentUserInfo().getUserName());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 64) {
-                        ToastUtil.makeToast(this, "用户名称不能超过64个字符", 1000);
+                        ToastUtil.makeToast(this, "User Name should be less than 64", 1000);
                         return;
                     }
 
@@ -114,13 +114,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case USER_MARK: {
-                binding.titleLabel.setText("修改个性签名");
+                binding.titleLabel.setText("Update Personal Signature");
                 binding.inputText.setText(UserCacheManager.getInstance().getCurrentUserInfo().getMark());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 128) {
-                        ToastUtil.makeToast(this, "个性签名不能超过128个字符", 1000);
+                        ToastUtil.makeToast(this, "Personal signature should be less than 128", 1000);
                         return;
                     }
 
@@ -129,13 +129,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case GROUP_NICK_NAME: {
-                binding.titleLabel.setText("修改我在本群的昵称");
+                binding.titleLabel.setText("Update my nickname");
                 binding.inputText.setText(c.getGroup().getRelationOfMe().getUserNick());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 32) {
-                        ToastUtil.makeToast(this, "群昵称不能超过32个字符", 1000);
+                        ToastUtil.makeToast(this, "Nickname should be less than 32", 1000);
                         return;
                     }
 
@@ -144,13 +144,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case GROUP_MEMO: {
-                binding.titleLabel.setText("修改我对本群的备注");
+                binding.titleLabel.setText("Update group remark");
                 binding.inputText.setText(c.getGroup().getRelationOfMe().getUserMark());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 256) {
-                        ToastUtil.makeToast(this, "群备注不能超过256个字符", 1000);
+                        ToastUtil.makeToast(this, "Group remark should be less than 256", 1000);
                         return;
                     }
 
@@ -159,13 +159,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case GROUP_NAME: {
-                binding.titleLabel.setText("修改群名称");
+                binding.titleLabel.setText("Update group name");
                 binding.inputText.setText(c.getGroup().getName());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 128) {
-                        ToastUtil.makeToast(this, "群名称不能超过128个字符", 1000);
+                        ToastUtil.makeToast(this, "Group name should be less than 128", 1000);
                         return;
                     }
 
@@ -174,13 +174,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case GROUP_DESC: {
-                binding.titleLabel.setText("修改群介绍");
+                binding.titleLabel.setText("Update Group Intro");
                 binding.inputText.setText(c.getGroup().getRemark());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 1024) {
-                        ToastUtil.makeToast(this, "群介绍不能超过1024个字符", 1000);
+                        ToastUtil.makeToast(this, "Group intro should be less than 1024", 1000);
                         return;
                     }
 
@@ -189,13 +189,13 @@ public class UpdateTextSettingActivity extends AppCompatActivity {
                 break;
             }
             case GROUP_NOTICE: {
-                binding.titleLabel.setText("修改群公告");
+                binding.titleLabel.setText("Update group notice");
                 binding.inputText.setText(c.getGroup().getNotice());
 
                 binding.saveButton.setOnClickListener(v -> {
                     String text = binding.inputText.getText().toString();
                     if (text.length() > 1024) {
-                        ToastUtil.makeToast(this, "群公告不能超过1024个字符", 1000);
+                        ToastUtil.makeToast(this, "Group notice should be less than 1024", 1000);
                         return;
                     }
 
