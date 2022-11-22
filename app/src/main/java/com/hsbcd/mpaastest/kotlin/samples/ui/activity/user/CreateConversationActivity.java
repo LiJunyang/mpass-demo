@@ -58,7 +58,7 @@ public class CreateConversationActivity extends SelectUserListActivity {
     private void bindAction() {
         if (sessionType == ConversationTypeEnum.SINGLE) {
             binding.selectUserLayout.setVisibility(View.GONE);
-            binding.titleLabel.setText(sessionMode == SessionModeEnum.SECRET_CHAT ? "发起密聊" : "发起单聊");
+            binding.titleLabel.setText(sessionMode == SessionModeEnum.SECRET_CHAT ? "Secret Chat" : "1to1 Chat");
         } else if (sessionType == ConversationTypeEnum.GROUP) {
             binding.selectUserLayout.setVisibility(View.VISIBLE);
             binding.titleLabel.setText("Group Chat");
