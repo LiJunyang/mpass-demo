@@ -135,10 +135,10 @@ public class SessionItemHolder extends AbstractSessionItemHolder {
 
     private void renderTopMode() {
         if (c.isTopMode()) {
-            binding.setTop.setText("取消置顶");
+            binding.setTop.setText("Cancel Top");
             binding.setTopIcon.setVisibility(View.VISIBLE);
         } else {
-            binding.setTop.setText("置顶");
+            binding.setTop.setText("Top");
             binding.setTopIcon.setVisibility(View.GONE);
         }
     }

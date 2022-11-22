@@ -435,8 +435,8 @@ public class MessageViewModel extends ViewModel implements MessageListener {
     public void sendSimpleCardMessage() {
         AsyncExecutorService.getInstance().execute(() -> {
             MessageManager mm = MessageManager.getInstance();
-            CardMessageContent content = new CardMessageContent("卡片消息");
-            content.setTitle("测试");
+            CardMessageContent content = new CardMessageContent("Card Msg");
+            content.setTitle("Test");
             mm.sendSingleMessage(content, new CustomSendMessageCallback());
         });
     }
