@@ -67,10 +67,10 @@ public class SessionMemberListItemHolder extends BaseListItemHolder<SessionMembe
         GroupMemberRoleEnum role = GroupMemberRoleEnum.valueOf(member.getRole());
         switch (role) {
             case OWNER:
-                binding.role.setText("群主");
+                binding.role.setText("Owner");
                 break;
             case ADMIN:
-                binding.role.setText("群管理员");
+                binding.role.setText("Group Admin");
                 break;
             default:
                 binding.role.setText(StringUtils.EMPTY);

@@ -95,7 +95,7 @@ public class GroupChatSettingViewModel extends ChatSettingViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("查询群成员列表失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("Search group member list failed: %s/%s/%s", errorCode, message, t.getMessage());
                     PageDataResult<List<GroupRelation>> result = new PageDataResult(false, msg);
                     groupRelationListResult.postValue(result);
                 }
@@ -326,7 +326,7 @@ public class GroupChatSettingViewModel extends ChatSettingViewModel {
 
                         @Override
                         public void onError(String errorCode, String message, Throwable t) {
-                            String msg = String.format("移除群成员失败: %s/%s/%s", errorCode, message, t.getMessage());
+                            String msg = String.format("Remove group member failed: %s/%s/%s", errorCode, message, t.getMessage());
                             LiveDataResult result = new LiveDataResult(false, msg);
                             if (removeSelf) {
                                 leaveGroupResult.postValue(result);
@@ -352,7 +352,7 @@ public class GroupChatSettingViewModel extends ChatSettingViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("解散群聊失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("Destroy Group Failed: %s/%s/%s", errorCode, message, t.getMessage());
                     LiveDataResult result = new LiveDataResult(false, msg);
                     dismissGroupResult.postValue(result);
                 }
@@ -381,7 +381,7 @@ public class GroupChatSettingViewModel extends ChatSettingViewModel {
 
                 @Override
                 public void onError(String errorCode, String message, Throwable t) {
-                    String msg = String.format("转让群主失败: %s/%s/%s", errorCode, message, t.getMessage());
+                    String msg = String.format("Transfer Owner Failed: %s/%s/%s", errorCode, message, t.getMessage());
                     LiveDataResult result = new LiveDataResult(false, msg);
                     transferOwnerResult.postValue(result);
                 }
@@ -540,7 +540,7 @@ public class GroupChatSettingViewModel extends ChatSettingViewModel {
 
             @Override
             public void onError(String errorCode, String message, Throwable t) {
-                String msg = String.format("查询群设置失败: %s/%s/%s", errorCode, message, t.getMessage());
+                String msg = String.format("Query Group Setting Failed: %s/%s/%s", errorCode, message, t.getMessage());
                 LiveDataResult<GroupSetting> result = new LiveDataResult<GroupSetting>(false, msg);
                 groupSettingResult.postValue(result);
             }

@@ -112,7 +112,7 @@ public class SessionMemberListActivity extends AppCompatActivity {
 
         switch (opType) {
             case LIST_ALL_MEMBER: {
-                binding.titleLabel.setText("群成员");
+                binding.titleLabel.setText("Group Member");
 
                 if (GroupUtil.canModifyGroup(c)) {
                     binding.addMember.setVisibility(View.VISIBLE);
@@ -124,25 +124,25 @@ public class SessionMemberListActivity extends AppCompatActivity {
                 break;
             }
             case REMOVE_MEMBER: {
-                binding.titleLabel.setText("移除群成员");
+                binding.titleLabel.setText("Remove Group Member");
                 binding.selectMemberLayout.setVisibility(View.VISIBLE);
                 binding.confirmButton.setOnClickListener(v -> doRemoveGroupMember());
                 break;
             }
             case ADD_ADMIN: {
-                binding.titleLabel.setText("添加群管理员");
+                binding.titleLabel.setText("Add group admin");
                 binding.selectMemberLayout.setVisibility(View.VISIBLE);
                 binding.confirmButton.setOnClickListener(v -> doAddGroupAdmin());
                 break;
             }
             case ADD_MUTE_MEMBER: {
-                binding.titleLabel.setText("添加禁言成员");
+                binding.titleLabel.setText("Add forbidden member");
                 binding.selectMemberLayout.setVisibility(View.VISIBLE);
                 binding.confirmButton.setOnClickListener(v -> doAddGroupMuteMember());
                 break;
             }
             case TRANSFER_OWNER: {
-                binding.titleLabel.setText("选择转让对象");
+                binding.titleLabel.setText("Select transfer target");
                 break;
             }
             default:
@@ -154,9 +154,9 @@ public class SessionMemberListActivity extends AppCompatActivity {
         // 设置项更新完成后的通知
         groupChatSettingViewModel.getUpdateSettingResult().observe(this, result -> {
             if (result.isSuccess()) {
-                ToastUtil.makeToast(this, "更新成功", 1000);
+                ToastUtil.makeToast(this, "Update Success", 1000);
             } else {
-                ToastUtil.makeToast(this, "更新失败: " + result.getMessage(), 3000);
+                ToastUtil.makeToast(this, "Update failed: " + result.getMessage(), 3000);
             }
 
             super.onBackPressed();
@@ -203,7 +203,7 @@ public class SessionMemberListActivity extends AppCompatActivity {
     private void bindSelectItemViewModel() {
         selectItemViewModel.getSelectedItemResult().observe(this, result -> {
             int count = result.size();
-            binding.selectedMemberCount.setText(String.format("已选择：%d人", count));
+            binding.selectedMemberCount.setText(String.format("Select：%d ppl", count));
             binding.confirmButton.setEnabled(count > 0);
         });
     }
@@ -263,8 +263,8 @@ public class SessionMemberListActivity extends AppCompatActivity {
     private void onClickSingleMember(SessionMemberItem member) {
         // 如果是转让群主，则触发转让动作
         if (opType == SessionMemberListOpTypeEnum.TRANSFER_OWNER) {
-            AlertDialogFragment dialog = new AlertDialogFragment("确定要转让群主吗?",
-                    String.format("群主将转让给 ⌜%s⌟", member.getUserName()),
+            AlertDialogFragment dialog = new AlertDialogFragment("Sure to change ownership?",
+                    String.format("Owner transfer to ⌜%s⌟", member.getUserName()),
                     () -> groupChatSettingViewModel.transferOwner(c, member.getUserId()));
             dialog.show(getSupportFragmentManager(), "");
         }
