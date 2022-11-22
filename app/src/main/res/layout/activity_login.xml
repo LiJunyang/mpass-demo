@@ -21,7 +21,7 @@
 
     <EditText
             android:id="@+id/input_user_id"
-            android:hint="Pls input user ID，a1 - a6 is testable"
+            android:hint="Pls input user ID，a1 - a10 is testable"
             android:textSize="15sp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
