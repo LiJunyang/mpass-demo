@@ -214,9 +214,9 @@ public class GroupChatSettingActivity extends AppCompatActivity {
         // 设置项更新完成后的通知
         groupChatSettingViewModel.getUpdateSettingResult().observe(this, result -> {
             if (result.isSuccess()) {
-                ToastUtil.makeToast(this, "更新成功", 1000);
+                ToastUtil.makeToast(this, "Update Success", 1000);
             } else {
-                ToastUtil.makeToast(this, "更新失败: " + result.getMessage(), 3000);
+                ToastUtil.makeToast(this, "Update Failed: " + result.getMessage(), 3000);
             }
         });
 
