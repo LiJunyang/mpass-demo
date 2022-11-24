@@ -4,9 +4,13 @@
  */
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.login;
 
+import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
+
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,9 +28,11 @@ import com.hsbcd.mpaastest.kotlin.samples.model.ConnectionResult;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 import com.mpaas.nebula.adapter.api.MPNebula;
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.ut.device.UTDevice;
-
-import java.util.List;
 
 import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
 
@@ -43,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 
+    // IWXAPI 是第三方 app 和微信通信的 openApi 接口
+    private IWXAPI api;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         bindLoginViewModel();
+        regToWx();
     }
 
     @Override
@@ -71,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.btnLogon.setEnabled(false);
         binding.btnLogon.setOnClickListener(v -> onClickLogin());
+        binding.wechatGetTokenBtn.setOnClickListener(v->getWechatToken());
 
         binding.title.setOnClickListener(v -> {
             EnvSwitchDialog dialog = new EnvSwitchDialog(this);
@@ -97,6 +108,13 @@ public class LoginActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         });
+    }
+
+    private void getWechatToken() {
+        final SendAuth.Req req = new SendAuth.Req();
+        req.scope = "snsapi_userinfo";//,snsapi_friend,snsapi_message,snsapi_contact
+        req.state = "none";
+        api.sendReq(req);
     }
 
     private void onClickLogin() {
@@ -156,4 +174,21 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void regToWx() {
+        // 通过 WXAPIFactory 工厂，获取 IWXAPI 的实例
+        api = WXAPIFactory.createWXAPI(this, WX_APP_ID, true);
+
+        // 将应用的 appId 注册到微信
+        api.registerApp(WX_APP_ID);
+
+        //建议动态监听微信启动广播进行注册到微信
+        registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                // 将该 app 注册到微信
+                api.registerApp(WX_APP_ID);
+            }
+        }, new IntentFilter(ConstantsAPI.ACTION_REFRESH_WXAPP));
+    }
 }

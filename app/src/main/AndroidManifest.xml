@@ -42,8 +42,9 @@
     <queries>
         <!-- 用于检查是否安装了高德地图 -->
         <package android:name="com.autonavi.minimap" />
+        <!--指定微信包名-->
+        <package android:name="com.tencent.mm" />
     </queries>
-
     <application
         android:name="com.hsbcd.mpaastest.kotlin.samples.app.ImplusApplication"
         tools:replace="android:allowBackup"
@@ -152,6 +153,15 @@
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.insights.PlayerActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true"
+            android:taskAffinity="net.sourceforge.simcpux"
+            android:launchMode="singleTask">
+        </activity>
 
         <!-- 高德地图 -->
         <meta-data
