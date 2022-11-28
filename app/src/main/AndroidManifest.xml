@@ -76,7 +76,10 @@
             android:exported="true">
         </activity>
 
-
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.discover.PostDiscoverActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity"
             android:exported="false"

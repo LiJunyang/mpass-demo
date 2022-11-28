@@ -6,10 +6,12 @@ package com.hsbcd.mpaastest.kotlin.samples.ui.activity.home;
 
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -125,29 +127,62 @@ public class HomeActivity extends AppCompatActivity {
         setMeTabStyle(checked);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setDiscoverTabStyle(boolean checked) {
-        binding.discoverTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.discoverTabLabel, checked);
+        if(checked){
+            binding.discoverTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_discover_tab_active));
+        } else {
+            binding.discoverTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_discover_tab));
+        }
+        //setTextDrawableColor(binding.discoverTabLabel, checked);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setCommunityTabStyle(boolean checked) {
-        binding.communityTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.communityTabLabel, checked);
+
+        if(checked){
+            binding.communityTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_community_tab_active));
+        } else {
+            binding.communityTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_community_tab));
+        }
+//        binding.communityTabLabel.setTextColor(getTabColor(checked));
+//        setTextDrawableColor(binding.communityTabLabel, checked);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setChatTabStyle(boolean checked) {
-        binding.chatTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.chatTabLabel, checked);
+
+        if(checked){
+            binding.chatTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_chat_tab_active));
+        } else {
+            binding.chatTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_chat_tab));
+        }
+       // binding.chatTabLabel.setTextColor(getTabColor(checked));
+        //setTextDrawableColor(binding.chatTabLabel, checked);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setInsightsTabStyle(boolean checked) {
-        binding.insightsTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.insightsTabLabel, checked);
+
+        if(checked){
+            binding.insightsTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_insights_tab_active));
+        } else {
+            binding.insightsTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_insights_tab));
+        }
+       // binding.insightsTabLabel.setTextColor(getTabColor(checked));
+        //setTextDrawableColor(binding.insightsTabLabel, checked);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setMeTabStyle(boolean checked) {
-        binding.meTabLabel.setTextColor(getTabColor(checked));
-        setTextDrawableColor(binding.meTabLabel, checked);
+
+        if(checked){
+            binding.meTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_me_tab_active));
+        } else {
+            binding.meTabLabel.setImageDrawable(getDrawable(R.mipmap.bg_me_tab));
+        }
+       // binding.meTabLabel.setTextColor(getTabColor(checked));
+        //setTextDrawableColor(binding.meTabLabel, checked);
     }
 
     private void setTextDrawableColor(TextView textView, boolean checked) {

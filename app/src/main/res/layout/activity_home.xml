@@ -26,16 +26,13 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <ImageView
                 android:id="@+id/discover_tab_label"
-                android:text="Discover"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:drawableTop="@drawable/ic_me" />
+                android:background="@mipmap/bg_discover_tab"
+                android:gravity="center" />
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/community_tab_group"
@@ -43,16 +40,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <ImageView
                 android:id="@+id/community_tab_label"
-                android:text="Community"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:drawableTop="@drawable/ic_me" />
+                android:background="@mipmap/bg_community_tab"
+                android:gravity="center" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/community_tab_label"-->
+<!--                android:text="Community"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:drawablePadding="3dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="12sp"-->
+<!--                android:drawableTop="@drawable/ic_me" />-->
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/chat_tab_group"
@@ -60,16 +65,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <ImageView
                 android:id="@+id/chat_tab_label"
-                android:text="Chat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:drawableTop="@drawable/ic_message" />
+                android:background="@mipmap/bg_chat_tab"
+                android:gravity="center" />
+
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/insights_tab_group"
@@ -77,16 +80,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <ImageView
                 android:id="@+id/insights_tab_label"
-                android:text="Insights"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:drawableTop="@drawable/ic_me" />
+                android:background="@mipmap/bg_insights_tab"
+                android:gravity="center" />
+
         </RelativeLayout>
         <RelativeLayout
                 android:id="@+id/me_tab_group"
@@ -94,16 +95,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-            <TextView
-                    android:id="@+id/me_tab_label"
-                    android:text="Me"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:drawableTop="@drawable/ic_me" />
+
+            <ImageView
+                android:id="@+id/me_tab_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/bg_me_tab"
+                android:gravity="center" />
         </RelativeLayout>
     </LinearLayout>
 
