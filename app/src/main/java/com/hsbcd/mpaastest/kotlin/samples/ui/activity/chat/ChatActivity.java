@@ -63,7 +63,6 @@ import com.alipay.fc.ccmimplus.sdk.core.util.DateUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.MessageListAdapter;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.command.InputCustomCommandActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.emoji.EmojiInputView;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.location.LocationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.richtext.RichTextInputActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.url.InputUrlActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.voice.VoiceRecorder;
@@ -720,8 +719,8 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                     // 打开定位页面
-                    Intent intent = new Intent(this, LocationActivity.class);
-                    locationActivityLauncher.launch(intent);
+//                    Intent intent = new Intent(this, LocationActivity.class);
+//                    locationActivityLauncher.launch(intent);
                     needRefreshMessage = false;
                 });
 

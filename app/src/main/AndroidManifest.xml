@@ -58,6 +58,8 @@
         android:fullBackupContent="@xml/backup_rules"
         tools:targetApi="31"
         >
+        <meta-data android:name="nebula.android.meta.enable" android:value="true"/>
+        <meta-data android:name="UCSDKAppKey" android:value="CyXd1zZR1YAg8bJazh5kh1DQIkMjQstLwVQPcRrNW42DXYzTXgQXwQ2xHWev9SkhU/PcAuEEnGGsGf7hxzcD2w=="/>
         <activity android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -94,9 +96,9 @@
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.video.VideoPlayerActivity"
             android:exported="false" />
-        <activity
-            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.location.LocationActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.location.LocationActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.url.InputUrlActivity"
             android:exported="false" />
