@@ -10,6 +10,8 @@ import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.alibaba.fastjson.JSONObject
 import com.alipay.mobile.framework.quinoxless.QuinoxlessFramework
+import com.alipay.mobile.nebula.provider.H5AppCenterPresetProvider
+import com.alipay.mobile.nebula.util.H5Utils
 import com.google.android.exoplayer2.database.StandaloneDatabaseProvider
 import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
@@ -19,6 +21,7 @@ import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName
 import com.hsbcd.mpaastest.kotlin.samples.model.EnvInfo
 import com.hsbcd.mpaastest.kotlin.samples.model.TntInfo
 import com.hsbcd.mpaastest.kotlin.samples.util.ResourceUtil
+import com.mpaas.tinyappcommonres.TinyAppCenterPresetProvider
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 import java.io.File
@@ -122,8 +125,11 @@ class ImplusApplication : Application() {
     }
 
     private fun setupMpaas() {
-        QuinoxlessFramework.setup(this) {
-
+        QuinoxlessFramework.setup(this) { // 初始化小程序公共资源包
+            H5Utils.setProvider(
+                H5AppCenterPresetProvider::class.java.name,
+                TinyAppCenterPresetProvider()
+            )
         }
     }
 

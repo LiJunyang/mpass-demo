@@ -1,0 +1,10 @@
+[
+  {
+    "value": "NO",
+    "key": "h5_shouldverifyapp"
+  },
+  {
+    "value": "{\"config\":{\"al\":\"3\",\"pr\":{\"4\":\"86400\",\"common\":\"864000\"},\"ur\":\"1800\",\"fpr\":{\"common\":\"3888000\"}},\"switch\":\"yes\"}",
+    "key": "h5_nbmngconfig"
+  }
+]

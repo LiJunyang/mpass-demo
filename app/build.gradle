@@ -19,8 +19,8 @@ android {
 
         multiDexEnabled true
         ndk {
-            // 高德地图
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            // 高德地图 and liveshow
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64", "mips"
         }
     }
 
@@ -45,6 +45,7 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.debug
         }
 
         release {
@@ -52,6 +53,7 @@ android {
 //             shrinkResources true
 //             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -88,6 +90,7 @@ dependencies {
     implementation 'com.mpaas.android:scan'
     implementation 'com.mpaas.android:utdid'
     implementation 'com.mpaas.android:nebula'
+    implementation 'com.mpaas.android:tinyapp'
     testImplementation rootProject.ext.testDeps["junit"]
     androidTestImplementation rootProject.ext.testDeps["runner"]
     androidTestImplementation rootProject.ext.testDeps["espresso-core"]
@@ -113,9 +116,9 @@ dependencies {
 
     // 高德地图定位sdk
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.amap.api:map2d:latest.integration'
-    implementation 'com.amap.api:location:latest.integration'
-    implementation 'com.amap.api:search:latest.integration'
+//    implementation 'com.amap.api:map2d:6.0.0'
+//    implementation 'com.amap.api:location:6.1.0'
+//    implementation 'com.amap.api:search:9.2.0'
 
     implementation 'commons-io:commons-io:2.4'
 
@@ -136,4 +139,7 @@ dependencies {
     implementation 'io.github.lucksiege:pictureselector:v3.10.7'
 
 
+    implementation project(path: ':library')
+    implementation 'com.google.android.exoplayer:exoplayer:2.8.4'
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.8.4'
 }

@@ -1,12 +1,12 @@
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.insights
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cn.hsbcsd.mpaastest.databinding.FragmentInsightsBinding
+import com.mpaas.nebula.adapter.api.MPNebula
 
 class InsightsFragment : Fragment() {
     private lateinit var binding: FragmentInsightsBinding
@@ -27,10 +27,10 @@ class InsightsFragment : Fragment() {
 
     private fun initViewAndData(view: View, savedInstanceState: Bundle?) {
         binding.ivInsightsWatch01.setOnClickListener {
-            startActivity(Intent(requireActivity(), PlayerActivity::class.java).putExtra("number", "1"))
+            MPNebula.startApp("2222222222222222")
         }
         binding.ivInsightsWatch02.setOnClickListener {
-            startActivity(Intent(requireActivity(), PlayerActivity::class.java).putExtra("number", "2"))
+            MPNebula.startApp("3333333333333333")
         }
     }
 }

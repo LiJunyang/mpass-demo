@@ -20,4 +20,14 @@
             android:id="@+id/create_group_conversation"
             android:icon="@drawable/ic_create_group_conversation"
             android:title="Group" />
+
+
+    <item
+        android:id="@+id/start_live_show"
+        android:icon="@drawable/ic_create_group_conversation"
+        android:title="Live Show" />
+    <item
+        android:id="@+id/play_live_show"
+        android:icon="@drawable/ic_create_group_conversation"
+        android:title="See Show" />
 </menu>
