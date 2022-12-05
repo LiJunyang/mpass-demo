@@ -41,6 +41,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.AlertDialogFragment
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.NewFriendActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.PlayLiveShowActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.StartLiveShowActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
@@ -191,6 +192,13 @@ public class SessionFragment extends Fragment {
                     case R.id.start_live_show: {
                         ToastUtil.makeToast(getActivity(), "Test only, contact Leo to start server, only 1 liveshow accepted", 3000);
                         Intent intent = new Intent(getContext(), StartLiveShowActivity.class);
+                        this.startActivity(intent);
+                        break;
+                    }
+
+                    case R.id.play_live_show: {
+                        ToastUtil.makeToast(getActivity(), "You can see it only after someone start show.", 3000);
+                        Intent intent = new Intent(getContext(), PlayLiveShowActivity.class);
                         this.startActivity(intent);
                         break;
                     }

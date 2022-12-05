@@ -29,5 +29,5 @@
     <item
         android:id="@+id/play_live_show"
         android:icon="@drawable/ic_create_group_conversation"
-        android:title="See Live Show" />
+        android:title="See Show" />
 </menu>
