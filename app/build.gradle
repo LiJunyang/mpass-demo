@@ -19,8 +19,8 @@ android {
 
         multiDexEnabled true
         ndk {
-            // 高德地图
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            // 高德地图 and liveshow
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64", "mips"
         }
     }
 
@@ -136,4 +136,7 @@ dependencies {
     implementation "androidx.fragment:fragment:1.5.0"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':library')
+    implementation 'com.google.android.exoplayer:exoplayer:2.8.4'
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.8.4'
 }

@@ -2,6 +2,7 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
+        jcenter()
         mavenLocal()
         mavenCentral()
         maven { url 'https://jitpack.io' }
@@ -33,6 +34,9 @@ pluginManagement {
             allowInsecureProtocol = true
             url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Snapshot/'
             name 'alipay_snapshot'
+        }
+        maven {
+            url 'https://google.bintray.com/exoplayer/'
         }
         flatDir {
             dirs 'app/libs' //目录可变
@@ -44,6 +48,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        jcenter()
         mavenLocal()
         mavenCentral()
         maven { url 'https://jitpack.io' }
@@ -76,9 +81,12 @@ dependencyResolutionManagement {
             url 'http://mvn.test.alipay.net/artifactory/content/repositories/Alipay-Snapshot/'
             name 'alipay_snapshot'
         }
+        maven {
+            url 'https://google.bintray.com/exoplayer/'
+        }
         flatDir {
             dirs 'app/libs' //目录可变
         }
     }
 }
-include ':app', ':baselibs'
+include ':app', ':baselibs', ':library'
