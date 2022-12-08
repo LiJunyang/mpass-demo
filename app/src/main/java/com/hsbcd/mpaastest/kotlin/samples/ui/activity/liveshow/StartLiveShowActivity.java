@@ -36,7 +36,7 @@ public class StartLiveShowActivity extends AppCompatActivity implements RtmpHand
     private static final String TAG = "Video Chat";
     public final static int RC_CAMERA = 100;
 
-    private String rtmpUrl = "rtmp://iosjenkins.tk/live/liveshow";
+    private String rtmpUrl = "rtmp://61.140.113.234/live/liveshow";
     private String recPath = Environment.getExternalStorageDirectory().getPath() + "/test.mp4";
 
     private SrsPublisher mPublisher;
