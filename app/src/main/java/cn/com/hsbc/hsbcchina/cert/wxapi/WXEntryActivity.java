@@ -4,6 +4,7 @@ import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_SECRET;
 import static com.hsbcd.mpaastest.kotlin.samples.util.ExtensionsKt.applySchedulers;
+import static com.hsbcd.mpaastest.kotlin.samples.util.ExtensionsKt.md5;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -130,7 +131,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 //						NetworkUtil.getImage(handler, headimgurl, NetworkUtil.GET_IMG);
 						String encode;
 						encode = getcode(json.getString("nickname"));
-						nickname = new String(json.getString("nickname").getBytes(encode), "utf-8");
+						nickname = "test1"+new String(json.getString("nickname").getBytes(encode), "utf-8");
 						sex = json.getString("sex");
 						province = json.getString("province");
 						city = json.getString("city");
@@ -161,7 +162,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 		}
 
 		private void registerNewUser(String unionID, String nickname, String avatarUrl) {
-			RegisterRequest registerRequest = new RegisterRequest(unionID, nickname, avatarUrl,"","","","");
+			RegisterRequest registerRequest = new RegisterRequest(md5(unionID), nickname, avatarUrl,"18565374389","401808209@qq.com","I am cute","Test1 Lily Jy Li");
 			NFTApi apiService = NFTRetrofit.INSTANCE.getService();
 			Observable observable = apiService.register(registerRequest);
 			observable.compose(applySchedulers())
