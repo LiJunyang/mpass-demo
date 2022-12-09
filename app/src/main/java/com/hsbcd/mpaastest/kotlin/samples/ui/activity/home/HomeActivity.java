@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.me.MineViewModel;
 
-import cn.hsbcsd.mpaastest.R;
-import cn.hsbcsd.mpaastest.databinding.ActivityHomeBinding;
+import cn.com.hsbc.hsbcchina.cert.R;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityHomeBinding;
 
 
 /**

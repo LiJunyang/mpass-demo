@@ -29,7 +29,7 @@ ext {
     retrofit = [
             "retrofit"                : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             "retrofitConverterGson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
-            "retrofitAdapterRxjava2"  : "com.squareup.retrofit2:adapter-rxjava3:${dependVersion.retrofit}",
+            "retrofitAdapterRxjava3"  : "com.squareup.retrofit2:adapter-rxjava3:${dependVersion.retrofit}",
             "retrofitConverterMoshi"  : "com.squareup.retrofit2:converter-moshi:${dependVersion.retrofit}",
             "retrofitKotlinMoshi"     : "com.squareup.moshi:moshi-kotlin:${dependVersion.moshi}",
             "okhttp3LoggerInterceptor": 'com.squareup.okhttp3:logging-interceptor:4.9.0'

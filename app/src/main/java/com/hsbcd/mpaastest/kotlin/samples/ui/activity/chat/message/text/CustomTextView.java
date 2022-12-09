@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageReadStatusEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.model.User;

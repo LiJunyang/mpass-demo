@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;

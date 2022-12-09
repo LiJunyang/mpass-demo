@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.SessionMetaTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.enums.SessionMemberListOpTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;

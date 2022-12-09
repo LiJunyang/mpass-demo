@@ -1,6 +1,6 @@
-package cn.hsbcsd.mpaastest.Rx
+package cert.hsbcsd.mpaastest.Rx
 
-import cn.hsbcsd.mpaastest.Rx.scheduler.IoMainScheduler
+import cert.hsbcsd.mpaastest.Rx.scheduler.IoMainScheduler
 
 object SchedulerUtils {
 

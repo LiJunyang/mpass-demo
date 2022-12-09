@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import cn.hsbcsd.mpaastest.databinding.FragmentInsightsBinding
+import cn.com.hsbc.hsbcchina.cert.databinding.FragmentInsightsBinding
 
 class InsightsFragment : Fragment() {
     private lateinit var binding: FragmentInsightsBinding

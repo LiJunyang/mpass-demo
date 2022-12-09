@@ -20,8 +20,8 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.hsbcd.mpaastest.kotlin.samples.app.ImplusApplication;
 
-import cn.hsbcsd.mpaastest.R;
-import cn.hsbcsd.mpaastest.databinding.DialogEnvSwitchBinding;
+import cn.com.hsbc.hsbcchina.cert.R;
+import cn.com.hsbc.hsbcchina.cert.databinding.DialogEnvSwitchBinding;
 
 
 /**

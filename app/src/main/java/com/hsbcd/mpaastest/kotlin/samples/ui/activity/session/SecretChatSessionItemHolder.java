@@ -15,7 +15,7 @@ import com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.hsbcsd.mpaastest.databinding.FragmentSecretChatSessionItemBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.FragmentSecretChatSessionItemBinding;
 
 /**
  * 密聊会话列表项holder

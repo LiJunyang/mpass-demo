@@ -25,8 +25,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSONObject;
-import cn.hsbcsd.mpaastest.R;
-import cn.hsbcsd.mpaastest.databinding.MessageContainerBinding;
+import cn.com.hsbc.hsbcchina.cert.R;
+import cn.com.hsbc.hsbcchina.cert.databinding.MessageContainerBinding;
 
 import com.alipay.fc.ccmimplus.common.message.domain.MessageContentType;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.CardContent;

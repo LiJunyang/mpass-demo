@@ -20,7 +20,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseListItemHolder;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.hsbcsd.mpaastest.databinding.FragmentNewFriendItemBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.FragmentNewFriendItemBinding;
 
 /**
  * @author liyalong

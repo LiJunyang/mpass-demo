@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseListItemHolder;

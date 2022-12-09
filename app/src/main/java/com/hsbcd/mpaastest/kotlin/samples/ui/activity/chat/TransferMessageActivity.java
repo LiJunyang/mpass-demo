@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import cn.hsbcsd.mpaastest.R;
-import cn.hsbcsd.mpaastest.databinding.ActivityTransferMessageBinding;
+import cn.com.hsbc.hsbcchina.cert.R;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityTransferMessageBinding;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;

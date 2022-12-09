@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
-import cn.hsbcsd.mpaastest.databinding.ActivityGroupAdminSettingBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityGroupAdminSettingBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.SessionMemberListOpTypeEnum;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.group.GroupSetting;

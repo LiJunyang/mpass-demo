@@ -10,12 +10,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.alipay.fc.ccmimplus.common.service.facade.enums.MarkTargetEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
-import com.alipay.fc.ccmimplus.sdk.core.favorite.CollectType;
-import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SessionViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.util.CopyUtil;
@@ -25,7 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.hsbcsd.mpaastest.databinding.ActivityUserDetailBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityUserDetailBinding;
 
 /**
  * 用户详情

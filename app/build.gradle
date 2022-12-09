@@ -10,7 +10,7 @@ plugins {
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "cn.hsbcsd.mpaastest"
+        applicationId "cn.com.hsbc.hsbcchina.cert"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -31,14 +31,22 @@ android {
             storeFile file('keystore/mpaas_keystore.jks')
             storePassword 'mpass123'
         }
+//        debug {
+//            keyAlias 'mpaas123'
+//            keyPassword 'mpaas123'
+//            storeFile file('keystore/mpaas_keystore.jks')
+//            storePassword 'mpaas123'
+//            v1SigningEnabled true
+//            v2SigningEnabled true
+//
+//        }
         debug {
-            keyAlias 'mpaas123'
-            keyPassword 'mpaas123'
-            storeFile file('keystore/mpaas_keystore.jks')
-            storePassword 'mpaas123'
+            keyAlias 'battlecat'
+            keyPassword 'battlecat'
+            storeFile file('keystore/dev-keystore.jks')
+            storePassword 'battlecat'
             v1SigningEnabled true
             v2SigningEnabled true
-
         }
     }
 
@@ -113,9 +121,9 @@ dependencies {
 
     // 高德地图定位sdk
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.amap.api:map2d:latest.integration'
-    implementation 'com.amap.api:location:latest.integration'
-    implementation 'com.amap.api:search:latest.integration'
+//    implementation 'com.amap.api:map2d:latest.integration'
+//    implementation 'com.amap.api:location:latest.integration'
+//    implementation 'com.amap.api:search:latest.integration'
 
     implementation 'commons-io:commons-io:2.4'
 
@@ -133,5 +141,6 @@ dependencies {
     implementation "androidx.fragment:fragment:1.5.0"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    api 'com.tencent.mm.opensdk:wechat-sdk-android:+'
+    api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.18'
+    implementation 'com.uber.autodispose2:autodispose-androidx-lifecycle:2.1.1'
 }

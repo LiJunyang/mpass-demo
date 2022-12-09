@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cn.hsbcsd.mpaastest.R
+import cn.com.hsbc.hsbcchina.cert.R
 import com.alipay.android.phone.scancode.export.ScanRequest
 import com.alipay.android.phone.scancode.export.adapter.MPScan
 import com.alipay.android.phone.scancode.export.adapter.MPScanCallbackAdapter

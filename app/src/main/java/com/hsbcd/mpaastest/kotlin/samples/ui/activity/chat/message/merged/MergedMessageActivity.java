@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageDeleteStatusEnum;
-import cn.hsbcsd.mpaastest.databinding.ActivityMergedMessageBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityMergedMessageBinding;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.MessageViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;

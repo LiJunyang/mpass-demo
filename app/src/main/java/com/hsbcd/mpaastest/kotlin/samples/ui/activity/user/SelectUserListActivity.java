@@ -20,7 +20,7 @@ import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
 import java.util.Collection;
 
-import cn.hsbcsd.mpaastest.databinding.ActivitySelectUserListBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivitySelectUserListBinding;
 
 /**
  * 选择用户列表类页面的基类

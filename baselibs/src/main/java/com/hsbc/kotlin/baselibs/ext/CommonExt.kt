@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import android.view.View
 import android.widget.Checkable
 import android.widget.TextView
-import cn.hsbcsd.mpaastest.libs.R
+import cn.com.hsbc.hsbcchina.cert.R
 import com.hsbc.kotlin.baselibs.config.AppConfig
 import com.hsbc.kotlin.baselibs.utils.NLog
 import com.hsbc.kotlin.baselibs.widget.CustomToast

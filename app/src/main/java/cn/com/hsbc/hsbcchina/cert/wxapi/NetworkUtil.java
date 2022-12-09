@@ -1,4 +1,4 @@
-package cn.hsbcsd.mpaastest.uikit;
+package cn.com.hsbc.hsbcchina.cert.wxapi;
 
 import android.os.Bundle;
 import android.os.Handler;

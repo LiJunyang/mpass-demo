@@ -52,7 +52,7 @@ import com.alipay.fc.ccmimplus.sdk.core.util.UrlUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.UserCacheManager;
 import com.hsbcd.mpaastest.kotlin.samples.util.ConnectionUtil;
 import com.hsbcd.mpaastest.kotlin.samples.util.MessageUtil;
-import com.amap.api.location.AMapLocation;
+//import com.amap.api.location.AMapLocation;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -391,11 +391,11 @@ public class MessageViewModel extends ViewModel implements MessageListener {
                 MessageManager.getInstance().sendFileMessage(file, file.getName(), new CustomSendMessageCallback()));
     }
 
-    public void sendLocationMessage(File snapshotFile, AMapLocation location) {
-        AlipayCcmIMClient.getInstance().executeAsync(() ->
-                MessageManager.getInstance().sendLocationMessage(snapshotFile, location.getLatitude(),
-                        location.getLongitude(), location.getAddress(), null, null, new CustomSendMessageCallback()));
-    }
+//    public void sendLocationMessage(File snapshotFile, AMapLocation location) {
+//        AlipayCcmIMClient.getInstance().executeAsync(() ->
+//                MessageManager.getInstance().sendLocationMessage(snapshotFile, location.getLatitude(),
+//                        location.getLongitude(), location.getAddress(), null, null, new CustomSendMessageCallback()));
+//    }
 
     public void sendUrlMessage(String title, String url) {
         AlipayCcmIMClient.getInstance().executeAsync(() ->

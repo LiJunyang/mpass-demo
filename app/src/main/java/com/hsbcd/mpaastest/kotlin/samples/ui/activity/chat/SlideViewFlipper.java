@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.ViewFlipper;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 
 /**

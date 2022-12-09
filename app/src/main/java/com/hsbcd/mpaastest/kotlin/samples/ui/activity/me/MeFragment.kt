@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import cn.hsbcsd.mpaastest.databinding.FragmentMeBinding
+import cn.com.hsbc.hsbcchina.cert.databinding.FragmentMeBinding
 
 /**
  * 我的信息tab页

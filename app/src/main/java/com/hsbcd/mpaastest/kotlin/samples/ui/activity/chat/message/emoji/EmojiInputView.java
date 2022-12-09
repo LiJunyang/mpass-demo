@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-import cn.hsbcsd.mpaastest.databinding.EmojiInputBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.EmojiInputBinding;
 
 
 /**

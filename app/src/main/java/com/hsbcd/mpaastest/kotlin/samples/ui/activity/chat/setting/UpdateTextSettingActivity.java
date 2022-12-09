@@ -12,8 +12,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import cn.hsbcsd.mpaastest.R;
-import cn.hsbcsd.mpaastest.databinding.ActivityUpdateTextSettingBinding;
+import cn.com.hsbc.hsbcchina.cert.R;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityUpdateTextSettingBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.UpdateTextSettingTypeEnum;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;

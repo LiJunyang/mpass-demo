@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import cn.hsbcsd.mpaastest.databinding.DialogTopicMessageListBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.DialogTopicMessageListBinding;
 
 /**
  * 话题(引用回复)消息列表对话框

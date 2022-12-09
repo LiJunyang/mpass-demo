@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import cn.hsbcsd.mpaastest.R;
+import cn.com.hsbc.hsbcchina.cert.R;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import com.alipay.fc.ccmimplus.sdk.core.config.face.FaceIconEmoji;
 import com.alipay.fc.ccmimplus.sdk.core.config.face.FaceIconManager;

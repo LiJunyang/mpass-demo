@@ -9,7 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import cn.hsbcsd.mpaastest.databinding.InstantReplyEmojiItemBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.InstantReplyEmojiItemBinding;
 import com.hsbcd.mpaastest.kotlin.samples.model.InstantReplyEmojiItem;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.ChatActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseListItemHolder;

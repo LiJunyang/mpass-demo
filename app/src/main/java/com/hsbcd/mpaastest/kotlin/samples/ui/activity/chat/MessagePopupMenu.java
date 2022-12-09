@@ -25,7 +25,7 @@ import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
 import java.util.Arrays;
 
-import cn.hsbcsd.mpaastest.databinding.PopupMessageBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.PopupMessageBinding;
 
 /**
  * 单条消息长按后的弹窗菜单

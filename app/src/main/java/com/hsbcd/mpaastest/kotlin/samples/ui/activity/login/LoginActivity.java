@@ -4,6 +4,7 @@
  */
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.login;
 
+import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
 
 import android.app.Activity;
@@ -34,7 +35,8 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.ut.device.UTDevice;
 
-import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
+import cn.com.hsbc.hsbcchina.cert.databinding.ActivityLoginBinding;
+import kotlin.text.StringsKt;
 
 
 /**
@@ -64,6 +66,15 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         bindLoginViewModel();
         regToWx();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String unionID = intent.getStringExtra(WX_UNION_ID);
+        if (!StringsKt.isBlank(unionID)){
+            loginViewModel.login(LoginActivity.this, unionID);
+        }
     }
 
     @Override
