@@ -5,6 +5,7 @@ import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_SECRET;
 import static com.hsbcd.mpaastest.kotlin.samples.util.ExtensionsKt.applySchedulers;
 import static com.hsbcd.mpaastest.kotlin.samples.util.ExtensionsKt.md5;
+import static com.hsbcd.mpaastest.kotlin.samples.util.SessionUtilKt.saveUnionID;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,11 +15,15 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTApi;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTRetrofit;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterRequest;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterResponse;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.RegisterNavigationCallbackImpl;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.register.RegisterActivity;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -175,6 +180,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 						@Override
 						public void onNext(@NonNull RegisterResponse registerResponse) {
 							Log.i(TAG, "success, registerResponse is "+registerResponse);
+							saveUnionID(registerRequest.getUserId());
 							wxEntryActivityWeakReference.get().gotoLogin(registerRequest.getUserId());
 						}
 
@@ -326,7 +332,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 	}
 
 	private void gotoLogin(String unionID){
-		Intent intent = new Intent(this, LoginActivity.class);
+		Intent intent = new Intent(this, RegisterActivity.class);
 		intent.putExtra(WX_UNION_ID, unionID);
 		startActivity(intent);
 		finish();

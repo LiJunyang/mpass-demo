@@ -12,3 +12,9 @@ object Constant{
     const val WX_UNION_ID= "unionID"
 
 }
+
+object ARouterPath {
+    const val  register = "/hsbcnft/register"
+    const val  login = "/hsbcnft/login"
+    const val  home = "/hsbcnft/home"
+}

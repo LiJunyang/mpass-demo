@@ -13,6 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.me.MineViewModel;
 
 import cn.com.hsbc.hsbcchina.cert.R;
@@ -25,6 +28,7 @@ import cn.com.hsbc.hsbcchina.cert.databinding.ActivityHomeBinding;
  * @author liyalong
  * @version HomeActivity.java, v 0.1 2022年07月28日 23:05 liyalong
  */
+@Route(path = ARouterPath.home)
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
@@ -34,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ARouter.getInstance().inject(this);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

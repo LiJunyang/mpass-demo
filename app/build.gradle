@@ -6,7 +6,11 @@ plugins {
     id 'com.alipay.apollo.baseline.config'
 
 }
-
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -21,6 +25,12 @@ android {
         ndk {
             // 高德地图
             abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
         }
     }
 
@@ -143,4 +153,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.18'
     implementation 'com.uber.autodispose2:autodispose-androidx-lifecycle:2.1.1'
+    kapt "com.alibaba:arouter-compiler:${dependVersion.arouter}"
 }
