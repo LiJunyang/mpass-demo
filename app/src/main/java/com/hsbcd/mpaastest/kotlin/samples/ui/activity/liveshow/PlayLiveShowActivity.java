@@ -59,7 +59,7 @@ public class PlayLiveShowActivity extends AppCompatActivity {
 //        Log.e("filepath: ", filepath);
 //        Uri videoUri = Uri.parse(filepath);
 //        // Build the media item.
-        MediaItem mediaItem = MediaItem.fromUri("http://iosjenkins.tk:8080/live/liveshow.flv");
+        MediaItem mediaItem = MediaItem.fromUri("http://61.140.113.234:8080/live/liveshow.flv");
         // Set the media item to be played.
         player.setMediaItem(mediaItem);
 
