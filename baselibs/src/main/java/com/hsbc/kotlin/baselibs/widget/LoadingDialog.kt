@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.Gravity
 import android.view.View
-import cn.com.hsbc.hsbcchina.cert.R
+import cn.hsbcsd.mpaastest.R
 import com.github.ybq.android.spinkit.style.Wave
 import kotlinx.android.synthetic.main.layout_loading_dialog.*
 

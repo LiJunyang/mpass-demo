@@ -11,7 +11,7 @@ import android.text.TextWatcher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityInputCustomCommandBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityInputCustomCommandBinding;
 
 /**
  * 输入自定义命令页

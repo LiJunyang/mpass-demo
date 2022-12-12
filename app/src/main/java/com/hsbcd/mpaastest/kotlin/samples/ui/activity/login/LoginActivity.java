@@ -5,13 +5,10 @@
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.login;
 
 import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
-import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -33,13 +30,9 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.SessionUtilKt;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 import com.mpaas.nebula.adapter.api.MPNebula;
-import com.tencent.mm.opensdk.constants.ConstantsAPI;
-import com.tencent.mm.opensdk.modelmsg.SendAuth;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.ut.device.UTDevice;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityLoginBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
 import kotlin.text.StringsKt;
 
 

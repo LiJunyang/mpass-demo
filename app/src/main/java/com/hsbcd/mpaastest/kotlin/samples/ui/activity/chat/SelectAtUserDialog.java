@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.hsbcd.mpaastest.kotlin.samples.converter.SessionMemberConverter;
-import cn.com.hsbc.hsbcchina.cert.databinding.DialogSelectAtUserBinding;
+import cn.hsbcsd.mpaastest.databinding.DialogSelectAtUserBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.SessionMemberListOpTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;

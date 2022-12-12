@@ -9,8 +9,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.R;
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityVideoPlayerBinding;
+import cn.hsbcsd.mpaastest.R;
+import cn.hsbcsd.mpaastest.databinding.ActivityVideoPlayerBinding;
 import com.hsbcd.mpaastest.kotlin.samples.app.ImplusApplication;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayer;

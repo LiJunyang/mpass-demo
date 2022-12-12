@@ -13,7 +13,7 @@ import com.alipay.fc.ccmimplus.common.message.domain.MessageContentType;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.CustomContent;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageOfSystemBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageOfSystemBinding;
 
 /**
  * 系统消息holder

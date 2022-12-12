@@ -8,8 +8,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 
-import cn.com.hsbc.hsbcchina.cert.R;
-import cn.com.hsbc.hsbcchina.cert.databinding.DialogVoiceRecordingBinding;
+import cn.hsbcsd.mpaastest.R;
+import cn.hsbcsd.mpaastest.databinding.DialogVoiceRecordingBinding;
 
 import java.util.Timer;
 import java.util.TimerTask;

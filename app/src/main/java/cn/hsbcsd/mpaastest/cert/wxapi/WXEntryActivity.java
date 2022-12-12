@@ -1,4 +1,4 @@
-package cn.com.hsbc.hsbcchina.cert.wxapi;
+package cn.hsbcsd.mpaastest.cert.wxapi;
 
 import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
@@ -15,14 +15,10 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTApi;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTRetrofit;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterRequest;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterResponse;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.RegisterNavigationCallbackImpl;
-import com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.register.RegisterActivity;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -42,16 +38,12 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
-import java.util.List;
 
-import cn.com.hsbc.hsbcchina.cert.R;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import cn.hsbcsd.mpaastest.R;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 	private static String TAG = "MicroMsg.WXEntryActivity";

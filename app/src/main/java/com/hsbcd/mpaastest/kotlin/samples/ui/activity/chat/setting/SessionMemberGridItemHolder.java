@@ -11,9 +11,9 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
-import cn.com.hsbc.hsbcchina.cert.databinding.SessionMemberGridItemBinding;
+import cn.hsbcsd.mpaastest.databinding.SessionMemberGridItemBinding;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;
 import com.alipay.fc.ccmimplus.sdk.core.enums.GroupMemberRoleEnum;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.UserDetailActivity;

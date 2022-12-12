@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;

@@ -1,19 +1,9 @@
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.location;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.WindowManager;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 //import cn.com.hsbc.hsbcchina.cert.databinding.ActivityLocationBinding;
-import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
-import com.alipay.fc.ccmimplus.sdk.core.util.ImageUtils;
-import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 //import com.amap.api.location.AMapLocation;
 //import com.amap.api.location.AMapLocationClient;
 //import com.amap.api.location.AMapLocationClientOption;
@@ -34,7 +24,6 @@ import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 //import com.amap.api.services.geocoder.RegeocodeQuery;
 //import com.amap.api.services.geocoder.RegeocodeResult;
 
-import java.io.File;
 
 /**
  * 选择位置页(基于高德定位sdk)

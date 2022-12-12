@@ -8,7 +8,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageOfTopicOriginalBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageOfTopicOriginalBinding;
 
 /**
  * 话题原始消息列表项

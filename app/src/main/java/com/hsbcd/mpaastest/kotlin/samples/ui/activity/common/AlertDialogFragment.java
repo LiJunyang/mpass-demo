@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.DialogAlertBinding;
+import cn.hsbcsd.mpaastest.databinding.DialogAlertBinding;
 
 /**
  * 自定义样式的警告弹框

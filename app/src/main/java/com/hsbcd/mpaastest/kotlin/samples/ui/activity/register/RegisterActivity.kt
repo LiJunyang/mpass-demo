@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityRegisterBinding
+import cn.hsbcsd.mpaastest.databinding.ActivityRegisterBinding
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath

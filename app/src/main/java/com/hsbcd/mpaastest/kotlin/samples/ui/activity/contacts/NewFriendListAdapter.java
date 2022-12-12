@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.GoodFriendVO;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseListAdapter;
 

@@ -19,7 +19,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import com.alipay.fc.ccmimplus.sdk.core.config.face.FaceIconEmoji;
 import com.hsbcd.mpaastest.kotlin.samples.util.ImageUtil;

@@ -22,7 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityUserDetailBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityUserDetailBinding;
 
 /**
  * 用户详情

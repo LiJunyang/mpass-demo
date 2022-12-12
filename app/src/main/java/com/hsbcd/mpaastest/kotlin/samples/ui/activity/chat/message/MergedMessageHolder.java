@@ -7,7 +7,7 @@ package com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message;
 import android.content.Context;
 import android.view.View;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageOfMergedBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageOfMergedBinding;
 
 /**
  * 合并转发消息列表项

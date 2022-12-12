@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import android.view.*
-import cn.com.hsbc.hsbcchina.cert.R
+import cn.hsbcsd.mpaastest.R
 import com.hsbc.kotlin.baselibs.widget.OnNoDoubleClickListener
 import kotlinx.android.synthetic.main.dialog_permission.view.*
 

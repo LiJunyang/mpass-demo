@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.SelectSessionViewModel;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.FragmentSelectSessionItemBinding;
+import cn.hsbcsd.mpaastest.databinding.FragmentSelectSessionItemBinding;
 
 /**
  * 用于选择的会话列表项holder

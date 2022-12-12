@@ -5,7 +5,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import cn.com.hsbc.hsbcchina.cert.R
+import cn.hsbcsd.mpaastest.R
 
 /**
  * 自定义Toast

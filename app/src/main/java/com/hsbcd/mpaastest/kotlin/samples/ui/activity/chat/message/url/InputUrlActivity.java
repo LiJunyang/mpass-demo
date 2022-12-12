@@ -11,7 +11,7 @@ import android.text.TextWatcher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityInputUrlBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityInputUrlBinding;
 import com.alipay.fc.ccmimplus.sdk.core.util.UrlUtils;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 

@@ -24,8 +24,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import cn.com.hsbc.hsbcchina.cert.R;
-import cn.com.hsbc.hsbcchina.cert.databinding.FragmentSessionListBinding;
+import cn.hsbcsd.mpaastest.R;
+import cn.hsbcsd.mpaastest.databinding.FragmentSessionListBinding;
 
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.CustomContent;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;

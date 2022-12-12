@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityAddNewFriendBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityAddNewFriendBinding;
 
 /**
  * 添加好友页

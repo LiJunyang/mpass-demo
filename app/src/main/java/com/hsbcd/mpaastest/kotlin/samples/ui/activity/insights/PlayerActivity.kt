@@ -3,8 +3,8 @@ package com.hsbcd.mpaastest.kotlin.samples.ui.activity.insights
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import cn.com.hsbc.hsbcchina.cert.R
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityPlayerBinding
+import cn.hsbcsd.mpaastest.R
+import cn.hsbcsd.mpaastest.databinding.ActivityPlayerBinding
 
 class PlayerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPlayerBinding

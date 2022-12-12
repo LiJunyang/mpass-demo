@@ -1,8 +1,8 @@
 package com.hsbcd.mpaastest.kotlin.samples.constants
 
 object WeChat{
-    const val WX_APP_ID = "wx26d99ceb364dca11"
-    const val WX_APP_SECRET = "c4446703d0ae08ab003b7b20bef4efbe"
+    const val WX_APP_ID = "wxd479c79d825ddb84"
+    const val WX_APP_SECRET = "ea447b2a440a395b2750aecc2c932ec0"
 }
 
 object Constant{

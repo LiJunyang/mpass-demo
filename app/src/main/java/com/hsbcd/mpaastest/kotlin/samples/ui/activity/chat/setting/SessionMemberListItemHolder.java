@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.hsbcd.mpaastest.kotlin.samples.converter.SessionMemberConverter;
-import cn.com.hsbc.hsbcchina.cert.databinding.SessionMemberListItemBinding;
+import cn.hsbcsd.mpaastest.databinding.SessionMemberListItemBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.SessionMemberListOpTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;
 import com.alipay.fc.ccmimplus.sdk.core.enums.GroupMemberRoleEnum;

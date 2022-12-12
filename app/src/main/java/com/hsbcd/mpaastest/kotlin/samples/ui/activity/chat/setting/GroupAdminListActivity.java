@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import com.hsbcd.mpaastest.kotlin.samples.converter.SessionMemberConverter;
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityGroupAdminListBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityGroupAdminListBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.SessionMemberListOpTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;

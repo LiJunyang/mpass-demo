@@ -8,7 +8,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageSecretChatNotifyBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageSecretChatNotifyBinding;
 
 /**
  * 密聊会话提示信息

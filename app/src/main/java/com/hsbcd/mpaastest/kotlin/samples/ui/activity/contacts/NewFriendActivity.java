@@ -15,7 +15,7 @@ import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityNewFriendBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityNewFriendBinding;
 
 /**
  * 新的朋友

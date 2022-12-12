@@ -22,7 +22,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListe
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivitySecretChatSessionListBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivitySecretChatSessionListBinding;
 
 /**
  * 密聊会话列表页

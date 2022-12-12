@@ -10,14 +10,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.message.domain.MessageContentType;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageRiskTypeEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageSendStatusEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.MessageReadUnReadStatusVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageOfMeBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageOfMeBinding;
 import com.hsbcd.mpaastest.kotlin.samples.model.MediaSendingProgress;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.client.ImProgressCallback;

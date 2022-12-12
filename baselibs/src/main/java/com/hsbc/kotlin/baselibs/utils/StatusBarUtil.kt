@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
-import cn.com.hsbc.hsbcchina.cert.R
+import cn.hsbcsd.mpaastest.R
 
 /**
  * 沉浸式状态栏工具类

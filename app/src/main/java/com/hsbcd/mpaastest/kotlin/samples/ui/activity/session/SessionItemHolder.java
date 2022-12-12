@@ -31,7 +31,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.FragmentSessionItemBinding;
+import cn.hsbcsd.mpaastest.databinding.FragmentSessionItemBinding;
 
 /**
  * 会话列表项holder

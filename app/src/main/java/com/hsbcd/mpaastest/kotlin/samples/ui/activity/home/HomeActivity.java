@@ -18,8 +18,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.me.MineViewModel;
 
-import cn.com.hsbc.hsbcchina.cert.R;
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityHomeBinding;
+import cn.hsbcsd.mpaastest.R;
+import cn.hsbcsd.mpaastest.databinding.ActivityHomeBinding;
 
 
 /**

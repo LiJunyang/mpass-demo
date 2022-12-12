@@ -20,7 +20,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.SelectUserListActivit
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.FragmentSelectUsersItemBinding;
+import cn.hsbcsd.mpaastest.databinding.FragmentSelectUsersItemBinding;
 
 /**
  * @author liyalong

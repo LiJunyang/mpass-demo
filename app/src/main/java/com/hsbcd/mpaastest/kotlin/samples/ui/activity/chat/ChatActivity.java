@@ -29,7 +29,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alibaba.fastjson.JSONObject;
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.InstantReplyFaceContent;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.InstantReplyFaceInfo;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
@@ -46,7 +46,7 @@ import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageSendStatusEnum
 import com.alipay.fc.ccmimplus.common.service.facade.model.User;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityChatBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityChatBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.CustomCommandMessageTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.enums.CustomMessageTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.MediaSendingProgress;

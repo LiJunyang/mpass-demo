@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.SessionMetaTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import com.hsbcd.mpaastest.kotlin.samples.converter.SessionMemberConverter;
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityGroupChatSettingBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityGroupChatSettingBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.UpdateTextSettingTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.model.SessionMemberItem;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;

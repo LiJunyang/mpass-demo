@@ -16,11 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageReadStatusEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.MessageReadUnReadStatusVO;
-import cn.com.hsbc.hsbcchina.cert.databinding.DialogMessageReadStatusBinding;
+import cn.hsbcsd.mpaastest.databinding.DialogMessageReadStatusBinding;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BaseBottomSheetDialog;

@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import cn.com.hsbc.hsbcchina.cert.databinding.ActivityRichTextInputBinding;
+import cn.hsbcsd.mpaastest.databinding.ActivityRichTextInputBinding;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
 import org.apache.commons.lang3.StringUtils;

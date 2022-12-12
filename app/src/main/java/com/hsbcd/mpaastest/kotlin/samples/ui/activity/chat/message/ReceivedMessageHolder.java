@@ -8,11 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import cn.com.hsbc.hsbcchina.cert.R;
+import cn.hsbcsd.mpaastest.R;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
-import cn.com.hsbc.hsbcchina.cert.databinding.MessageOfOtherBinding;
+import cn.hsbcsd.mpaastest.databinding.MessageOfOtherBinding;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.client.ImCallback;
 import com.alipay.fc.ccmimplus.sdk.core.conversation.ConversationManager;
