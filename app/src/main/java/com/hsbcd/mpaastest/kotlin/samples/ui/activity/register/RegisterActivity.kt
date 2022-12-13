@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import cn.hsbcsd.mpaastest.databinding.ActivityRegisterBinding
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -41,10 +42,13 @@ class RegisterActivity: AppCompatActivity(){
         super.onNewIntent(intent)
         val unionID = intent?.getStringExtra(WX_UNION_ID)
         unionID?.isNotEmpty().let {
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.putExtra(WX_UNION_ID, unionID)
-            startActivity(intent)
-            finish()
+            binding.gotNft.setOnClickListener(){
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.putExtra(WX_UNION_ID, unionID)
+                startActivity(intent)
+                finish()
+            }
+            binding.gotNft.visibility = View.VISIBLE
         }
     }
 

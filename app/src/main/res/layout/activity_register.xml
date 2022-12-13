@@ -3,26 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/whole"
     tools:context="com.hsbcd.mpaastest.kotlin.samples.ui.activity.splash.SplashActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-
-        <TextView
-            android:id="@+id/register_title"
+        android:id="@+id/whole"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nft_register"
-            android:textSize="25sp" />
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/register_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nft_register"
+                android:textSize="25sp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/register_title"
-            android:layout_toRightOf="@id/register_title"
-            android:src="@mipmap/wechat" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/register_title"
+                android:layout_toRightOf="@id/register_title"
+                android:src="@mipmap/wechat" />
+
+        </RelativeLayout>
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/gotNft"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/bg_got_nft"
+        android:visibility="gone"/>
 </RelativeLayout>
