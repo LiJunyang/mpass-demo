@@ -33,7 +33,7 @@ class RegisterActivity: AppCompatActivity(){
         ARouter.getInstance().inject(this)
         setContentView(binding.root)
         regToWx()
-        binding.whole.setOnClickListener {
+        binding.wechat.setOnClickListener {
             getWechatToken()
         }
     }
