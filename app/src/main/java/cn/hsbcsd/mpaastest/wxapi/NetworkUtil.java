@@ -1,4 +1,4 @@
-package cn.hsbcsd.mpaastest.cert.wxapi;
+package cn.hsbcsd.mpaastest.wxapi;
 
 import android.os.Bundle;
 import android.os.Handler;

@@ -1,4 +1,4 @@
-package cn.hsbcsd.mpaastest.cert.wxapi;
+package cn.hsbcsd.mpaastest.wxapi;
 
 import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
 import static com.hsbcd.mpaastest.kotlin.samples.constants.WeChat.WX_APP_ID;
@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTApi;
 import com.hsbcd.mpaastest.kotlin.samples.http.NFTRetrofit;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterRequest;
+import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RequestBody;
 import com.hsbcd.mpaastest.kotlin.samples.http.model.nft.RegisterResponse;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.register.RegisterActivity;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
@@ -38,6 +39,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 import cn.hsbcsd.mpaastest.R;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -159,9 +161,12 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 		}
 
 		private void registerNewUser(String unionID, String nickname, String avatarUrl) {
-			RegisterRequest registerRequest = new RegisterRequest(md5(unionID), nickname, avatarUrl,"","","",nickname);
+			RequestBody requestBody = new RequestBody(md5(unionID), nickname, avatarUrl,"","","",nickname);
+			RegisterRequest registerRequest = new RegisterRequest(requestBody);
 			NFTApi apiService = NFTRetrofit.INSTANCE.getService();
-			Observable observable = apiService.register(registerRequest);
+			ArrayList request = new ArrayList<>();
+			request.add(registerRequest);
+			Observable observable = apiService.register(request);
 			observable.compose(applySchedulers())
 					.subscribe(new Observer<RegisterResponse>() {
 						@Override
@@ -172,8 +177,9 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 						@Override
 						public void onNext(@NonNull RegisterResponse registerResponse) {
 							Log.i(TAG, "success, registerResponse is "+registerResponse);
-							saveUnionID(registerRequest.getUserId());
-							wxEntryActivityWeakReference.get().gotoLogin(registerRequest.getUserId());
+							String userId = registerRequest.get_requestBody().getUserId();
+							saveUnionID(userId);
+							wxEntryActivityWeakReference.get().gotoLogin(userId);
 						}
 
 						@Override

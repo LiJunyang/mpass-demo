@@ -21,7 +21,7 @@ class HeaderInterceptor : Interceptor {
         val builder = request.newBuilder()
 
         builder.addHeader("Content-type", "application/json; charset=utf-8")
-        // .header("token", token)
+            .addHeader("AppId", "ALIPUBB1062A1011518")//mpaas gateway required
         // .method(request.method(), request.body())
 
         val domain = request.url.host

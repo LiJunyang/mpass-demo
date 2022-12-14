@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginWithValidUnionID(Intent intent) {
         String unionID = intent.getStringExtra(WX_UNION_ID);
-        if (!StringsKt.isBlank(unionID)){
+        if (unionID!=null && !StringsKt.isBlank(unionID)){
             loginViewModel.login(LoginActivity.this, unionID);
         }
     }

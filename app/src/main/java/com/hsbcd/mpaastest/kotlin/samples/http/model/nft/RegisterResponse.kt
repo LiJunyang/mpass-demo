@@ -11,6 +11,7 @@ data class RegisterResponse(
     val success:Boolean,
     val resultCode:String,
     val resultMessage:String,
-    val data:String
+    val data:Any
 )
+
 
