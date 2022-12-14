@@ -55,6 +55,7 @@ import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
 import com.alipay.fc.ccmimplus.sdk.core.config.face.FaceIconEmoji;
 import com.alipay.fc.ccmimplus.sdk.core.constants.Constants;
 import com.alipay.fc.ccmimplus.sdk.core.enums.ErrorCodeEnum;
+import com.alipay.fc.ccmimplus.sdk.core.favorite.CollectType;
 import com.alipay.fc.ccmimplus.sdk.core.message.MessageConverter;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
@@ -76,7 +77,7 @@ import com.hsbcd.mpaastest.kotlin.samples.util.CopyUtil;
 import com.hsbcd.mpaastest.kotlin.samples.util.FileUtil;
 import com.hsbcd.mpaastest.kotlin.samples.util.MessageUtil;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
-//import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocation;
 import com.google.common.collect.Lists;
 
 import org.apache.commons.lang3.StringUtils;
@@ -704,10 +705,10 @@ public class ChatActivity extends AppCompatActivity {
                     // 获取定位数据
                     String snapshotFilePath = result.getData().getStringExtra("snapshotFilePath");
                     File snapshotFile = new File(snapshotFilePath);
-//                    AMapLocation location = result.getData().getParcelableExtra("location");
+                    AMapLocation location = result.getData().getParcelableExtra("location");
 
                     // 发送定位消息
-//                    messageViewModel.sendLocationMessage(snapshotFile, location);
+                    messageViewModel.sendLocationMessage(snapshotFile, location);
                 }
         );
 
