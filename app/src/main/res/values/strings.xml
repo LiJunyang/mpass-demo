@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Next Gen</string>
-    <string name="app_name">MPassDemoSamples</string>
     <string name="errcode_success">Wechat send success</string>
     <string name="errcode_cancel">Wechat cancel</string>
     <string name="errcode_deny">Wechat refuse</string>

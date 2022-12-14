@@ -126,9 +126,9 @@ dependencies {
 
     // 高德地图定位sdk
 //    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.amap.api:map2d:latest.integration'
-    implementation 'com.amap.api:location:latest.integration'
-    implementation 'com.amap.api:search:latest.integration'
+//    implementation 'com.amap.api:map2d:latest.integration'
+//    implementation 'com.amap.api:location:latest.integration'
+//    implementation 'com.amap.api:search:latest.integration'
 
     implementation 'commons-io:commons-io:2.4'
 
