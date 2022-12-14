@@ -1,4 +1,4 @@
-package cn.hsbcsd.mpaastest.Rx
+package cert.hsbcsd.mpaastest.Rx
 
 import com.hsbc.kotlin.baselibs.bean.BaseBean
 import com.hsbc.kotlin.baselibs.http.HttpStatus

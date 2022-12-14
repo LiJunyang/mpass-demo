@@ -19,7 +19,6 @@ import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageSpecialOpEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.MessageSpecialOpVO;
 import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
-import com.alipay.fc.ccmimplus.sdk.core.favorite.CollectType;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.alipay.fc.ccmimplus.sdk.core.util.CollectionUtils;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;

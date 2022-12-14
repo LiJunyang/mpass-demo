@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -22,14 +23,14 @@ abstract class RetrofitFactory<T> {
 
     abstract fun baseUrl(): String
 
-    abstract fun getService(): Class<T>
+    abstract fun getServiceType(): Class<T>
 
     init {
         mBaseUrl = this.baseUrl()
         if (mBaseUrl.isEmpty()) {
             throw RuntimeException("base url can not be empty!")
         }
-        service = getRetrofit()!!.create(this.getService())
+        service = getRetrofit()!!.create(this.getServiceType())
     }
 
     /**
@@ -43,7 +44,7 @@ abstract class RetrofitFactory<T> {
                         .baseUrl(mBaseUrl)  // baseUrl
                         .client(attachOkHttpClient())
                         .addConverterFactory(GsonConverterFactory.create())
-                        //.addConverterFactory(MoshiConverterFactory.create())
+//                        .addConverterFactory(MoshiConverterFactory.create())                        //.addConverterFactory(MoshiConverterFactory.create())
                         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                         .build()
                 }

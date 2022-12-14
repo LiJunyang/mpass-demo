@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Next Gen</string>
+    <string name="app_name">MPassDemoSamples</string>
+    <string name="errcode_success">Wechat send success</string>
+    <string name="errcode_cancel">Wechat cancel</string>
+    <string name="errcode_deny">Wechat refuse</string>
+    <string name="errcode_unsupported">Wechat Unsupported error</string>
+    <string name="errcode_unknown">Wechat error unknown</string>
+    <string name="nft_register">Register from Wechat</string>
 </resources>

@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         tools:context="com.hsbcd.mpaastest.kotlin.samples.ui.activity.login.LoginActivity">
 
-    <TextView
+        <TextView
             android:id="@+id/title"
             android:text="Welcome"
             android:textSize="25sp"
@@ -17,9 +17,10 @@
             android:layout_marginTop="70dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
 
-    <EditText
+        <EditText
             android:id="@+id/input_user_id"
             android:hint="Pls input user ID，a1 - a10 is testable"
             android:textSize="15sp"
@@ -31,9 +32,10 @@
             android:layout_marginRight="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:visibility="gone"/>
 
-    <TextView
+        <TextView
             android:id="@+id/help1"
             android:text="No ID?"
             android:textSize="14sp"
@@ -42,9 +44,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_user_id" />
+            app:layout_constraintTop_toBottomOf="@+id/input_user_id"
+            android:visibility="gone"/>
 
-    <TextView
+        <TextView
             android:id="@+id/help2"
             android:text="Click to retrieve ID"
             android:textSize="14sp"
@@ -53,48 +56,77 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             app:layout_constraintLeft_toRightOf="@+id/help1"
-            app:layout_constraintTop_toBottomOf="@+id/input_user_id" />
+            app:layout_constraintTop_toBottomOf="@+id/input_user_id"
+            android:visibility="gone"/>
 
-    <android.widget.Button
-        android:id="@+id/btnLogon"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:background="@drawable/sel_login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help1" />
+        <android.widget.Button
+            android:id="@+id/btnLogon"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:background="@drawable/sel_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help1"
+            android:visibility="gone"/>
 
 
-    <android.widget.Button
-        android:id="@+id/btnScan"
-        android:text="Scan"
-        android:textColor="@color/white"
-        android:background="@drawable/sel_login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogon" />
+        <android.widget.Button
+            android:id="@+id/btnScan"
+            android:text="Scan"
+            android:textColor="@color/white"
+            android:background="@drawable/sel_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogon"
+            android:visibility="gone"/>
 
-    <android.widget.Button
-        android:id="@+id/btnOffline"
-        android:text="Offline Package"
-        android:textColor="@color/white"
-        android:background="@drawable/sel_login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScan" />
+        <android.widget.Button
+            android:id="@+id/btnOffline"
+            android:text="Offline Package"
+            android:textColor="@color/white"
+            android:background="@drawable/sel_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnScan"
+            android:visibility="gone"/>
+
+        <android.widget.Button
+            android:id="@+id/wechatGetTokenBtn"
+            android:text="Get WechatToken"
+            android:textColor="@color/white"
+            android:background="@drawable/sel_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnOffline"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,8 @@
  */
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.login;
 
+import static com.hsbcd.mpaastest.kotlin.samples.constants.Constant.WX_UNION_ID;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,20 +17,23 @@ import android.text.TextWatcher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alipay.android.phone.scancode.export.ScanRequest;
 import com.alipay.android.phone.scancode.export.adapter.MPScan;
 import com.alipay.android.phone.scancode.export.adapter.MPScanCallbackAdapter;
 import com.alipay.android.phone.scancode.export.adapter.MPScanResult;
 import com.alipay.android.phone.scancode.export.adapter.MPScanStarter;
+import com.hsbcd.mpaastest.kotlin.samples.constants.ARouterPath;
 import com.hsbcd.mpaastest.kotlin.samples.model.ConnectionResult;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.home.HomeActivity;
+import com.hsbcd.mpaastest.kotlin.samples.util.SessionUtilKt;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 import com.mpaas.nebula.adapter.api.MPNebula;
 import com.ut.device.UTDevice;
 
-import java.util.List;
-
 import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
+import kotlin.text.StringsKt;
 
 
 /**
@@ -37,16 +42,20 @@ import cn.hsbcsd.mpaastest.databinding.ActivityLoginBinding;
  * @author liyalong
  * @version LoginActivity.java, v 0.1 2022年07月28日 19:05 liyalong
  */
+@Route(path = ARouterPath.login)
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
 
     private LoginViewModel loginViewModel;
 
+//    // IWXAPI 是第三方 app 和微信通信的 openApi 接口
+//    private IWXAPI api;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ARouter.getInstance().inject(this);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -54,6 +63,21 @@ public class LoginActivity extends AppCompatActivity {
 
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         bindLoginViewModel();
+//        regToWx();
+        loginWithValidUnionID(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        loginWithValidUnionID(intent);
+    }
+
+    private void loginWithValidUnionID(Intent intent) {
+        String unionID = intent.getStringExtra(WX_UNION_ID);
+        if (unionID!=null && !StringsKt.isBlank(unionID)){
+            loginViewModel.login(LoginActivity.this, unionID);
+        }
     }
 
     @Override
@@ -71,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.btnLogon.setEnabled(false);
         binding.btnLogon.setOnClickListener(v -> onClickLogin());
+//        binding.wechatGetTokenBtn.setOnClickListener(v->getWechatToken());
 
         binding.title.setOnClickListener(v -> {
             EnvSwitchDialog dialog = new EnvSwitchDialog(this);
@@ -98,6 +123,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private void getWechatToken() {
+//        final SendAuth.Req req = new SendAuth.Req();
+//        req.scope = "snsapi_userinfo";//,snsapi_friend,snsapi_message,snsapi_contact
+//        req.state = "none";
+//        api.sendReq(req);
+//    }
 
     private void onClickLogin() {
         String userId = binding.inputUserId.getText().toString();
@@ -132,6 +164,7 @@ public class LoginActivity extends AppCompatActivity {
     private void bindLoginViewModel() {
         loginViewModel.getLoginResultData().observe(this, result -> {
             if (result.isSuccess()) {
+                SessionUtilKt.setIsLogin();
                 ToastUtil.makeToast(this, "Login Success", 3000);
             } else {
                 ToastUtil.makeToast(this, result.getMessage(), 3000);
@@ -156,4 +189,21 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+//    private void regToWx() {
+//        // 通过 WXAPIFactory 工厂，获取 IWXAPI 的实例
+//        api = WXAPIFactory.createWXAPI(this, WX_APP_ID, true);
+//
+//        // 将应用的 appId 注册到微信
+//        api.registerApp(WX_APP_ID);
+//
+//        //建议动态监听微信启动广播进行注册到微信
+//        registerReceiver(new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//
+//                // 将该 app 注册到微信
+//                api.registerApp(WX_APP_ID);
+//            }
+//        }, new IntentFilter(ConstantsAPI.ACTION_REFRESH_WXAPP));
+//    }
 }

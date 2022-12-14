@@ -7,6 +7,6 @@ object MainRetrofit : RetrofitFactory<MainApi>() {
 
     override fun baseUrl(): String = Constant.BASE_URL
 
-    override fun getService(): Class<MainApi> = MainApi::class.java
+    override fun getServiceType(): Class<MainApi> = MainApi::class.java
 
 }

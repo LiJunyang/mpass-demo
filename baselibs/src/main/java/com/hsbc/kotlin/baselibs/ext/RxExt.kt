@@ -6,7 +6,7 @@ import com.hsbc.kotlin.baselibs.http.exception.ExceptionHandle
 import com.hsbc.kotlin.baselibs.http.function.RetryWithDelay
 import com.hsbc.kotlin.baselibs.mvp.IModel
 import com.hsbc.kotlin.baselibs.mvp.IView
-import cn.hsbcsd.mpaastest.Rx.SchedulerUtils
+import cert.hsbcsd.mpaastest.Rx.SchedulerUtils
 import com.hsbc.kotlin.baselibs.utils.NetWorkUtil
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Observer

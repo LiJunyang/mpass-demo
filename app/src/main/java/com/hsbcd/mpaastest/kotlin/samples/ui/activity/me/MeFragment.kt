@@ -25,6 +25,12 @@ class MeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMeBinding.inflate(inflater, container, false)
+        binding.bgMyNft.setOnClickListener(){
+            binding.bgMyNft.visibility = View.GONE
+        }
+        binding.bgMe.setOnClickListener(){
+            binding.bgMyNft.visibility = View.VISIBLE
+        }
         return binding.root
     }
 }
