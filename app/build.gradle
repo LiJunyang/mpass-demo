@@ -112,7 +112,7 @@ dependencies {
     implementation project(':baselibs')
 
     // implus sdk
-    implementation(name: 'ccm-implus-core-1.0.0.202212061852-leo', ext: 'aar')
+    implementation(name: 'ccm-implus-core-1.0.0.202212081420-leo', ext: 'aar')
     implementation(name: 'ccm-implus-security-1.0.0.202208261503', ext: 'aar')
     //implementation fileTree(include: ['*.jar'], dir: 'libs')
 
