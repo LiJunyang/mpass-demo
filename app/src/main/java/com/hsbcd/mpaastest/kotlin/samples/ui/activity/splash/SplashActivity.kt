@@ -15,9 +15,11 @@ class SplashActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
-//        setContentView(binding.root)
-        ARouter.getInstance().build(ARouterPath.home)
+        setContentView(binding.root)
+        binding.root.postDelayed({
+            ARouter.getInstance().build(ARouterPath.home)
             .navigation(this, RegisterNavigationCallbackImpl())
-        finish()
+            finish()},1500)
+
     }
 }
