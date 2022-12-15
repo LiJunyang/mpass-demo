@@ -4,6 +4,7 @@
  */
 package com.hsbcd.mpaastest.kotlin.samples.ui.activity.session;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ContextThemeWrapper;
@@ -29,6 +32,11 @@ import cn.hsbcsd.mpaastest.databinding.FragmentSessionListBinding;
 
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.CustomContent;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
+import com.alipay.fc.ccmimplus.common.service.facade.domain.message.RtcContent;
+import com.alipay.fc.ccmimplus.common.service.facade.enums.SessionModeEnum;
+import com.alipay.fc.ccmimplus.sdk.core.conversation.ConversationManager;
+import com.alipay.fc.ccmimplus.sdk.core.enums.RtcTypeEnum;
+import com.alipay.fc.ccmimplus.sdk.core.rtc.RtcRoomManager;
 import com.hsbcd.mpaastest.kotlin.samples.app.ImplusApplication;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
@@ -46,7 +54,10 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.StartLiveShowActi
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.ChatroomListActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.CreateChatroomActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
+import com.hsbcd.mpaastest.kotlin.samples.util.MessageUtil;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 
@@ -67,27 +78,20 @@ public class SessionFragment extends Fragment {
 
     private ChatSettingViewModel chatSettingViewModel;
 
-//    private FavoriteViewModel favoriteViewModel;
-
     private NewMessageViewModel newMessageViewModel;
 
     private CustomOnScrollListener customOnScrollListener;
 
     private boolean refresh = false;
 
+    private Message rtcInviteMessage;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentSessionListBinding.inflate(inflater);
 
-        // 绑定搜索框
-        bindSearchBar();
-
-        // 绑定弹出菜单
-        bindPopupMenu();
-
-        // 绑定密聊入口
-        bindSecretChat();
+        bindAction();
 
         // 绑定会话数据
         sessionViewModel = new ViewModelProvider(getActivity()).get(SessionViewModel.class);
@@ -97,9 +101,6 @@ public class SessionFragment extends Fragment {
         chatSettingViewModel = new ViewModelProvider(getActivity()).get(ChatSettingViewModel.class);
         bindChatSettingViewModel();
 
-//        // 绑定收藏数据
-//        favoriteViewModel = new ViewModelProvider(getActivity()).get(FavoriteViewModel.class);
-//        bindFavoriteViewModel();
 
         // 绑定消息数据
         newMessageViewModel = new ViewModelProvider(getActivity()).get(NewMessageViewModel.class);
@@ -125,15 +126,41 @@ public class SessionFragment extends Fragment {
         sessionViewModel.queryConversations(1);
     }
 
-    private void bindSearchBar() {
-        binding.searchBar.setOnClickListener(v -> {
-//            Intent intent = new Intent(getActivity(), SearchActivity.class);
-//            this.startActivity(intent);
-        });
+    private void bindAction() {
+
+        // 绑定弹出菜单
+        bindPopupMenu();
+
+        // 绑定密聊入口
+        bindSecretChat();
     }
 
     @SuppressLint("RestrictedApi")
     private void bindPopupMenu() {
+
+        ActivityResultLauncher livePermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+                    if (result.isEmpty()) {
+                        ToastUtil.makeToast(getActivity(), "no live show permission", 1000);
+                        return;
+                    }
+
+                    // 打开创建聊天室页
+                    Intent intent = new Intent(getContext(), CreateChatroomActivity.class);
+                    this.startActivity(intent);
+                });
+
+        ActivityResultLauncher liveShowPermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+                    if (result.isEmpty()) {
+                        ToastUtil.makeToast(getActivity(), "no live show permission", 1000);
+                        return;
+                    }
+
+                    Intent intent = new Intent(getContext(), StartLiveShowActivity.class);
+                    this.startActivity(intent);
+                });
+
         binding.popupMenu.setOnClickListener(v -> {
             // 设置弹出菜单项的样式
             ContextThemeWrapper wrapper = new ContextThemeWrapper(getContext(), R.style.MyPopupMenuStyle);
@@ -159,7 +186,7 @@ public class SessionFragment extends Fragment {
                 // 设置弹出菜单宽度
                 Field mContentWidth = standardMenuClass.getDeclaredField("mContentWidth");
                 mContentWidth.setAccessible(true);
-                mContentWidth.setInt(mHelper.getPopup(), 450);
+                mContentWidth.setInt(mHelper.getPopup(), 500);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -169,11 +196,6 @@ public class SessionFragment extends Fragment {
                 switch (item.getItemId()) {
                     case R.id.add_friend: {
                         Intent intent = new Intent(getContext(), AddNewFriendActivity.class);
-                        this.startActivity(intent);
-                        break;
-                    }
-                    case R.id.review_new_friend: {
-                        Intent intent = new Intent(getContext(), NewFriendActivity.class);
                         this.startActivity(intent);
                         break;
                     }
@@ -191,10 +213,25 @@ public class SessionFragment extends Fragment {
                         this.startActivity(intent);
                         break;
                     }
+                    case R.id.create_chatroom: {
+                        // 先请求系统权限，等用户同意后再打开创建聊天室页
+                        livePermissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
+                                Manifest.permission.RECORD_AUDIO});
+                        break;
+                    }
+                    case R.id.create_secret_chat: {
+                        Intent intent = new Intent(getContext(), CreateConversationActivity.class);
+                        intent.putExtra(CreateConversationActivity.SESSION_TYPE_KEY,
+                                ConversationTypeEnum.SINGLE.getCode());
+                        intent.putExtra(CreateConversationActivity.SESSION_MODE_KEY,
+                                SessionModeEnum.SECRET_CHAT.getCode());
+                        this.startActivity(intent);
+                        break;
+                    }
                     case R.id.start_live_show: {
                         ToastUtil.makeToast(getActivity(), "Test only, contact Leo to start server, only 1 liveshow accepted", 3000);
-                        Intent intent = new Intent(getContext(), StartLiveShowActivity.class);
-                        this.startActivity(intent);
+                        liveShowPermissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
+                                Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE});
                         break;
                     }
                     case R.id.play_live_show: {
@@ -203,11 +240,12 @@ public class SessionFragment extends Fragment {
                         this.startActivity(intent);
                         break;
                     }
-                    case R.id.create_chatroom: {
-                        Intent intent = new Intent(getContext(), CreateChatroomActivity.class);
+                    case R.id.review_new_friend: {
+                        Intent intent = new Intent(getContext(), NewFriendActivity.class);
                         this.startActivity(intent);
                         break;
-                    }case R.id.show_chatroom: {
+                    }
+                    case R.id.show_chatroom: {
                         Intent intent = new Intent(getContext(), ChatroomListActivity.class);
                         this.startActivity(intent);
                         break;
@@ -270,16 +308,21 @@ public class SessionFragment extends Fragment {
             getActivity().startActivity(intent);
         });
 
-        // 新会话查询结果通知
-        sessionViewModel.getNewConversationResult().observe(getViewLifecycleOwner(), result -> {
+        // 新会话查询结果通知，注意是全局监听，以便处理音视频邀请
+        sessionViewModel.getNewConversationResult().observeForever(result -> {
             if (!result.isSuccess()) {
                 ToastUtil.makeToast(getActivity(), result.getMessage(), 3000);
                 return;
             }
 
+            Conversation c = result.getData();
+
             // 把新会话插到非置顶会话的最前面
-            sessionListAdapter.insertToTop(result.getData());
-            sessionListAdapter.notifyDataSetChanged();
+            // 注：群会议除外，群会议为临时会话，仅用于多人音视频会议，不需要展示在会话列表
+            if (!c.isGroupMeeting()) {
+                sessionListAdapter.insertToTop(c);
+                sessionListAdapter.notifyDataSetChanged();
+            }
         });
     }
 
@@ -294,14 +337,6 @@ public class SessionFragment extends Fragment {
         });
     }
 
-    private void bindFavoriteViewModel() {
-//        favoriteViewModel.getUpdateResult().observe(getViewLifecycleOwner(), result -> {
-//            if (!result.isSuccess()) {
-//                ToastUtil.makeToast(getActivity(), "更新失败: " + result.getMessage(), 3000);
-//            }
-//        });
-    }
-
     private void bindNewMessageViewModel() {
         // 收到新消息后的动作，注意是全局监听，下同
         newMessageViewModel.getNewMessageResult().observeForever(result -> {
@@ -312,6 +347,11 @@ public class SessionFragment extends Fragment {
 
             // 如果该会话不在现有列表，则先从服务端查询新会话，等待返回查询结果后再处理
             if (position == -1) {
+                // 如果是实时音视频邀请，暂存邀请消息
+                if (message.isRtcMessage() && !MessageUtil.isSendByMe(message)) {
+                    rtcInviteMessage = message;
+                }
+
                 sessionViewModel.queryNewConversation(message.getSid());
                 return;
             }
@@ -325,7 +365,7 @@ public class SessionFragment extends Fragment {
                 sessionListAdapter.insertToTop(c);
             }
 
-            // 更新该会话的最近一条消息，注意传的是该会话在列表中原有位置的下标
+            // 使用新消息内容重新渲染该会话的最近一条消息，注意传的是该会话在列表中原有位置的下标
             sessionListAdapter.notifyItemChanged(position, message);
         });
 

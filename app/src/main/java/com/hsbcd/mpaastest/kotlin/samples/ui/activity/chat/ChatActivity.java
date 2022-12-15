@@ -690,15 +690,31 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void bindRtc() {
-        // mpaas在部分机型需要蓝牙连接权限
-        int ret = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);
-        if (ret != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN}, 1);
-        }
 
-        // 打开音视频菜单
-        binding.inputRtc.setOnClickListener(v -> showRtcMenu());
+//        int ret = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);
+//        if (ret != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN}, 1);
+//        }
+
+        ActivityResultLauncher permissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+                    if (result.isEmpty()) {
+                        ToastUtil.makeToast(ChatActivity.this, "No audio permission", 1000);
+                        return;
+                    }
+
+                    // 打开音视频菜单
+                    showRtcMenu();
+                });
+
+        binding.inputRtc.setOnClickListener(v -> {
+            permissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
+                    Manifest.permission.RECORD_AUDIO,
+                    // mpaas在部分机型需要蓝牙连接权限
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.BLUETOOTH_SCAN});
+        });
     }
 
     private void showRtcMenu() {
@@ -710,7 +726,7 @@ public class ChatActivity extends AppCompatActivity {
             menuItems.add(new BottomMenuDialog.MenuItem("audio chat", () -> goToCallRtcMeeting(RtcTypeEnum.AUDIO)));
             menuItems.add(new BottomMenuDialog.MenuItem("video chat", () -> goToCallRtcMeeting(RtcTypeEnum.VIDEO)));
 
-            String title = String.format("呼叫 %s",
+            String title = String.format("call %s",
                     StringUtils.defaultIfBlank(c.getSessionName(), c.getConversationName()));
             BottomMenuDialog bottomMenuDialog = new BottomMenuDialog(title, menuItems, true);
             bottomMenuDialog.show(this.getSupportFragmentManager(), "");
