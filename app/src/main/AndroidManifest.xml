@@ -222,6 +222,9 @@
         <activity
             android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.chatroom.ChatroomChatActivity"
             android:exported="false" />
+        <activity
+            android:name="com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.ChatroomListActivity"
+            android:exported="false" />
 
         <activity
             android:name="cn.hsbcsd.mpaastest.wxapi.WXEntryActivity"

@@ -155,4 +155,6 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:${dependVersion.arouter}"
     // 阿里云直播推流sdk
     implementation 'com.alivc.pusher:AlivcLivePusher:4.4.1'
+    // 列表项侧滑菜单
+    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
 }

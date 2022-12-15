@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/go_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true" />
+
+        <TextView
+                android:id="@+id/title_label"
+                android:text="Chatroom"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/chatroom_type_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:clipChildren="false"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/title_bar">
+
+        <RelativeLayout
+                android:id="@+id/all_chatroom_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/all_chatroom_tab_label"
+                    android:text="All"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+            <View
+                    android:id="@+id/all_chatroom_tab_underline"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignLeft="@+id/all_chatroom_tab_label"
+                    android:layout_alignRight="@+id/all_chatroom_tab_label"
+                    android:layout_below="@+id/all_chatroom_tab_label"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/ant_blue"
+                    android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/recent_joined_chatroom_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/recent_joined_chatroom_tab_label"
+                    android:text="Recent"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+            <View
+                    android:id="@+id/recent_joined_chatroom_tab_underline"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignLeft="@+id/recent_joined_chatroom_tab_label"
+                    android:layout_alignRight="@+id/recent_joined_chatroom_tab_label"
+                    android:layout_below="@+id/recent_joined_chatroom_tab_label"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/ant_blue"
+                    android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/admin_chatroom_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/admin_chatroom_tab_label"
+                    android:text="Mine"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true" />
+
+            <View
+                    android:id="@+id/admin_chatroom_tab_underline"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignLeft="@+id/admin_chatroom_tab_label"
+                    android:layout_alignRight="@+id/admin_chatroom_tab_label"
+                    android:layout_below="@+id/admin_chatroom_tab_label"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/ant_blue"
+                    android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+            android:id="@+id/divide"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toBottomOf="@+id/chatroom_type_tab_layout" />
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/chatroom_list_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/divide"
+            app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

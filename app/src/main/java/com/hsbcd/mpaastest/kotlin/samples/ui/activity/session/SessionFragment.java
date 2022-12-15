@@ -43,6 +43,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActiv
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.NewFriendActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.PlayLiveShowActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.StartLiveShowActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.ChatroomListActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.CreateChatroomActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
@@ -204,6 +205,10 @@ public class SessionFragment extends Fragment {
                     }
                     case R.id.create_chatroom: {
                         Intent intent = new Intent(getContext(), CreateChatroomActivity.class);
+                        this.startActivity(intent);
+                        break;
+                    }case R.id.show_chatroom: {
+                        Intent intent = new Intent(getContext(), ChatroomListActivity.class);
                         this.startActivity(intent);
                         break;
                     }
