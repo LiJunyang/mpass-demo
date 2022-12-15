@@ -216,7 +216,10 @@ public class SessionFragment extends Fragment {
                     case R.id.create_chatroom: {
                         // 先请求系统权限，等用户同意后再打开创建聊天室页
                         livePermissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
-                                Manifest.permission.RECORD_AUDIO});
+                                Manifest.permission.RECORD_AUDIO,
+                                // mpaas在部分机型需要蓝牙连接权限
+                                Manifest.permission.BLUETOOTH_CONNECT,
+                                Manifest.permission.BLUETOOTH_SCAN});
                         break;
                     }
                     case R.id.create_secret_chat: {
