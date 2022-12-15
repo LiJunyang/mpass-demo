@@ -107,10 +107,9 @@ public class MessageViewModel extends ViewModel implements MessageListener {
      * 查询指定会话的历史消息列表
      *
      * @param c
-     * @param init
      */
-    public void queryHistoryMessages(Conversation c, boolean init) {
-        if (init) {
+    public void queryHistoryMessages(Conversation c) {
+        if (lastQueryHisMsgId == 0) {
             lastQueryHisMsgId = c.getLastMsgId();
         }
 
@@ -168,10 +167,9 @@ public class MessageViewModel extends ViewModel implements MessageListener {
      * 查询指定密聊会话的历史消息列表
      *
      * @param c
-     * @param init
      */
-    public void querySecretChatHistoryMessages(Conversation c, boolean init) {
-        if (init) {
+    public void querySecretChatHistoryMessages(Conversation c) {
+        if (lastQueryHisMsgId == 0) {
             lastQueryHisMsgId = c.getLastMsgId();
         }
 
@@ -308,6 +306,11 @@ public class MessageViewModel extends ViewModel implements MessageListener {
      * @param messages
      */
     public void setMessageStatusRead(Conversation c, List<Message> messages) {
+        // 聊天室消息不需要设置已读
+        if (c.isChatroomConversation()) {
+            return;
+        }
+
         AsyncExecutorService.getInstance().execute(() -> {
             String currentUserId = AlipayCcmIMClient.getInstance().getInitConfig().getUserId();
             MessageManager.getInstance().setMessagesStatusRead(c, currentUserId, messages);
@@ -427,7 +430,7 @@ public class MessageViewModel extends ViewModel implements MessageListener {
     }
 
     public void sendRichTextMessage(String text) {
-        RichTextMessageContent content = new RichTextMessageContent("Rich Text", text);
+        RichTextMessageContent content = new RichTextMessageContent("IM+富文本消息", text);
         AsyncExecutorService.getInstance().execute(
                 () -> MessageManager.getInstance().sendSingleMessage(content, new CustomSendMessageCallback()));
     }
@@ -435,8 +438,8 @@ public class MessageViewModel extends ViewModel implements MessageListener {
     public void sendSimpleCardMessage() {
         AsyncExecutorService.getInstance().execute(() -> {
             MessageManager mm = MessageManager.getInstance();
-            CardMessageContent content = new CardMessageContent("Card Msg");
-            content.setTitle("Test");
+            CardMessageContent content = new CardMessageContent("卡片消息");
+            content.setTitle("测试");
             mm.sendSingleMessage(content, new CustomSendMessageCallback());
         });
     }

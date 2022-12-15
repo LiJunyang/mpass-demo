@@ -85,4 +85,6 @@
     <color name="ant_blue">#0091FF</color>
     <color name="ant_blue_alpha">#A4D6FF</color>
     <color name="alpha_black">#0E000000</color>
+    <color name="dark_gray3">#2E2F31</color>
+    <color name="bg_input_text_gray">#434446</color>
 </resources>

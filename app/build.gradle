@@ -111,12 +111,8 @@ dependencies {
 
     implementation project(':baselibs')
 
-
-    // 视频播放器
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
-
     // implus sdk
-    implementation(name: 'ccm-implus-core-1.0.0.202211151911', ext: 'aar')
+    implementation(name: 'ccm-implus-core-1.0.0.202212061852-leo', ext: 'aar')
     implementation(name: 'ccm-implus-security-1.0.0.202208261503', ext: 'aar')
     //implementation fileTree(include: ['*.jar'], dir: 'libs')
 
@@ -150,9 +146,13 @@ dependencies {
 
 
     implementation project(path: ':library')
-    implementation 'com.google.android.exoplayer:exoplayer:2.8.4'
-    implementation 'com.google.android.exoplayer:extension-rtmp:2.8.4'
+    // 视频播放器
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.18.1'
+
     api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.18'
     implementation 'com.uber.autodispose2:autodispose-androidx-lifecycle:2.1.1'
     kapt "com.alibaba:arouter-compiler:${dependVersion.arouter}"
+    // 阿里云直播推流sdk
+    implementation 'com.alivc.pusher:AlivcLivePusher:4.4.1'
 }

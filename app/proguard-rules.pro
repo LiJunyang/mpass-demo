@@ -30,3 +30,8 @@
 -keep class com.tencent.mm.sdk.** {
     *;
 }
+
+-keep class com.alivc.** { *;}
+-keep class com.aliyun.rts.network.* { *;}
+-keep class org.webrtc.ali.** {*;}
+-keep class org.webrtc.utils.** {*;}

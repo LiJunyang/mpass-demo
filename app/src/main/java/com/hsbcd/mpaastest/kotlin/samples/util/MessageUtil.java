@@ -10,11 +10,14 @@ import com.alipay.fc.ccmimplus.common.service.facade.domain.message.LocationCont
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.Message;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.TextContent;
 import com.alipay.fc.ccmimplus.common.service.facade.domain.message.UrlContent;
+import com.alipay.fc.ccmimplus.common.service.facade.enums.ChannelEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.MessageVO;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
 import com.alipay.fc.ccmimplus.sdk.core.client.AlipayCcmIMClient;
+import com.alipay.fc.ccmimplus.sdk.core.message.MessageBuilder;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.Conversation;
 import com.alipay.fc.ccmimplus.sdk.core.model.conversation.GroupRelation;
+import com.hsbcd.mpaastest.kotlin.samples.constants.CommonConstants;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.UserCacheManager;
 
 import org.apache.commons.lang3.StringUtils;
@@ -171,6 +174,17 @@ public class MessageUtil {
     public static boolean isSendByMe(Message message) {
         String senderUid = message.getFrom().getUid();
         return StringUtils.equals(senderUid, AlipayCcmIMClient.getInstance().getCurrentUserId());
+    }
+
+    public static boolean isSystemMessage(Message message) {
+        String senderUid = message.getFrom().getUid();
+        return StringUtils.equals(senderUid, CommonConstants.SYS_USER_ID);
+    }
+
+    public static Message buildNotifyMessage(String notifyContent) {
+        Message message = MessageBuilder.buildTextMsg(notifyContent);
+        message.setFrom(new Message.Actor(ChannelEnum.IMPLUS.getCode(), CommonConstants.SYS_USER_ID));
+        return message;
     }
 
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_alert_dialog">
+
+    <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/title"
+                android:text="Title"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+        <View
+                android:id="@+id/divide1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray2" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menu_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <View
+            android:id="@+id/divide2"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/light_gray" />
+
+    <View
+            android:id="@+id/divide3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray2" />
+
+    <TextView
+            android:id="@+id/cancel_button"
+            android:text="Cancel"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:singleLine="true" />
+
+</LinearLayout>

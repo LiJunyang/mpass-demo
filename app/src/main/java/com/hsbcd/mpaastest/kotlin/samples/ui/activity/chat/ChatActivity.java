@@ -7,6 +7,7 @@ package com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -45,6 +48,7 @@ import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageRecallStatusEn
 import com.alipay.fc.ccmimplus.common.service.facade.enums.MessageSendStatusEnum;
 import com.alipay.fc.ccmimplus.common.service.facade.model.User;
 import com.alipay.fc.ccmimplus.common.service.facade.result.vo.UserInfoVO;
+import com.alipay.fc.ccmimplus.sdk.core.enums.RtcTypeEnum;
 import com.hsbcd.mpaastest.kotlin.samples.constants.LoggerName;
 import cn.hsbcsd.mpaastest.databinding.ActivityChatBinding;
 import com.hsbcd.mpaastest.kotlin.samples.enums.CustomCommandMessageTypeEnum;
@@ -68,7 +72,9 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.url.InputUrlA
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.voice.VoiceRecorder;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.GroupChatSettingActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.setting.SingleChatSettingActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.BottomMenuDialog;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.CustomOnScrollListener;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.NotifyViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.common.SelectMessageViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.SessionViewModel;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.SendVisitingCardActivity;
@@ -98,7 +104,7 @@ import java.util.stream.Collectors;
  */
 public class ChatActivity extends AppCompatActivity {
 
-    private ActivityChatBinding binding;
+    protected ActivityChatBinding binding;
 
     private MessageListAdapter messageListAdapter;
 
@@ -108,7 +114,9 @@ public class ChatActivity extends AppCompatActivity {
 
     private SelectMessageViewModel selectItemViewModel;
 
-    private Conversation c;
+    private NotifyViewModel notifyViewModel;
+
+    protected Conversation c;
 
     private CustomOnScrollListener customOnScrollListener;
 
@@ -158,6 +166,7 @@ public class ChatActivity extends AppCompatActivity {
         bindPickMedia();
         bindTakePicture();
         bindCaptureVideo();
+        bindRtc();
         bindPickFile();
         bindLocation();
         bindRichText();
@@ -178,6 +187,9 @@ public class ChatActivity extends AppCompatActivity {
         selectItemViewModel = new ViewModelProvider(this).get(SelectMessageViewModel.class);
         bindSelectItemViewModel();
 
+        // 绑定通知数据
+        //notifyViewModel = new ViewModelProvider(this).get(NotifyViewModel.class);
+
         // 初始化消息列表
         initMessageList();
     }
@@ -191,11 +203,11 @@ public class ChatActivity extends AppCompatActivity {
 
         // 注：每次进入页面前，需要先设置会话
         setCurrentSession();
-        
+
         // 设置页面标题，从设置页退回到消息页时，需要刷新一次
         setTitle();
 
-        // 如果是app从后台唤起/从设置页返回等情况，需要重新拉取历史消息
+        // 如果是首次进入页面，或app从后台唤起/从设置页返回等情况，需要重新拉取历史消息
         if (needRefreshMessage) {
             refreshHistoryMessage();
         }
@@ -212,9 +224,9 @@ public class ChatActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        // 清除当前会话
+        // 清除当前会话(聊天室会话不需要)
         // 注：如果只是被其他activity覆盖而不是退出(例如打开拍照页面)，此时finished=false，不能清除
-        if (isFinishing()) {
+        if (!c.isChatroomConversation() && isFinishing()) {
             AlipayCcmIMClient.getInstance().getConversationManager().clearCurrentConversation();
         }
     }
@@ -222,7 +234,7 @@ public class ChatActivity extends AppCompatActivity {
     private void setCurrentSession() {
         Conversation c = AlipayCcmIMClient.getInstance().getConversationManager().getCurrentConversation();
         if (c == null) {
-            Log.e(LoggerName.UI, "unset session，cannot go to setting");
+            Log.e(LoggerName.UI, "chat unset, cannot go to message screen");
             super.onBackPressed();
             return;
         }
@@ -249,10 +261,10 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void bindAction() {
-        binding.goBack.setOnClickListener(v -> super.onBackPressed());
+        binding.goBack.setOnClickListener(v -> onBackPressed());
 
-        // 跳转到会话设置页(密聊不需要)
-        if (c.isSecretChat()) {
+        // 跳转到会话设置页(密聊和聊天室不需要)
+        if (c.isSecretChat() || c.isChatroomConversation()) {
             binding.chatSettingView.setVisibility(View.GONE);
         } else {
             binding.chatSettingView.setVisibility(View.VISIBLE);
@@ -261,6 +273,9 @@ public class ChatActivity extends AppCompatActivity {
                 sessionViewModel.querySingleConversation(c.getCid());
             });
         }
+
+        // 聊天室直播窗
+        binding.chatroomLiveLayout.setVisibility(c.isChatroomConversation() ? View.VISIBLE : View.GONE);
 
         // 消息输入视图的切换动作
         bindInputViewSwitch();
@@ -477,7 +492,7 @@ public class ChatActivity extends AppCompatActivity {
         ActivityResultLauncher permissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(), result -> {
                     if (!result) {
-                        ToastUtil.makeToast(ChatActivity.this, "无录音权限", 1000);
+                        ToastUtil.makeToast(ChatActivity.this, "No audio record permission", 1000);
                         return;
                     }
 
@@ -585,11 +600,12 @@ public class ChatActivity extends AppCompatActivity {
         ActivityResultLauncher permissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(), result -> {
                     if (!result) {
-                        ToastUtil.makeToast(ChatActivity.this, "无相机权限", 1000);
+                        ToastUtil.makeToast(ChatActivity.this, "no camera permission", 1000);
                         return;
                     }
 
-                    doTakePicture();
+                    // 打开拍摄菜单
+                    showShotMenu();
                 });
 
         takePictureLauncher = registerForActivityResult(
@@ -597,7 +613,7 @@ public class ChatActivity extends AppCompatActivity {
                     if (result) {
                         Log.i(LoggerName.UI, "take picture uri: " + currentMediaUri);
                         if (currentMediaUri == null) {
-                            ToastUtil.makeToast(this, "拍照失败", 1000);
+                            ToastUtil.makeToast(this, "take photo failed", 1000);
                         } else {
                             onTakePictureResult(currentMediaUri);
                         }
@@ -607,6 +623,15 @@ public class ChatActivity extends AppCompatActivity {
                 });
 
         binding.inputCamera.setOnClickListener(v -> permissionLauncher.launch(Manifest.permission.CAMERA));
+    }
+
+    private void showShotMenu() {
+        List<BottomMenuDialog.MenuItem> menuItems = Lists.newArrayList();
+        menuItems.add(new BottomMenuDialog.MenuItem("photo", () -> doTakePicture()));
+        menuItems.add(new BottomMenuDialog.MenuItem("video", () -> doCaptureVideo()));
+
+        BottomMenuDialog bottomMenuDialog = new BottomMenuDialog("camera", menuItems, true);
+        bottomMenuDialog.show(this.getSupportFragmentManager(), "");
     }
 
     private void doTakePicture() {
@@ -622,16 +647,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void bindCaptureVideo() {
-        ActivityResultLauncher permissionLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(), result -> {
-                    if (!result) {
-                        ToastUtil.makeToast(ChatActivity.this, "无视频拍摄权限", 1000);
-                        return;
-                    }
-
-                    doCaptureVideo();
-                });
-
         captureVideoLauncher = registerForActivityResult(
                 new ActivityResultContracts.CaptureVideo() {
                     /**
@@ -651,7 +666,7 @@ public class ChatActivity extends AppCompatActivity {
                     if (result) {
                         Log.i(LoggerName.UI, "capture video uri: " + currentMediaUri);
                         if (currentMediaUri == null) {
-                            ToastUtil.makeToast(this, "视频拍摄失败", 1000);
+                            ToastUtil.makeToast(this, "take video failed", 1000);
                         } else {
                             onCaptureVideoResult(currentMediaUri);
                         }
@@ -659,8 +674,6 @@ public class ChatActivity extends AppCompatActivity {
 
                     currentMediaUri = null;
                 });
-
-        binding.inputRtc.setOnClickListener(v -> permissionLauncher.launch(Manifest.permission.CAMERA));
     }
 
     private void doCaptureVideo() {
@@ -674,6 +687,58 @@ public class ChatActivity extends AppCompatActivity {
         File videoFile = FileUtil.uriToVideoFile(uri, "mp4", this);
         Log.i(LoggerName.UI, "captured video file length: " + videoFile.length());
         messageViewModel.sendVideoMessage(videoFile);
+    }
+
+    private void bindRtc() {
+        // mpaas在部分机型需要蓝牙连接权限
+        int ret = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);
+        if (ret != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN}, 1);
+        }
+
+        // 打开音视频菜单
+        binding.inputRtc.setOnClickListener(v -> showRtcMenu());
+    }
+
+    private void showRtcMenu() {
+        boolean isSingle = c.isSingle() || c.isSecretChat();
+
+        // 单聊会话，打开呼叫音视频会议页
+        if (isSingle) {
+            List<BottomMenuDialog.MenuItem> menuItems = Lists.newArrayList();
+            menuItems.add(new BottomMenuDialog.MenuItem("audio chat", () -> goToCallRtcMeeting(RtcTypeEnum.AUDIO)));
+            menuItems.add(new BottomMenuDialog.MenuItem("video chat", () -> goToCallRtcMeeting(RtcTypeEnum.VIDEO)));
+
+            String title = String.format("呼叫 %s",
+                    StringUtils.defaultIfBlank(c.getSessionName(), c.getConversationName()));
+            BottomMenuDialog bottomMenuDialog = new BottomMenuDialog(title, menuItems, true);
+            bottomMenuDialog.show(this.getSupportFragmentManager(), "");
+        }
+        // 群聊会话，打开创建音视频会议页
+        else {
+            List<BottomMenuDialog.MenuItem> menuItems = Lists.newArrayList();
+            menuItems.add(new BottomMenuDialog.MenuItem("audio meeting", () -> goToCreateRtcMeeting(RtcTypeEnum.AUDIO)));
+            menuItems.add(new BottomMenuDialog.MenuItem("vudeo meeting", () -> goToCreateRtcMeeting(RtcTypeEnum.VIDEO)));
+
+            BottomMenuDialog bottomMenuDialog = new BottomMenuDialog("start meeting", menuItems, true);
+            bottomMenuDialog.show(this.getSupportFragmentManager(), "");
+        }
+    }
+
+    private void goToCallRtcMeeting(RtcTypeEnum rtcType) {
+//        Intent intent = new Intent(this, CallRtcMeetingActivity.class);
+//        intent.putExtra(CallRtcMeetingActivity.RTC_TYPE_KEY, rtcType.name());
+//        intent.putExtra(CallRtcMeetingActivity.INVITE_USER_ID_KEY,
+//                c.getOtherUid(AlipayCcmIMClient.getInstance().getCurrentUserId()));
+//
+//        this.startActivity(intent);
+    }
+
+    private void goToCreateRtcMeeting(RtcTypeEnum rtcType) {
+//        Intent intent = new Intent(this, CreateRtcMeetingActivity.class);
+//        intent.putExtra(CreateRtcMeetingActivity.RTC_TYPE_KEY, rtcType.name());
+//        this.startActivity(intent);
     }
 
     private void bindPickFile() {
@@ -714,14 +779,14 @@ public class ChatActivity extends AppCompatActivity {
         ActivityResultLauncher permissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestMultiplePermissions(), result -> {
                     if (result.isEmpty()) {
-                        ToastUtil.makeToast(ChatActivity.this, "无定位权限", 1000);
+                        ToastUtil.makeToast(ChatActivity.this, "no location permission", 1000);
                         return;
                     }
 
                     // 打开定位页面
 //                    Intent intent = new Intent(this, LocationActivity.class);
 //                    locationActivityLauncher.launch(intent);
-                    needRefreshMessage = false;
+//                    needRefreshMessage = false;
                 });
 
         binding.inputLocation.setOnClickListener(v -> {
@@ -745,6 +810,7 @@ public class ChatActivity extends AppCompatActivity {
                     messageViewModel.sendRichTextMessage(text);
                 }
         );
+
         binding.inputRichtext.setOnClickListener(v -> {
             Intent intent = new Intent(this, RichTextInputActivity.class);
             launcher.launch(intent);
@@ -891,7 +957,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 // 加载上一页(更早的)消息
-                doQueryHistoryMessages(false);
+                doQueryHistoryMessages();
             }
 
             @Override
@@ -915,16 +981,21 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void refreshHistoryMessage() {
+        // 聊天室会话在进入页面时不需要拉历史消息
+        if (c.isChatroomConversation()) {
+            return;
+        }
+
         refreshHistoryMessage = true;
         customOnScrollListener.reset();
-        doQueryHistoryMessages(true);
+        doQueryHistoryMessages();
     }
 
-    private void doQueryHistoryMessages(boolean init) {
+    private void doQueryHistoryMessages() {
         if (c.isSecretChat()) {
-            messageViewModel.querySecretChatHistoryMessages(c, init);
+            messageViewModel.querySecretChatHistoryMessages(c);
         } else {
-            messageViewModel.queryHistoryMessages(c, init);
+            messageViewModel.queryHistoryMessages(c);
         }
     }
 
@@ -992,7 +1063,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
                 if (messageListAdapter.getItemCount() > 0) {
-                    ToastUtil.makeToast(ChatActivity.this, "No more msg", 1000);
+                    ToastUtil.makeToast(ChatActivity.this, "no more message", 1000);
                 }
                 return;
             }
@@ -1030,7 +1101,7 @@ public class ChatActivity extends AppCompatActivity {
                 case Normal: {
                     // 插入消息列表
                     insertMessage(message);
-                    
+
                     // 消息设置为已读
                     messageViewModel.setMessageStatusRead(c, message);
                     break;
@@ -1158,7 +1229,7 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
-    private void insertMessage(Message message) {
+    protected void insertMessage(Message message) {
         messageListAdapter.addOne(message);
         messageListAdapter.notifyItemInserted(messageListAdapter.getItemCount() - 1);
 
@@ -1373,7 +1444,7 @@ public class ChatActivity extends AppCompatActivity {
         String text = MessageUtil.getContentTextForCopy(message);
 
         if (StringUtils.isBlank(text)) {
-            ToastUtil.makeToast(this, "暂不支持复制该消息内容", 1000);
+            ToastUtil.makeToast(this, "cannot copy message now", 1000);
             return;
         }
 
@@ -1406,6 +1477,12 @@ public class ChatActivity extends AppCompatActivity {
      * @param message
      */
     public void recallMessage(Message message) {
+        // TODO 允许群管理员撤回群成员发送的消息
+        if (!StringUtils.equals(message.getFrom().getUid(), AlipayCcmIMClient.getInstance().getCurrentUserId())) {
+            ToastUtil.makeToast(this, "cannot recall message sent by others", 1000);
+            return;
+        }
+
         // 发送撤回指令
         messageViewModel.recallMessage(message);
 

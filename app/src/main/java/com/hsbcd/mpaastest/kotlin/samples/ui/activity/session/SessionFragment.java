@@ -43,6 +43,7 @@ import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.AddNewFriendActiv
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.contacts.NewFriendActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.PlayLiveShowActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.StartLiveShowActivity;
+import com.hsbcd.mpaastest.kotlin.samples.ui.activity.session.chatroom.CreateChatroomActivity;
 import com.hsbcd.mpaastest.kotlin.samples.ui.activity.user.CreateConversationActivity;
 import com.hsbcd.mpaastest.kotlin.samples.util.ToastUtil;
 
@@ -195,10 +196,14 @@ public class SessionFragment extends Fragment {
                         this.startActivity(intent);
                         break;
                     }
-
                     case R.id.play_live_show: {
                         ToastUtil.makeToast(getActivity(), "You can see it only after someone start show.", 3000);
                         Intent intent = new Intent(getContext(), PlayLiveShowActivity.class);
+                        this.startActivity(intent);
+                        break;
+                    }
+                    case R.id.create_chatroom: {
+                        Intent intent = new Intent(getContext(), CreateChatroomActivity.class);
                         this.startActivity(intent);
                         break;
                     }

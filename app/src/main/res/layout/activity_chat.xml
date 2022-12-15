@@ -39,7 +39,7 @@
 
         <TextView
                 android:id="@+id/title_label"
-                android:text="Session Name"
+                android:text="Chat Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -77,10 +77,76 @@
             app:layout_constraintTop_toBottomOf="@+id/title_bar"
             app:layout_constraintBottom_toTopOf="@+id/quoted_message_layout">
 
-        <com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.MessageListView
-                android:id="@+id/messageListView"
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/chatroom_live_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible">
+
+                <ImageView
+                        android:id="@+id/chatroom_live_cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_chatroom_live_window"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/chatroom_live_label"
+                        android:text="Showing"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_red_text"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/chatroom_online_member_count"
+                        android:text="x people"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_chatroom_member"
+                        android:drawablePadding="5dp"
+                        app:layout_constraintLeft_toRightOf="@id/chatroom_live_label"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                        android:id="@+id/chatroom_live_zoom_out"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_live_zoom_out"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.hsbcd.mpaastest.kotlin.samples.ui.activity.chat.message.MessageListView
+                    android:id="@+id/messageListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
     </FrameLayout>
 
     <RelativeLayout
@@ -188,7 +254,7 @@
                 android:id="@+id/input_text"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:hint="Pls Input"
+                android:hint="Pls input"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:paddingLeft="10dp"
@@ -209,7 +275,7 @@
 
         <android.widget.Button
                 android:id="@+id/record_voice"
-                android:text="Press To Say"
+                android:text="Press to say"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:background="@drawable/sel_record_voice_button"
@@ -294,7 +360,7 @@
 
                 <TextView
                         android:id="@+id/input_album"
-                        android:text="Album"
+                        android:text="Photo"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -320,7 +386,7 @@
 
                 <TextView
                         android:id="@+id/input_rtc"
-                        android:text="AV"
+                        android:text="Media"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -385,7 +451,7 @@
 
                 <TextView
                         android:id="@+id/input_visiting_card"
-                        android:text="Name card"
+                        android:text="Card"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -430,7 +496,7 @@
 
                 <TextView
                         android:id="@+id/input_custom_command"
-                        android:text="Screen Push"
+                        android:text="ScreenPush"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -506,7 +572,7 @@
 
         <TextView
                 android:id="@+id/batch_transfer_single"
-                android:text="Forward 1 by 1"
+                android:text="1by1 Forward"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -519,7 +585,7 @@
 
         <TextView
                 android:id="@+id/batch_transfer_merge"
-                android:text="Forward After Merged"
+                android:text="Merged Forward"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -532,7 +598,7 @@
 
         <TextView
                 android:id="@+id/batch_fav"
-                android:text="Favorite"
+                android:text="Fav"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
