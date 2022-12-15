@@ -7,9 +7,13 @@
         android:orientation="vertical"
         tools:context="com.hsbcd.mpaastest.kotlin.samples.ui.activity.liveshow.PlayLiveShowActivity">
 
-        <com.google.android.exoplayer2.ui.StyledPlayerView
+        <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/player_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:show_buffering="when_playing" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:use_controller="false" />
 </LinearLayout>
