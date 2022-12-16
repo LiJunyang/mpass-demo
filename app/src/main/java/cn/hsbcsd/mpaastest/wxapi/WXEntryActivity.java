@@ -75,7 +75,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 						refreshToken = json.getString("refresh_token");
 						scope = json.getString("scope");
 						String text = String.format("openId:%s, accessToken:%s, refreshToken:&s, scope:%s",openId, accessToken,refreshToken,scope);
-						Toast.makeText(wxEntryActivityWeakReference.get(), text, Toast.LENGTH_LONG).show();
+//						Toast.makeText(wxEntryActivityWeakReference.get(), text, Toast.LENGTH_LONG).show();
 						Log.i(TAG, text);
 						NetworkUtil.sendWxAPI(handler, String.format("https://api.weixin.qq.com/sns/auth?" +
 								"access_token=%s&openid=%s", accessToken, openId), NetworkUtil.CHECK_TOKEN);
@@ -276,7 +276,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 			break;
 		}
 		
-		Toast.makeText(this, getString(result) + ", type=" + resp.getType(), Toast.LENGTH_SHORT).show();
+//		Toast.makeText(this, getString(result) + ", type=" + resp.getType(), Toast.LENGTH_SHORT).show();
 
 
 		if (resp.getType() == ConstantsAPI.COMMAND_SUBSCRIBE_MESSAGE) {
@@ -284,7 +284,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
 			String text = String.format("openid=%s\ntemplate_id=%s\nscene=%d\naction=%s\nreserved=%s",
 					subscribeMsgResp.openId, subscribeMsgResp.templateID, subscribeMsgResp.scene, subscribeMsgResp.action, subscribeMsgResp.reserved);
 
-			Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+//			Toast.makeText(this, text, Toast.LENGTH_LONG).show();
 		}
 
         if (resp.getType() == ConstantsAPI.COMMAND_LAUNCH_WX_MINIPROGRAM) {
@@ -292,7 +292,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
             String text = String.format("openid=%s\nextMsg=%s\nerrStr=%s",
                     launchMiniProgramResp.openId, launchMiniProgramResp.extMsg,launchMiniProgramResp.errStr);
 
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         }
 
         if (resp.getType() == ConstantsAPI.COMMAND_OPEN_BUSINESS_VIEW) {
@@ -300,14 +300,14 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
             String text = String.format("openid=%s\nextMsg=%s\nerrStr=%s\nbusinessType=%s",
                     launchMiniProgramResp.openId, launchMiniProgramResp.extMsg,launchMiniProgramResp.errStr,launchMiniProgramResp.businessType);
 
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         }
 
         if (resp.getType() == ConstantsAPI.COMMAND_OPEN_BUSINESS_WEBVIEW) {
             WXOpenBusinessWebview.Resp response = (WXOpenBusinessWebview.Resp) resp;
             String text = String.format("businessType=%d\nresultInfo=%s\nret=%d",response.businessType,response.resultInfo,response.errCode);
 
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         }
 
 		if (resp.getType() == ConstantsAPI.COMMAND_SENDAUTH) {
