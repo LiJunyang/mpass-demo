@@ -231,18 +231,18 @@ public class SessionFragment extends Fragment {
                         this.startActivity(intent);
                         break;
                     }
-                    case R.id.start_live_show: {
-                        ToastUtil.makeToast(getActivity(), "Test only, contact Leo to start server, only 1 liveshow accepted", 3000);
-                        liveShowPermissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
-                                Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE});
-                        break;
-                    }
-                    case R.id.play_live_show: {
-                        ToastUtil.makeToast(getActivity(), "You can see it only after someone start show.", 3000);
-                        Intent intent = new Intent(getContext(), PlayLiveShowActivity.class);
-                        this.startActivity(intent);
-                        break;
-                    }
+//                    case R.id.start_live_show: {
+//                        ToastUtil.makeToast(getActivity(), "Test only, contact Leo to start server, only 1 liveshow accepted", 3000);
+//                        liveShowPermissionLauncher.launch(new String[]{Manifest.permission.CAMERA,
+//                                Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE});
+//                        break;
+//                    }
+//                    case R.id.play_live_show: {
+//                        ToastUtil.makeToast(getActivity(), "You can see it only after someone start show.", 3000);
+//                        Intent intent = new Intent(getContext(), PlayLiveShowActivity.class);
+//                        this.startActivity(intent);
+//                        break;
+//                    }
                     case R.id.review_new_friend: {
                         Intent intent = new Intent(getContext(), NewFriendActivity.class);
                         this.startActivity(intent);
