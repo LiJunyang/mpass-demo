@@ -177,7 +177,7 @@ public class MessagePopupMenu extends AppCompatDialogFragment {
     }
 
     private void todoToast() {
-        ToastUtil.makeToast((Activity) context, "敬请期待", 1000);
+        ToastUtil.makeToast((Activity) context, "to be aded", 1000);
     }
 
 }

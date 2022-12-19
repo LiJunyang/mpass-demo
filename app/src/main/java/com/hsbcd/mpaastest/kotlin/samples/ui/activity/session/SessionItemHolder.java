@@ -121,7 +121,7 @@ public class SessionItemHolder extends AbstractSessionItemHolder {
 
         // 点击侧滑菜单项-移除
         binding.remove.setOnClickListener(v -> {
-            //ToastUtil.makeToast((AppCompatActivity) context, "敬请期待", 1000);
+            //ToastUtil.makeToast((AppCompatActivity) context, "to be added", 1000);
             // 该菜单项临时改为一键已读功能
             doRenderUnReadCount(0);
             swipeMenu.resetStatus();
@@ -171,22 +171,22 @@ public class SessionItemHolder extends AbstractSessionItemHolder {
 
     private void doRenderLastMessage(Message message) {
         if (message.getRecallStatus() != MessageRecallStatusEnum.NORMAL) {
-            binding.lastTextMsg.setText("[已撤回]");
+            binding.lastTextMsg.setText("[recalled]");
             return;
         }
 
         if (message.getDeleteStatus() == MessageDeleteStatusEnum.DELETE) {
-            binding.lastTextMsg.setText("[已删除]");
+            binding.lastTextMsg.setText("[deleted]");
             return;
         }
 
         if (message.getSendStatus() == MessageSendStatusEnum.CANCEL) {
-            binding.lastTextMsg.setText("[已取消]");
+            binding.lastTextMsg.setText("[cancelled]");
             return;
         }
 
         if (message.getSendStatus() == MessageSendStatusEnum.SENDING) {
-            binding.lastTextMsg.setText("[发送中]");
+            binding.lastTextMsg.setText("[sending]");
             return;
         }
 
@@ -260,15 +260,15 @@ public class SessionItemHolder extends AbstractSessionItemHolder {
         binding.specialTag.setVisibility(View.VISIBLE);
 
         if (c.hasSpecialConcern()) {
-            binding.specialTag.setText("[特别关注]");
+            binding.specialTag.setText("[special]");
         }
 
         if (c.hasAtAllMessage()) {
-            binding.specialTag.setText("[@所有人]");
+            binding.specialTag.setText("[@all]");
         }
 
         if (c.hasAtMeMessage()) {
-            binding.specialTag.setText("[有人@我]");
+            binding.specialTag.setText("[someone@me]");
         }
     }
 

@@ -89,7 +89,7 @@ public class SingleChatSettingActivity extends AppCompatActivity {
 
     private void bindAction() {
         binding.goBack.setOnClickListener(v -> super.onBackPressed());
-        binding.searchMessage.setOnClickListener(v -> ToastUtil.makeToast(this, "敬请期待", 1000));
+        binding.searchMessage.setOnClickListener(v -> ToastUtil.makeToast(this, "to be added", 1000));
 
         binding.setTopSwitch.setOnCheckedChangeListener((v, checked) -> {
             if (initSettingFinish) {

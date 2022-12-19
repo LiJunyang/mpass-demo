@@ -89,7 +89,7 @@ public class SecretChatSessionListActivity extends AppCompatActivity {
             this.startActivity(intent);
         });
 
-        binding.secretChatSetting.setOnClickListener(v -> ToastUtil.makeToast(this, "敬请期待", 1000));
+        binding.secretChatSetting.setOnClickListener(v -> ToastUtil.makeToast(this, "to be added", 1000));
     }
 
     private void bindSessionViewModel() {

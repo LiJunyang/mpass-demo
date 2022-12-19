@@ -22,7 +22,7 @@ public class DateUtil {
         Date now = new Date();
         Date today = DateUtil.getDayBegin(now);
 
-        String timeFormat = sendDate.before(today) ? "MM月dd日" : "HH:mm";
+        String timeFormat = sendDate.before(today) ? "MM/dd" : "HH:mm";
         return DateUtils.formatDate(timestamp, timeFormat);
     }
     
