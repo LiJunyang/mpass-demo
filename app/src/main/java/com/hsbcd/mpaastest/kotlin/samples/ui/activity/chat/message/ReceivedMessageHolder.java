@@ -68,10 +68,10 @@ public class ReceivedMessageHolder extends AbstractMessageHolder {
 
         Conversation c = AlipayCcmIMClient.getInstance().getConversationManager().getCurrentConversation();
         if (c.isSingle()) {
-            binding.recalledMessageDesc.setText("对方撤回了一条消息");
+            binding.recalledMessageDesc.setText("The guy return a message.");
         } else {
             renderGroupMemberInfo(message, (userName, avatarUrl) -> {
-                binding.recalledMessageDesc.setText(String.format("%s 撤回了一条消息", userName));
+                binding.recalledMessageDesc.setText(String.format("%s return a message.", userName));
             });
         }
     }
