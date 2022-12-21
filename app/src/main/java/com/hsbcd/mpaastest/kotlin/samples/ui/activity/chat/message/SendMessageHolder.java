@@ -236,7 +236,7 @@ public class SendMessageHolder extends AbstractMessageHolder {
     private void renderRead(boolean single) {
         binding.readStatus.setVisibility(View.VISIBLE);
         binding.readStatus.setTextColor(context.getResources().getColor(R.color.middle_gray));
-        binding.readStatus.setText(single ? "已读" : "全部已读");
+        binding.readStatus.setText(single ? "read" : "all read");
     }
 
     private void renderUnRead(boolean single, int unReadUserCount, Message message) {
